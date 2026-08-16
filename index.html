@@ -1,0 +1,769 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>OSS Contributions, Vineeth Sai</title><style>
+:root{
+  --bg:#faf8f4; --panel:#ffffff; --ink:#1c1a17; --soft:#6b6760; --line:#ece7df;
+  --ok:#1a7f37; --okbg:#e8f5ec; --open:#0b6bcb; --openbg:#e7f0fb;
+  --warn:#9a6326; --warnbg:#f7eede; --mute:#7d7770; --mutebg:#f1ede6;
+  --accent:#7a5c3e; --shadow:0 1px 2px rgba(28,26,23,.04),0 8px 24px rgba(28,26,23,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#15130f; --panel:#1d1a16; --ink:#f0ece4; --soft:#a39d92; --line:#2c2820;
+    --ok:#54d17f; --okbg:#15301f; --open:#79b8ff; --openbg:#11243b;
+    --warn:#e3b778; --warnbg:#332715; --mute:#9b948a; --mutebg:#252118;
+    --accent:#cbab85; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;}
+.wrap{max-width:920px;margin:0 auto;padding:clamp(28px,6vw,64px) clamp(18px,5vw,28px) 80px}
+.serif{font-family:ui-serif,Georgia,"Times New Roman",serif}
+h1{font-family:ui-serif,Georgia,serif;font-weight:560;font-size:clamp(28px,5vw,40px);
+  letter-spacing:-.01em;margin:0 0 6px}
+.sub{color:var(--soft);font-size:15px;margin:0}
+.updated{color:var(--soft);font-size:13px;margin-top:10px;display:flex;align-items:center;gap:7px}
+.live{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok);
+  animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(26,127,55,.4)}70%{box-shadow:0 0 0 6px rgba(26,127,55,0)}100%{box-shadow:0 0 0 0 rgba(26,127,55,0)}}
+
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:30px 0 8px}
+@media(max-width:720px){.kpis{grid-template-columns:repeat(3,1fr)}}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 14px;
+  box-shadow:var(--shadow)}
+.kpi .n{font-family:ui-serif,Georgia,serif;font-size:30px;font-weight:560;letter-spacing:-.02em;line-height:1}
+.kpi .l{color:var(--soft);font-size:12px;margin-top:7px;letter-spacing:.02em}
+.kpi .n small{font-size:16px;color:var(--soft);font-weight:400}
+
+.spark{display:flex;align-items:flex-end;gap:4px;height:46px;margin:22px 2px 4px}
+.spark .bar{flex:1;background:var(--line);border-radius:3px 3px 2px 2px;min-height:3px;position:relative}
+.spark .bar.has{background:linear-gradient(180deg,var(--accent),color-mix(in srgb,var(--accent) 55%,transparent))}
+.sparklab{display:flex;justify-content:space-between;color:var(--soft);font-size:11px;margin:2px 2px 0}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+  padding:6px 20px;margin:26px 0}
+.action{background:var(--warnbg);border-color:color-mix(in srgb,var(--warn) 35%,var(--line))}
+.earlier{margin-top:14px}.earlier>summary{cursor:pointer;font-weight:600;opacity:.75;padding:4px 0}.earlier>summary:hover{opacity:1}.earlier ul{margin-top:10px}
+h2{font-family:ui-serif,Georgia,serif;font-weight:560;font-size:19px;margin:22px 2px 12px;letter-spacing:-.01em}
+
+.feed{list-style:none;margin:0;padding:0}
+.dgroup{margin:18px 0 6px;color:var(--soft);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  font-weight:600}
+.row{display:flex;gap:12px;padding:11px 2px;border-top:1px solid var(--line)}
+.row:first-child{border-top:none}
+.dot{width:9px;height:9px;border-radius:50%;margin-top:7px;flex:none}
+.dot.ok{background:var(--ok)} .dot.open{background:var(--open)} .dot.warn{background:var(--warn)} .dot.mute{background:var(--mute)}
+.rmain{flex:1;min-width:0}
+.rtop{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.proj{font-weight:650;font-size:14px}
+.pr{font-size:13px;color:var(--soft);text-decoration:none}
+.pr:hover{color:var(--accent);text-decoration:underline}
+.what{color:var(--ink);font-size:14px;opacity:.92;margin-top:1px}
+.badge{font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.badge.ok{background:var(--okbg);color:var(--ok)} .badge.open{background:var(--openbg);color:var(--open)}
+.badge.warn{background:var(--warnbg);color:var(--warn)} .badge.mute{background:var(--mutebg);color:var(--mute)}
+
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:6px 0 16px}
+.pcell{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border:1px solid var(--line);
+  border-radius:10px;font-size:13px}
+.pcell .pn{font-weight:600} .pcell .pc{color:var(--soft);font-size:12px}
+.mini{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px}
+.mini.ok{background:var(--ok)} .mini.open{background:var(--open)}
+
+.foot{color:var(--soft);font-size:12.5px;line-height:1.7;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.foot code{background:var(--mutebg);padding:1px 6px;border-radius:5px;font-size:12px}
+a{color:var(--accent)}
+</style></head><body><div class="wrap"><header>
+<h1>Open-source contributions</h1>
+<p class="sub">Vineeth Sai · <a href="https://github.com/vineethsaivs">@vineethsaivs</a> · updated automatically after every contribution</p>
+<div class="updated"><span class="live"></span> Last updated August 15, 2026 at 6:11 PM PT</div>
+</header><div class="kpis"><div class="kpi"><div class="n">170</div><div class="l">Pull requests</div></div><div class="kpi"><div class="n">68</div><div class="l">Merged</div></div><div class="kpi"><div class="n">84</div><div class="l">Open</div></div><div class="kpi"><div class="n">79<small>%</small></div><div class="l">Merge rate</div></div><div class="kpi"><div class="n">36</div><div class="l">Projects</div></div><div class="kpi"><div class="n">12</div><div class="l">Day streak</div></div></div><div class="spark"><div class="bar has" style="height:21px" title="2026-08-02: 2"></div><div class="bar" style="height:6px" title="2026-08-03: 0"></div><div class="bar has" style="height:21px" title="2026-08-04: 2"></div><div class="bar has" style="height:29px" title="2026-08-05: 3"></div><div class="bar has" style="height:36px" title="2026-08-06: 4"></div><div class="bar has" style="height:29px" title="2026-08-07: 3"></div><div class="bar has" style="height:29px" title="2026-08-08: 3"></div><div class="bar has" style="height:36px" title="2026-08-09: 4"></div><div class="bar has" style="height:36px" title="2026-08-10: 4"></div><div class="bar has" style="height:29px" title="2026-08-11: 3"></div><div class="bar has" style="height:21px" title="2026-08-12: 2"></div><div class="bar has" style="height:44px" title="2026-08-13: 5"></div><div class="bar has" style="height:29px" title="2026-08-14: 3"></div><div class="bar has" style="height:29px" title="2026-08-15: 3"></div></div><div class="sparklab"><span>Aug 2</span><span>24 in the last 7 days · 76 in 30</span><span>Aug 15</span></div><h2>Activity</h2><div class="card"><ul class="feed"><li class="dgroup">August 15, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">textgen</span>
+<a class="pr" href="https://github.com/oobabooga/textgen/pull/7642">#7642</a><span class="pr"></span></div>
+<div class="what">the ExLlamaV3 loader calls list() on the sampler priority, which is a newline-separated string in every default path, so it became one entry per character and both the sampler order and temperature_last were silently ignored</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8938">#8938</a><span class="pr"></span></div>
+<div class="what">custom_prompt_template is accepted, documented and forwarded through two public functions, but nothing ever read it: the Alpaca branch always rendered the hardcoded default, silently discarding the caller's prompt format</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">vllm</span>
+<a class="pr" href="https://github.com/vllm-project/vllm/pull/52465">#52465</a><span class="pr"></span></div>
+<div class="what">the Muse Glimmer reasoning parser drops every completed reasoning block when generation is truncated inside a later one, and its streaming path glues consecutive blocks together with no separator, so the two paths return different reasoning for the same generation</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 14, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/36952">#36952</a><span class="pr"></span></div>
+<div class="what">infer_content_type_from_url_and_content splits on '.' before stripping the query, so any dot in a query string breaks MIME detection and presigned S3 document URLs raise ValueError</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">vllm</span>
+<a class="pr" href="https://github.com/vllm-project/vllm/pull/52370">#52370</a><span class="pr"></span></div>
+<div class="what">every optional Literal flag advertises None among its choices but rejects it, because the string is registered while optional_type converts the input to the object None; 16 flags affected</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8837">#8837</a><span class="pr"></span></div>
+<div class="what">2098b7cd4 made parallelSlotsClamped a required field of LlamaFlagCatalog but left four hand-built test fixtures without it, so npm run typecheck fails and Frontend CI has been red on main</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">August 13, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">ollama</span>
+<a class="pr" href="https://github.com/ollama/ollama/pull/17734">#17734</a><span class="pr"></span></div>
+<div class="what">ParseFile counts both \r and \n, so a CRLF Modelfile counts two lines per line and every parse error reports a line number roughly double the real one</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">textgen</span>
+<a class="pr" href="https://github.com/oobabooga/textgen/pull/7641">#7641</a><span class="pr"></span></div>
+<div class="what">create_ui() binds stride_length twice, so all_params picks up the Perplexity tab's Stride slider and text-dataset LoRA training aborts on stock defaults with 'stride length must be smaller than cutoff length'</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8726">#8726</a><span class="pr"></span></div>
+<div class="what">nine model ids a model_defaults file names in its Also applies to header could not resolve to it, so they fell back to default.yaml; Qwen/Qwen3-30B-A3B-Instruct-2507 got lora_r 16 instead of its tuned 32</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8724">#8724</a><span class="pr"></span></div>
+<div class="what">both training-chart formatters drop to zero decimals at 1000 and then strip trailing zeroes with an optional-dot regex, so 25000 rendered as 25 and 1000000 as 1 in tooltips and on the axis</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8723">#8723</a><span class="pr"></span></div>
+<div class="what">10 shipped model_defaults express warmup as warmup_ratio and set no warmup_steps, but the training form read only warmup_steps and its type never declared the ratio, so every one of them silently kept the generic 5</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 12, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8595">#8595</a><span class="pr"> · #8509</span></div>
+<div class="what">getExternalMaxOutputTokens gated every cap row on providerType, so a custom OpenAI-compatible connection fell back to the generic 32K even for a model id whose family has a documented cap</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8593">#8593</a><span class="pr"> · #8269</span></div>
+<div class="what">FAMILY_TRAIN_DEFAULTS advertised lr_warmup_steps for six diffusion families while the default constant scheduler never reads num_warmup_steps, so the documented LR ramp never happened</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 11, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">trl</span>
+<a class="pr" href="https://github.com/huggingface/trl/pull/6710">#6710</a><span class="pr"></span></div>
+<div class="what">RLOOTrainer.log iterated a None image entry when a batch mixed multimodal and text-only prompts, raising TypeError while building the completions table; GRPOTrainer already guarded the identical block</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">vllm</span>
+<a class="pr" href="https://github.com/vllm-project/vllm/pull/51859">#51859</a><span class="pr"></span></div>
+<div class="what">vllm run-batch bound the Prometheus metrics server with the deprecated --url instead of --host, so --host 127.0.0.1 exposed it on every interface while the module entry point honoured --host</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">accelerate</span>
+<a class="pr" href="https://github.com/huggingface/accelerate/pull/4160">#4160</a><span class="pr"></span></div>
+<div class="what">find_executable_batch_size dropped reduce_batch_size_fn in its documented decorator form, so a custom OOM back-off silently became the default 0.9 multiplier: 26 retry cycles instead of 5</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 10, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8374">#8374</a><span class="pr"></span></div>
+<div class="what">the trainer wrapper collected the kwargs bound for the TRL config and then discarded them whenever args= was passed, which is every real call, so packing and max_length silently fell back to defaults</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8373">#8373</a><span class="pr"></span></div>
+<div class="what">to_sharegpt with remove_unused_columns=False and any conversation_extension above 1 concatenated the caller's columns once per extension, so datasets rejected the result as duplicated columns</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8242">#8242</a><span class="pr"></span></div>
+<div class="what">config-json.md documented a grad_hooks ZeRO option that has never existed in any release back to v0.3.0, and DeepSpeedZeroConfig forbids extra keys, so following the docs was a hard ValidationError</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/192816">#192816</a><span class="pr"></span></div>
+<div class="what">pixel_unshuffle on CPU early-returned self.clone() for a zero-element input, handing back the INPUT shape while meta, CUDA and MPS all return the documented one, so eager and torch.compile disagreed on whether a program was valid</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 9, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8278">#8278</a><span class="pr"></span></div>
+<div class="what">the packed SDPA and xFormers attention masks were sized at sum(packed_seq_lengths) while TRL pads the flattened row to pad_to_multiple_of afterwards, so the first forward died with a tensor-size RuntimeError</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8277">#8277</a><span class="pr"></span></div>
+<div class="what">to_sharegpt ran its column-merging map even with the default empty merged_prompt, overwriting the input column with empty strings, so an Alpaca-shaped dataset converted with all defaults produced blank human turns</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8239">#8239</a><span class="pr"></span></div>
+<div class="what">parse_inclusion_exclusion seeded the host dict from the --include string, so the slot check validated the request against itself: a bare hostname resolved to no slots and an out-of-range slot was accepted, while --exclude rejected the same input</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/192655">#192655</a><span class="pr"></span></div>
+<div class="what">ConstantLR with total_iters &lt;= 0 never reached its restoring branch, so the lr stayed at factor * base_lr for the whole run while _get_closed_form_lr read the same config as base_lr from the first epoch</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 8, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">sentence-transformers</span>
+<a class="pr" href="https://github.com/huggingface/sentence-transformers/pull/3921">#3921</a><span class="pr"></span></div>
+<div class="what">GlobalOrthogonalRegularizationLoss divided by batch_size * (batch_size - 1), so a trailing single-sample batch made both terms nan and poisoned the trainer's running loss for the rest of the run</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8237">#8237</a><span class="pr"></span></div>
+<div class="what">elasticity validated each micro batch against max_train_batch_size but not their LCM, so the LCM was offered unscaled as a candidate and won the compatibility vote, returning a train_batch_size over the cap the user set</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/192609">#192609</a><span class="pr"></span></div>
+<div class="what">torch.fft.fftfreq with a non-contiguous out= wrote the negative frequencies to the wrong slots and clobbered storage outside out, because the slice took an end of 0 and arange_out then resized the empty view into a fresh contiguous run</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 7, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">Ray</span>
+<a class="pr" href="https://github.com/ray-project/ray/pull/65293">#65293</a><span class="pr"></span></div>
+<div class="what">points_to_evaluate built its error and warning strings with '/'.join(path) while paths into a list carry an int index, so a valid config crashed with TypeError inside the warning it was about to log, and a missing key escaped as a raw KeyError</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/36208">#36208</a><span class="pr"></span></div>
+<div class="what">stream_chunk_builder reassembled a streamed n&gt;1 response into one choice holding every completion concatenated, so the caller, the cost accounting and the response cache all got text no model produced</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8117">#8117</a><span class="pr"></span></div>
+<div class="what">a chat template starting with a static preamble that has no {SYSTEM} slot never rendered it with default_system_message=None, while the Ollama modelfile from the same call still carried it, so training text lacked the text the served model was prompted with</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">August 6, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">textgen</span>
+<a class="pr" href="https://github.com/oobabooga/textgen/pull/7636">#7636</a><span class="pr"> · #7535</span></div>
+<div class="what">a reply whose last line was a bare number had it swallowed into an empty &lt;ol start="N"&gt; item, so a trailing word count, year, total or score vanished from the rendered message</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8227">#8227</a><span class="pr"></span></div>
+<div class="what">OnebitLamb.get_lamb_coeffs() returned the optimizer's own list, and step() clears that list in place, so a caller's snapshot of the trust ratios silently emptied on the next step; the FusedLamb twin builds a new list and is unaffected</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/8049">#8049</a><span class="pr"></span></div>
+<div class="what">enable_padding_free_metadata cached derived seq_lengths back onto the caller's example rows, so a collator wrapper wrote a column into data it does not own; its sibling enable_sample_packing never did</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/192390">#192390</a><span class="pr"></span></div>
+<div class="what">the Python meta registrations for _softmax and sort shadow the C++ structured metas and never range-checked dim, and meta_sort also bound dim to stable on two of its four overloads, so adding the check naively validated descending instead</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 5, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">Ray</span>
+<a class="pr" href="https://github.com/ray-project/ray/pull/65250">#65250</a><span class="pr"></span></div>
+<div class="what">the scheduler set_search_properties backwards-compat fallback matched the TypeError with startswith, but Python 3.10+ prefixes the message with the class name, so the documented warn-and-retry was dead and legacy schedulers raised out of Tuner.fit()</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">datasets</span>
+<a class="pr" href="https://github.com/huggingface/datasets/pull/8405">#8405</a><span class="pr"></span></div>
+<div class="what">DatasetDict.map defaulted on_mixed_types to None while Dataset.map defaults it to "use_json", so wrapping splits in a DatasetDict turned a working map into ArrowInvalid</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/192251">#192251</a><span class="pr"> · #177265</span></div>
+<div class="what">every extension of a project got the same output_dir from setuptools, so parallel build_ext -j runs overwrote each other's build.ninja and shared ninja's dependency logs; ninja reported success while three of four extensions produced no object files at all</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 4, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">peft</span>
+<a class="pr" href="https://github.com/huggingface/peft/pull/3509">#3509</a><span class="pr"></span></div>
+<div class="what">low_cpu_mem_usage=True loads with assign=True, so modules_to_save weights and the base embedding took the checkpoint's dtype: a RuntimeError on the first forward, or a silently downcast embedding table</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7872">#7872</a><span class="pr"></span></div>
+<div class="what">validate_dataset returned min_length: inf whenever no sample had content, because the inf to 0 normalisation sat inside a guard that could never see inf</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">August 2, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">accelerate</span>
+<a class="pr" href="https://github.com/huggingface/accelerate/pull/4147">#4147</a><span class="pr"></span></div>
+<div class="what">convert_model_to_fp8_ao quantized the first and last linear layers it documents skipping, because its default filter re-derives first/last from the single candidate layer torchao hands it</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/35602">#35602</a><span class="pr"></span></div>
+<div class="what">stripping cache_control for a provider that cannot use it reached back into the caller's own message and tool objects, so one OpenAI-compatible call silently killed Anthropic and Bedrock prompt caching on every later call that reused the list</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">August 1, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7731">#7731</a><span class="pr"></span></div>
+<div class="what">construct_chat_template splices the caller's template text into Jinja '...' literals unescaped, so an apostrophe raises TemplateSyntaxError and a backslash is decoded as an escape, silently turning \boxed into a backspace character in every training sample</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8201">#8201</a><span class="pr"></span></div>
+<div class="what">OneCycle documents cycle_min_lr/cycle_max_lr/cycle_min_mom/cycle_max_mom as "float or list ... for each parameter group" but only broadcasts a scalar, so the documented list is written whole into every param group and the optimizer is corrupt before the first step</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 31, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8199">#8199</a><span class="pr"></span></div>
+<div class="what">trim_mean sorted the caller's list in place, so summarising the comms log reordered the parallel latency/algbw/busbw lists independently and paired the fastest op with the lowest bandwidth</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7702">#7702</a><span class="pr"></span></div>
+<div class="what">construct_chat_template de-duplicates EOS candidates through list(set(...)), discarding the insert(0, tokenizer.eos_token) priority that extra_eos_tokens[0] relies on, so the token appended to every training sample varies with the hash seed</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 30, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/191707">#191707</a><span class="pr"></span></div>
+<div class="what">four torch.nn docstrings contradict their own signatures: LazyInstanceNorm documents the eager defaults, ParameterList/ParameterDict document each other's keyword so the documented call raises TypeError, feature_alpha_dropout's documented default is a no-op, and smooth_l1_loss forbids a beta the class documents as valid</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">vllm</span>
+<a class="pr" href="https://github.com/vllm-project/vllm/pull/50461">#50461</a><span class="pr"></span></div>
+<div class="what">the InternLM2 and Jamba tool parsers truncate streamed tool-call arguments, so a client assembling the deltas gets unparseable JSON while the non-streaming path is correct; extract_intermediate_diff counts partial_json_parser's optimistic closing brace as already sent</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 29, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/35118">#35118</a><span class="pr"></span></div>
+<div class="what">stream_chunk_builder returned Anthropic extended-thinking reasoning twice over, because the provider signature chunk re-sends the block's whole text and the builder appended it on top of the parts already accumulated</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">vllm</span>
+<a class="pr" href="https://github.com/vllm-project/vllm/pull/50303">#50303</a><span class="pr"></span></div>
+<div class="what">the Granite reasoning parser leaked its start-of-thinking marker into streamed reasoning; reasoning[:-len(delta_text)] underflows when a delta straddles the end of the marker, which BPE makes routine by merging the marker colon with the next punctuation</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 28, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/191350">#191350</a><span class="pr"> · review comment on #189008</span></div>
+<div class="what">the index_add_ and index_reduce_ docstrings index a src in their output-is-given-as blocks, but both methods take a source; src belongs to the scatter_ family a few hundred lines below</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 27, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7516">#7516</a><span class="pr"> · follow-up to #7478</span></div>
+<div class="what">the FP8 probe assertions added in #7478 pinned dict allocation rather than provenance, so they could not fail on the regression they existed to protect; retargeted by the maintainer onto the FBGEMM row-scaling branch, which no test in either file reached</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 26, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pint</span>
+<a class="pr" href="https://github.com/hgrecco/pint/pull/2371">#2371</a><span class="pr"> · resubmit of #2350</span></div>
+<div class="what">negative magnitudes never got the pretty exponent because the anchored pattern had no leading sign; fixed array-safely by putting the sign in the pattern rather than relaxing match() to search()</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7479">#7479</a><span class="pr"> · follow-up to #7149</span></div>
+<div class="what">removed the no-op rmtree guard around the GGUF save: it saved and restored shutil.rmtree without ever replacing it, so it read as a safety guard while doing nothing</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/34735">#34735</a><span class="pr"></span></div>
+<div class="what">create_eval and create_run documented a metadata parameter that neither builder ever set, so it was accepted and silently dropped</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7478">#7478</a><span class="pr"></span></div>
+<div class="what">the newer-mapper probe exec'd the fetched mapper.py into globals(), rebinding the FP8 tables loader_utils imported from the installed mapper</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7475">#7475</a><span class="pr"></span></div>
+<div class="what">get_chat_template ignored an explicit map_eos_token=False: the two-line clamp collapses to map_eos_token = yes_map_eos_token</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8179">#8179</a><span class="pr"></span></div>
+<div class="what">OneCycle cycle_first_stair_count/cycle_second_stair_count are documented and CLI-exposed but read nowhere, so every stair count produced an identical continuous schedule</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 25, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">Ray</span>
+<a class="pr" href="https://github.com/ray-project/ray/pull/65008">#65008</a><span class="pr"></span></div>
+<div class="what">ASHA raised TypeError when a trial reported None for the metric, before the branch that exists to warn and keep the trial running</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8178">#8178</a><span class="pr"></span></div>
+<div class="what">PipelineModule.set_checkpoint_interval wrote a dead attribute, so the activation checkpoint interval never changed, and recomputing the cached checkpointable values appended to stale results</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 24, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7422">#7422</a><span class="pr"></span></div>
+<div class="what">RawTextDataLoader routed both .json and .jsonl to a line-by-line json_lines reader, so a real .json file (one JSON document, e.g. a top-level list of records) failed every per-line parse and returned '', and load_from_file then rejected the valid file as 'empty'. Parse the whole document first (list stays records, object becomes one record), fall back to line-by-line for real .jsonl. CPU regression test wired into CI</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 23, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7372">#7372</a><span class="pr"></span></div>
+<div class="what">VLM detection in the GGUF and torchao save paths guarded on hasattr(config,'architectures') (a no-op: transformers always sets it, default None) then iterated it, so architectures=None hit 'for x in None' and aborted the export with TypeError. Extract a None-safe _is_vlm helper matching the sibling _is_gpt_oss; CPU regression test wired into CI</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 22, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7339">#7339</a><span class="pr"></span></div>
+<div class="what">Apertus 70B/8B Instruct model-mapper entries named the base upstream repo (swiss-ai/Apertus-*-2509) instead of the Instruct one, so loading the base model was silently redirected to the Unsloth Instruct model and the genuine instruct upstream (swiss-ai/Apertus-*-Instruct-2509) was registered nowhere. Point the upstream at the Instruct repo; CPU regression test wired into CI</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 21, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">sentence-transformers</span>
+<a class="pr" href="https://github.com/huggingface/sentence-transformers/pull/3878">#3878</a><span class="pr"></span></div>
+<div class="what">BinaryClassificationEvaluator wrote a misaligned results CSV: a count('_')==1 filter dropped the *_accuracy_threshold and *_f1_threshold columns from the data row while keeping them in the header, shifting later values and blanking *_ap/*_mcc. Accept any header with &gt;=1 underscore (sim-fn names have none, so split keeps working)</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">trl</span>
+<a class="pr" href="https://github.com/huggingface/trl/pull/6498">#6498</a><span class="pr"></span></div>
+<div class="what">extract_prompt mis-split implicit-prompt preference data: when one completion is a prefix of the other the loop left idx at min_len-1 and dropped the last shared element from the prompt (duplicating it into both completions); and when they differ at index 0 the leading-space check wrapped to chosen[-1]. Track the shared length, use for/else to take the full shared prefix, and guard the space adjustment with idx&gt;0</div></div>
+<span class="badge mute">Closed, maintainer declined the fix</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">datasets</span>
+<a class="pr" href="https://github.com/huggingface/datasets/pull/8349">#8349</a><span class="pr"></span></div>
+<div class="what">require_storage_embed recursed into require_storage_cast for nested features, so a List(ClassLabel) (cast_storage but no embed_storage) was wrongly reported as needing embedding and the Parquet writer wrote it uncompressed/PLAIN; recurse into require_storage_embed like the sibling predicates</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">axolotl</span>
+<a class="pr" href="https://github.com/axolotl-ai-cloud/axolotl/pull/3864">#3864</a><span class="pr"></span></div>
+<div class="what">process_datasets_for_packing's drop_no_trainable_tokens filter compared a Python list to -100 (always scalar True), so np.any was always True and fully-masked samples (all labels -100) were never dropped; coerce labels to a NumPy array so the comparison is element-wise</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 20, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">tablib</span>
+<a class="pr" href="https://github.com/jazzband/tablib/pull/665">#665</a><span class="pr"> · self-found (relates to closed #202)</span></div>
+<div class="what">XLSFormat.import_book re-implemented the row loop with raw sheet.row_values(), so the same file loaded as a Databook returned Excel date serials (42106.0) and raw error codes (42) where a Dataset returned datetime and #N/A; extract a shared import_sheet classmethod mirroring the XLSX and ODS formats and call it from both paths</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">accelerate</span>
+<a class="pr" href="https://github.com/huggingface/accelerate/pull/4130">#4130</a><span class="pr"></span></div>
+<div class="what">AcceleratedOptimizer.train() reaches through the extra wrapper DeepSpeed puts around the user optimizer, but eval() never got the matching branch, so a schedule-free optimizer under DeepSpeed is switched into train mode and never switched back, silently evaluating with train-mode weights; mirror the train() branch in eval()</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/33991">#33991</a><span class="pr"> · #33984</span></div>
+<div class="what">CloudflareChatConfig inherited OpenAIGPTConfig._transform_messages, which leaves OpenAI content-part arrays intact, but Cloudflare Workers AI requires string message.content, so array content was rejected with a type-mismatch error; override _transform_messages to flatten via handle_messages_with_content_list_to_str_conversion, matching the DeepSpeed/Mistral/Moonshot siblings</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 19, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">datasets</span>
+<a class="pr" href="https://github.com/huggingface/datasets/pull/8346">#8346</a><span class="pr"></span></div>
+<div class="what">_combine_list_array_offsets_with_mask hardcoded an int32 null-fill, so casting a nullable LargeList (int64 offsets) to a different inner type crashed with ArrowNotImplementedError; use offsets.type</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">jsonschema</span>
+<a class="pr" href="https://github.com/python-jsonschema/jsonschema/pull/1526">#1526</a><span class="pr"></span></div>
+<div class="what">regex format checker declared raises=re.error, but an oversized repetition count makes re.compile raise OverflowError (not re.error), so it escaped uncaught and crashed check/validate instead of being reported invalid; raises=(re.error, OverflowError)</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 18, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">axolotl</span>
+<a class="pr" href="https://github.com/axolotl-ai-cloud/axolotl/pull/3855">#3855</a><span class="pr"></span></div>
+<div class="what">add_options_from_dataclass read Click help from field.metadata['description'], but the CLI dataclasses document fields under the dataclasses 'help' key, so every option description was dropped from --help (all nine documented vllm-serve options rendered bare)</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">vllm</span>
+<a class="pr" href="https://github.com/vllm-project/vllm/pull/49056">#49056</a><span class="pr"></span></div>
+<div class="what">encode_{audio,image,video}_url fell back to a bare image/audio/video media type for formats missing from mimetypes, producing an invalid data:image;base64 URL with no subtype; fall back to kind/format</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">vllm</span>
+<a class="pr" href="https://github.com/vllm-project/vllm/pull/49053">#49053</a><span class="pr"></span></div>
+<div class="what">_resolve_device_ids bounds-checked only the upper bound, so a negative --device-ids index silently negative-indexed into the CUDA_VISIBLE_DEVICES set and selected the wrong physical GPU instead of erroring; complete the check to 0 &lt;= i &lt; len</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 17, 2026</li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">pint</span>
+<a class="pr" href="https://github.com/hgrecco/pint/pull/2350">#2350</a><span class="pr"></span></div>
+<div class="what">pretty/HTML formatters used _EXP_PATTERN.match (anchored at start), so negative magnitudes in scientific notation kept raw e-notation instead of the x10 exponent; use .search</div></div>
+<span class="badge mute">Closed, fix validated</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/190397">#190397</a><span class="pr"> · #98499</span></div>
+<div class="what">unpad_sequence transposed its input in place (transpose_) when batch_first=False, so the caller's padded tensor came back transposed</div></div>
+<span class="badge mute">Closed on process (issue not actionable)</span></li><li class="dgroup">July 16, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">sentence-transformers</span>
+<a class="pr" href="https://github.com/huggingface/sentence-transformers/pull/3868">#3868</a><span class="pr"></span></div>
+<div class="what">SparseCoSENTLoss defaulted similarity_fct to util.cos_sim (a full BxB matrix) though CoSENT needs a pairwise score per pair; the score difference silently became a 3-D tensor the label mask broadcast over, training a different objective</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7189">#7189</a><span class="pr"></span></div>
+<div class="what">get_lora_parameters_bias set the fp8 block_size after its disable_adapters/merged early return, so block-fp8 weights lost their real block_size on the merged/disabled path and fp8 kernels fell back to [128,128]</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">jsonschema</span>
+<a class="pr" href="https://github.com/python-jsonschema/jsonschema/pull/1522">#1522</a><span class="pr"></span></div>
+<div class="what">find_additional_properties joined patternProperties keys into one regex and dropped an empty-string pattern (matches everything), so its properties were wrongly treated as additional / validated against the wrong subschema</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 15, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">dateutil</span>
+<a class="pr" href="https://github.com/dateutil/dateutil/pull/1537">#1537</a><span class="pr"></span></div>
+<div class="what">rrule(byweekno=...) misattributed the first days of a year that belong to the previous year's last ISO week: the last-week-of-previous-year count used the current year's length with a hardcoded 52, so byweekno=52 skipped and byweekno=53 wrongly included e.g. 2011-01-01/02 (ISO week 52 of 2010)</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7149">#7149</a><span class="pr"></span></div>
+<div class="what">patch_unsloth_gguf_save was a no-op context manager (saved/restored shutil.rmtree but never replaced it), so its documented save-directory guard did nothing; replace with a targeted guard</div></div>
+<span class="badge mute">Closed, maintainer declined the fix</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/190058">#190058</a><span class="pr"></span></div>
+<div class="what">gaussian_nll_loss eps docstring said 'Value added to var' but the code clamps var to a floor (var.clamp_(min=eps)); the sibling nn.GaussianNLLLoss documents it correctly</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 14, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">lighteval</span>
+<a class="pr" href="https://github.com/huggingface/lighteval/pull/1298">#1298</a><span class="pr"></span></div>
+<div class="what">asdiv_prompt set choices to a bare string, so Doc.get_golds() indexed the string and truncated multi-character gold answers to their first character ('35'-&gt;'3'), scoring correct model outputs as wrong; wrapped the answer in a list like every sibling task</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">sentence-transformers</span>
+<a class="pr" href="https://github.com/huggingface/sentence-transformers/pull/3861">#3861</a><span class="pr"></span></div>
+<div class="what">ReciprocalRankFusionEvaluator overrode prefix_name_to_metrics to only prefix metric keys, dropping the base class's primary_metric rewrite, so with a name set results[evaluator.primary_metric] raised KeyError; removed the override to inherit the base behavior (same class as merged #3853)</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">axolotl</span>
+<a class="pr" href="https://github.com/axolotl-ai-cloud/axolotl/pull/3838">#3838</a><span class="pr"></span></div>
+<div class="what">KTO chatml argilla_chat read the user prompt from sample['chosen'][0]['content'], but argilla/kto-mix-15k has no 'chosen' column (its conversation is in 'completion'), so preprocessing raised KeyError('chosen'); the llama-3 sibling already reads 'completion'</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8142">#8142</a><span class="pr"></span></div>
+<div class="what">WarmupCosineLR.get_lr_ratio divided by total_num_steps - warmup_num_steps with no zero-guard, raising ZeroDivisionError when total==warmup (sibling WarmupDecayLR guards it with max(1, ...))</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">datasets</span>
+<a class="pr" href="https://github.com/huggingface/datasets/pull/8333">#8333</a><span class="pr"></span></div>
+<div class="what">Dataset.to_dict(batched=True, batch_size=...) ignored both arguments and always returned the full dict, contradicting its signature/docstring/return type; iterating the promised generator raised</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 13, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch-lightning</span>
+<a class="pr" href="https://github.com/Lightning-AI/pytorch-lightning/pull/21831">#21831</a><span class="pr"> · #19803</span></div>
+<div class="what">FSDPPrecision checked self.precision (class default) before assigning it, so a valid 16-mixed + user scaler wrongly raised and the scaler was dropped</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">Ray</span>
+<a class="pr" href="https://github.com/ray-project/ray/pull/64740">#64740</a><span class="pr"></span></div>
+<div class="what">normalize_block_types unpacked the (block_type, count) tuple backwards, silently coercing mixed Arrow/pandas blocks to pandas instead of the majority type</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">babel</span>
+<a class="pr" href="https://github.com/python-babel/babel/pull/1292">#1292</a><span class="pr"></span></div>
+<div class="what">format_frac_seconds overflowed the fractional-seconds field when rounding carried to a whole second (S rendered 10). Fixed by clamping the rounded value to the field width.</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pygments</span>
+<a class="pr" href="https://github.com/pygments/pygments/pull/3215">#3215</a><span class="pr"></span></div>
+<div class="what">RawTokenFormatter crashed with TypeError when error_color was set: the bytes output line was passed to the str-only colorize(). Fixed by decoding for colorize() and re-encoding so the output stays bytes.</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch-lightning</span>
+<a class="pr" href="https://github.com/Lightning-AI/pytorch-lightning/pull/21830">#21830</a><span class="pr"></span></div>
+<div class="what">_flatten_dict silently dropped a hyperparameter whose value is an empty list: all() over [] is True, so the list-of-dicts branch's zero-iteration loop never wrote the key. Fixed by requiring the list to be non-empty.</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 12, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">jsonschema</span>
+<a class="pr" href="https://github.com/python-jsonschema/jsonschema/pull/1515">#1515</a><span class="pr"></span></div>
+<div class="what">multipleOf with a float divisor crashed (TypeError/OverflowError) on a Decimal instance or a very large integer instead of validating</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pygments</span>
+<a class="pr" href="https://github.com/pygments/pygments/pull/3201">#3201</a><span class="pr"></span></div>
+<div class="what">Groff formatter duplicated a character when word-wrapping (wrap) a token longer than the wrap width that was not at end-of-line</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">schema</span>
+<a class="pr" href="https://github.com/keleshev/schema/pull/357">#357</a><span class="pr"> · #246</span></div>
+<div class="what">Regex(pattern, flags=re.I) crashed at construction on CPython &lt;= 3.10 and PyPy (formatting a RegexFlag enum with the 'b' code raised ValueError)</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">tablib</span>
+<a class="pr" href="https://github.com/jazzband/tablib/pull/656">#656</a><span class="pr"></span></div>
+<div class="what">ODS export wrote booleans as valuetype=float (bool is an int subclass), so reading them back crashed with float('True') ValueError</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8137">#8137</a><span class="pr"></span></div>
+<div class="what">CommsLogger.stop_profiling_comms() set prof_all=True (same as start), so global comm profiling could never be turned off once started</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 11, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">babel</span>
+<a class="pr" href="https://github.com/python-babel/babel/pull/1291">#1291</a><span class="pr"></span></div>
+<div class="what">get_timezone_gmt rendered negative fractional-hour offsets one hour off (America/St_Johns UTC-03:30 formatted as GMT-04:30)</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">mlx</span>
+<a class="pr" href="https://github.com/ml-explore/mlx/pull/3831">#3831</a><span class="pr"></span></div>
+<div class="what">nn.init.glorot_uniform/he_uniform docstrings labeled the uniform distribution's range bound with the standard-deviation symbol sigma, though the std of U(-limit, limit) is limit/sqrt(3)</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 10, 2026</li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">pint</span>
+<a class="pr" href="https://github.com/hgrecco/pint/pull/2332">#2332</a><span class="pr"> · #2246</span></div>
+<div class="what">Quantity.to_compact() crashed with AssertionError on a unit whose name is ambiguous with a prefixed unit (e.g. dtex)</div></div>
+<span class="badge mute">Closed, maintainer declined the fix</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">datasets</span>
+<a class="pr" href="https://github.com/huggingface/datasets/pull/8319">#8319</a><span class="pr"> · #7100</span></div>
+<div class="what">IterableDataset._resolve_features() crashed (ArrowInvalid) when a map yielded multi-dimensional numpy arrays; missing cast_to_python_objects(only_1d_for_numpy=True)</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7069">#7069</a><span class="pr"></span></div>
+<div class="what">DeepScaleR dynamic 4bit mapper entry routed to an unrelated DeepHermes-3-Llama-3-8B 16bit model (silent mis-load in both directions)</div></div>
+<span class="badge mute">Closed, fix validated</span></li><li class="dgroup">July 9, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/7048">#7048</a><span class="pr"></span></div>
+<div class="what">remove_special_tokens crashed with a TypeError on tokenizers that have no BOS token (Qwen2/GPT-2/Falcon/GPT-NeoX), whose bos_token is None</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">sentence-transformers</span>
+<a class="pr" href="https://github.com/huggingface/sentence-transformers/pull/3854">#3854</a><span class="pr"></span></div>
+<div class="what">MegaBatchMarginLoss.forward_mini_batched (default path) crashed with KeyError on the modality feature and dropped every mini-batch's gradient except the last; fixed both</div></div>
+<span class="badge mute">Closed, fix validated</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/189421">#189421</a><span class="pr"></span></div>
+<div class="what">torch.special.gammainc docstring example called gammaincc (the upper/complementary function) while showing the lower-gamma output, so the shown code did not produce the shown result (and duplicated the output line)</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 8, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">sentence-transformers</span>
+<a class="pr" href="https://github.com/huggingface/sentence-transformers/pull/3853">#3853</a><span class="pr"></span></div>
+<div class="what">BinaryClassificationEvaluator raised KeyError('cosine') when given two or more similarity metrics that do not include cosine</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pandera</span>
+<a class="pr" href="https://github.com/unionai-oss/pandera/pull/2408">#2408</a><span class="pr"></span></div>
+<div class="what">@dataframe_parser() (parenthesized/keyword form) crashed with TypeError: 'classmethod' object is not callable, unlike the sibling dataframe_check</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 7, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/6949">#6949</a><span class="pr"></span></div>
+<div class="what">BAD_MAPPINGS never redirected the oversized -unsloth-bnb-4bit dynamic quants, so the too-big model loaded (OOM)</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">instructor</span>
+<a class="pr" href="https://github.com/567-labs/instructor/pull/2415">#2415</a><span class="pr"></span></div>
+<div class="what">audio_to_openai hardcoded format=wav, mislabeling mp3 audio sent to OpenAI; consolidated into merged #2495, which credits #2415 and carries the regression test verbatim</div></div>
+<span class="badge mute">Closed, fix validated</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pendulum</span>
+<a class="pr" href="https://github.com/python-pendulum/pendulum/pull/982">#982</a><span class="pr"> · #881</span></div>
+<div class="what">parse() of an ISO 8601 date + duration interval crashed (Date.add got an unexpected hours argument)</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">July 6, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">datasets</span>
+<a class="pr" href="https://github.com/huggingface/datasets/pull/8310">#8310</a><span class="pr"> · #7636</span></div>
+<div class="what">patch_submodule crashed patching a builtin when a module's __builtins__ is the module (PyPy / __main__)</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">Ray</span>
+<a class="pr" href="https://github.com/ray-project/ray/pull/64548">#64548</a><span class="pr"> · #58483</span></div>
+<div class="what">PBT + buffered training hit a KeyError: pause_trial left a stale queued CONTINUE after removing the trial's actor. Closed by the maintainer in favour of #64685, a duplicate opened five days later that they chose to carry forward</div></div>
+<span class="badge mute">Closed, superseded</span></li><li class="dgroup">July 5, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/189008">#189008</a><span class="pr"></span></div>
+<div class="what">Tensor.index_reduce_ docstring said index selects from source, but it indexes into self</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">cattrs</span>
+<a class="pr" href="https://github.com/python-attrs/cattrs/pull/765">#765</a><span class="pr"> · #230</span></div>
+<div class="what">Union disambiguation failed for valid unions depending on the order the member classes were passed in</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">tablib</span>
+<a class="pr" href="https://github.com/jazzband/tablib/pull/651">#651</a><span class="pr"></span></div>
+<div class="what">stack_cols() crashed with a NoneType TypeError on two headerless Datasets, a case its own guards allow</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/6891">#6891</a><span class="pr"></span></div>
+<div class="what">A duplicate unsloth/gemma-2b-bnb-4bit mapper key routed the base 4bit repo to the instruct model and dropped the instruct 4bit entry</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8122">#8122</a><span class="pr"> · #7483</span></div>
+<div class="what">FlopsProfiler crashed with a NoneType format TypeError under Ulysses sequence parallelism, where dp_world_size is None</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 4, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch-lightning</span>
+<a class="pr" href="https://github.com/Lightning-AI/pytorch-lightning/pull/21806">#21806</a><span class="pr"> · #20603</span></div>
+<div class="what">TQDM bar showed n/? and no epoch description for the whole resumed epoch after a mid-epoch checkpoint resume</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">accelerate</span>
+<a class="pr" href="https://github.com/huggingface/accelerate/pull/4098">#4098</a><span class="pr"></span></div>
+<div class="what">IterableDatasetShard never initialized epoch, so iterating without set_epoch raised AttributeError for generator-seeded datasets</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">Ray</span>
+<a class="pr" href="https://github.com/ray-project/ray/pull/64537">#64537</a><span class="pr"> · #49507</span></div>
+<div class="what">HyperOptSearch silently converted tune.choice categories that are constant dicts into empty dicts, dropping every parameter</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 3, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/188943">#188943</a><span class="pr"></span></div>
+<div class="what">torch.arange dtype-inference note referenced a nonexistent `stop` argument instead of `step`</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">DeepSpeed</span>
+<a class="pr" href="https://github.com/deepspeedai/DeepSpeed/pull/8119">#8119</a><span class="pr"> · #8102</span></div>
+<div class="what">AutoEP ep_router used eager PEP 604 unions without the future import, so every deepspeed.initialize() crashed with TypeError on Python 3.9, escaping the except-ImportError guards</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">July 2, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/6827">#6827</a><span class="pr"></span></div>
+<div class="what">to_sharegpt optional [[...]] block rendered a literal "None" for a missing non-gating column</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/188846">#188846</a><span class="pr"></span></div>
+<div class="what">torch.pow docstring typed the scalar base and exponent as float, but the ATen schema is Scalar (Number) and the examples pass ints</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">tomlkit</span>
+<a class="pr" href="https://github.com/python-poetry/tomlkit/pull/550">#550</a><span class="pr"> · #543</span></div>
+<div class="what">New top-level scalar appended after a dotted-key entry was captured into its child's [a.c] table scope, re-nesting on round-trip</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">June 30, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pint</span>
+<a class="pr" href="https://github.com/hgrecco/pint/pull/2327">#2327</a><span class="pr"> · #2156</span></div>
+<div class="what">`unit in registry` raised AttributeError for a Unit object; only the string form worked</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">gensim</span>
+<a class="pr" href="https://github.com/piskvorky/gensim/pull/3656">#3656</a><span class="pr"> · #2558</span></div>
+<div class="what">Dictionary.from_corpus built token2id but never populated id2token, leaving the reverse mapping empty</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">June 29, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pandera</span>
+<a class="pr" href="https://github.com/unionai-oss/pandera/pull/2397">#2397</a><span class="pr"> · #1993</span></div>
+<div class="what">lazy validation reported only the first missing required column, not all of them</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">lighteval</span>
+<a class="pr" href="https://github.com/huggingface/lighteval/pull/1277">#1277</a><span class="pr"></span></div>
+<div class="what">boolq:contrastset graded every sample against the opposite answer (reversed gold index)</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pendulum</span>
+<a class="pr" href="https://github.com/python-pendulum/pendulum/pull/976">#976</a><span class="pr"> · #935</span></div>
+<div class="what">ISO 8601 parser rejected fractional seconds with more than 9 digits</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">June 28, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/6735">#6735</a><span class="pr"></span></div>
+<div class="what">dead code left custom chat templates with the literal {system_message} placeholder (or silently unfilled)</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/188378">#188378</a><span class="pr"> · #129338</span></div>
+<div class="what">linspace/logspace docstrings typed start/end as float, but they accept Number (int/bool/complex), like arange</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">schema</span>
+<a class="pr" href="https://github.com/keleshev/schema/pull/353">#353</a><span class="pr"> · #352</span></div>
+<div class="what">a mutable Optional default ([] / {}) was shared across validate() calls, leaking mutations</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">June 27, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">dateutil</span>
+<a class="pr" href="https://github.com/dateutil/dateutil/pull/1527">#1527</a><span class="pr"> · #1508</span></div>
+<div class="what">parser.parse() silently accepted out-of-range timezone offsets like +0060 and +2400</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">June 26, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/6711">#6711</a><span class="pr"></span></div>
+<div class="what">gpt-oss save detection compared the architectures list to a string</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/188291">#188291</a><span class="pr"> · #130641</span></div>
+<div class="what">torch.flip/rot90 docstrings said 'axis' (singular) for plural dims</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">June 25, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/188204">#188204</a><span class="pr"> · #136563</span></div>
+<div class="what">linalg.vector_norm docstring wrongly listed 'fro'/'nuc' for ord</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">mem0</span>
+<a class="pr" href="https://github.com/mem0ai/mem0/pull/5875">#5875</a><span class="pr"></span></div>
+<div class="what">Extraction prompts baked 'Today's date' at import time (goes stale)</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">babel</span>
+<a class="pr" href="https://github.com/python-babel/babel/pull/1286">#1286</a><span class="pr"> · #1096</span></div>
+<div class="what">ROUND_CEILING/FLOOR rounded negative numbers the wrong way</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">June 24, 2026</li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">ag2</span>
+<a class="pr" href="https://github.com/ag2ai/ag2/pull/3010">#3010</a><span class="pr"></span></div>
+<div class="what">ContextExpression.evaluate() crashed on a var used in len() and bare</div></div>
+<span class="badge mute">Closed without review</span></li><li class="dgroup">June 23, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">axolotl</span>
+<a class="pr" href="https://github.com/axolotl-ai-cloud/axolotl/pull/3751">#3751</a><span class="pr"></span></div>
+<div class="what">metharme/reflection _tokenize IndexError on empty fields</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/6620">#6620</a><span class="pr"></span></div>
+<div class="what">IGNORED_TOKENIZER_NAMES lookup not case-insensitive</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">trl</span>
+<a class="pr" href="https://github.com/huggingface/trl/pull/6146">#6146</a><span class="pr"> · #5514</span></div>
+<div class="what">Online DPO vLLM server re-flattened completion_ids; maintainer fixed the same bug in #6228</div></div>
+<span class="badge mute">Closed, fix validated</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/6595">#6595</a><span class="pr"></span></div>
+<div class="what">SyntheticDataKit.chunk_data dropped single-chunk documents</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">June 21, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">unsloth</span>
+<a class="pr" href="https://github.com/unslothai/unsloth/pull/6531">#6531</a><span class="pr"></span></div>
+<div class="what">construct_chat_template leaked the {INPUT}/{OUTPUT} sentinel</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pendulum</span>
+<a class="pr" href="https://github.com/python-pendulum/pendulum/pull/972">#972</a><span class="pr"> · #971</span></div>
+<div class="what">from_format crashed on multi-character literal blocks</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">dateutil</span>
+<a class="pr" href="https://github.com/dateutil/dateutil/pull/1524">#1524</a><span class="pr"> · #1318</span></div>
+<div class="what">relativedelta multiplication truncated fractional days/time</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">June 20, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/187758">#187758</a><span class="pr"> · #181861</span></div>
+<div class="what">nn.Sequential indexing typed too generally</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/187757">#187757</a><span class="pr"> · #146938</span></div>
+<div class="what">nn.ModuleDict attribute access typed Tensor | Module</div></div>
+<span class="badge open">Open</span></li><li class="dgroup">June 19, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">lighteval</span>
+<a class="pr" href="https://github.com/huggingface/lighteval/pull/1269">#1269</a><span class="pr"> · #1265</span></div>
+<div class="what">MMLU-Pro prompt listed the wrong answer letters</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">axolotl</span>
+<a class="pr" href="https://github.com/axolotl-ai-cloud/axolotl/pull/3742">#3742</a><span class="pr"> · #2645</span></div>
+<div class="what">DPO user_defined strategy raised KeyError on custom field names</div></div>
+<span class="badge ok">Merged</span></li><li class="dgroup">June 18, 2026</li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">langgraph</span>
+<a class="pr" href="https://github.com/langchain-ai/langgraph/pull/8138">#8138</a><span class="pr"> · #8130</span></div>
+<div class="what">GraphRecusionError typo in create_react_agent docstring</div></div>
+<span class="badge mute">Withdrawn</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">langgraph</span>
+<a class="pr" href="https://github.com/langchain-ai/langgraph/pull/8137">#8137</a><span class="pr"> · #7684</span></div>
+<div class="what">PostgresStore numeric filters compared as text</div></div>
+<span class="badge mute">Withdrawn</span></li><li class="dgroup">June 17, 2026</li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">pytorch</span>
+<a class="pr" href="https://github.com/pytorch/pytorch/pull/187597">#187597</a><span class="pr"> · #166905</span></div>
+<div class="what">nn.Module.named_modules() missing its return type annotation</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/30596">#30596</a><span class="pr"> · #30345</span></div>
+<div class="what">Tiered token-cost selection sorted thresholds as strings</div></div>
+<span class="badge mute">Closed, fix validated</span></li><li class="dgroup">June 13, 2026</li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pint</span>
+<a class="pr" href="https://github.com/hgrecco/pint/pull/2322">#2322</a><span class="pr"> · #2124</span></div>
+<div class="what">Operator-only expression raised a bare AssertionError</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">babel</span>
+<a class="pr" href="https://github.com/python-babel/babel/pull/1279">#1279</a><span class="pr"> · #1209</span></div>
+<div class="what">Invalid plural index in msgstr[...] leaked a bare ValueError</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">gensim</span>
+<a class="pr" href="https://github.com/piskvorky/gensim/pull/3653">#3653</a><span class="pr"> · #3520</span></div>
+<div class="what">remove_markup leaked footnote text on a nested self-closing tag</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">spaCy</span>
+<a class="pr" href="https://github.com/explosion/spaCy/pull/13978">#13978</a><span class="pr"> · #12898</span></div>
+<div class="what">Sentence-final period not split in Malayalam text</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">requests</span>
+<a class="pr" href="https://github.com/psf/requests/pull/7513">#7513</a><span class="pr"> · #6190</span></div>
+<div class="what">RequestsCookieJar.popitem() did not work</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">arrow</span>
+<a class="pr" href="https://github.com/arrow-py/arrow/pull/1297">#1297</a><span class="pr"> · #933</span></div>
+<div class="what">X format token emitted a float instead of integer seconds</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot open"></span><div class="rmain">
+<div class="rtop"><span class="proj">lighteval</span>
+<a class="pr" href="https://github.com/huggingface/lighteval/pull/1257">#1257</a><span class="pr"> · #1255</span></div>
+<div class="what">LCB grader failed solutions reading sys.stdin.buffer</div></div>
+<span class="badge open">Open</span></li><li class="row"><span class="dot warn"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/30357">#30357</a><span class="pr"> · #30346</span></div>
+<div class="what">Volcengine (Doubao) tiered-pricing models billed at $0</div></div>
+<span class="badge warn">Merged, then reverted</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">trl</span>
+<a class="pr" href="https://github.com/huggingface/trl/pull/6040">#6040</a><span class="pr"> · #1977</span></div>
+<div class="what">Clear error when PPO value/reward model isn't a PreTrainedModel</div></div>
+<span class="badge mute">Closed, out of scope</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">instructor</span>
+<a class="pr" href="https://github.com/567-labs/instructor/pull/2367">#2367</a><span class="pr"> · #2366</span></div>
+<div class="what">Gemini generation_config error when response_model=None</div></div>
+<span class="badge mute">Closed, fix validated</span></li><li class="row"><span class="dot mute"></span><div class="rmain">
+<div class="rtop"><span class="proj">sentence-transformers</span>
+<a class="pr" href="https://github.com/huggingface/sentence-transformers/pull/3820">#3820</a><span class="pr"> · #3819</span></div>
+<div class="what">relative_margin sign bug kept too-similar hard negatives</div></div>
+<span class="badge mute">Closed, fix validated</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">schema</span>
+<a class="pr" href="https://github.com/keleshev/schema/pull/347">#347</a><span class="pr"> · #253</span></div>
+<div class="what">Tuple dict key crashed the error-message builder</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">tablib</span>
+<a class="pr" href="https://github.com/jazzband/tablib/pull/644">#644</a><span class="pr"> · #287</span></div>
+<div class="what">YAML export reordered columns alphabetically</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">litellm</span>
+<a class="pr" href="https://github.com/BerriAI/litellm/pull/30360">#30360</a><span class="pr"> · #30358</span></div>
+<div class="what">Custom wildcard prefix produced uncallable stacked model ids</div></div>
+<span class="badge ok">Merged</span></li><li class="row"><span class="dot ok"></span><div class="rmain">
+<div class="rtop"><span class="proj">pandera</span>
+<a class="pr" href="https://github.com/unionai-oss/pandera/pull/2371">#2371</a><span class="pr"> · #2042</span></div>
+<div class="what">Built-in check with a custom name= raised KeyError instead of running</div></div>
+<span class="badge ok">Merged</span></li></ul></div><h2>By project</h2><div class="pgrid"><div class="pcell"><span class="pn">unsloth</span><span class="pc"><span class="mini ok"></span>22 merged · <span class="mini open"></span>11 open · 2 other</span></div><div class="pcell"><span class="pn">DeepSpeed</span><span class="pc"><span class="mini ok"></span>10 merged · <span class="mini open"></span>2 open</span></div><div class="pcell"><span class="pn">pytorch</span><span class="pc"><span class="mini ok"></span>5 merged · <span class="mini open"></span>13 open · 1 other</span></div><div class="pcell"><span class="pn">sentence-transformers</span><span class="pc"><span class="mini ok"></span>4 merged · <span class="mini open"></span>1 open · 2 other</span></div><div class="pcell"><span class="pn">axolotl</span><span class="pc"><span class="mini ok"></span>4 merged · <span class="mini open"></span>1 open</span></div><div class="pcell"><span class="pn">tablib</span><span class="pc"><span class="mini ok"></span>4 merged</span></div><div class="pcell"><span class="pn">datasets</span><span class="pc"><span class="mini ok"></span>3 merged · <span class="mini open"></span>3 open</span></div><div class="pcell"><span class="pn">pint</span><span class="pc"><span class="mini ok"></span>3 merged · 2 other</span></div><div class="pcell"><span class="pn">pandera</span><span class="pc"><span class="mini ok"></span>3 merged</span></div><div class="pcell"><span class="pn">pygments</span><span class="pc"><span class="mini ok"></span>2 merged</span></div><div class="pcell"><span class="pn">litellm</span><span class="pc"><span class="mini ok"></span>1 merged · <span class="mini open"></span>6 open · 2 other</span></div><div class="pcell"><span class="pn">vllm</span><span class="pc"><span class="mini ok"></span>1 merged · <span class="mini open"></span>6 open</span></div><div class="pcell"><span class="pn">Ray</span><span class="pc"><span class="mini ok"></span>1 merged · <span class="mini open"></span>4 open · 1 other</span></div><div class="pcell"><span class="pn">babel</span><span class="pc"><span class="mini ok"></span>1 merged · <span class="mini open"></span>3 open</span></div><div class="pcell"><span class="pn">schema</span><span class="pc"><span class="mini ok"></span>1 merged · <span class="mini open"></span>2 open</span></div><div class="pcell"><span class="pn">cattrs</span><span class="pc"><span class="mini ok"></span>1 merged</span></div><div class="pcell"><span class="pn">mlx</span><span class="pc"><span class="mini ok"></span>1 merged</span></div><div class="pcell"><span class="pn">tomlkit</span><span class="pc"><span class="mini ok"></span>1 merged</span></div><div class="pcell"><span class="pn">accelerate</span><span class="pc"><span class="mini open"></span>4 open</span></div><div class="pcell"><span class="pn">lighteval</span><span class="pc"><span class="mini open"></span>4 open</span></div><div class="pcell"><span class="pn">trl</span><span class="pc"><span class="mini open"></span>1 open · 3 other</span></div><div class="pcell"><span class="pn">dateutil</span><span class="pc"><span class="mini open"></span>3 open</span></div><div class="pcell"><span class="pn">jsonschema</span><span class="pc"><span class="mini open"></span>3 open</span></div><div class="pcell"><span class="pn">pendulum</span><span class="pc"><span class="mini open"></span>3 open</span></div><div class="pcell"><span class="pn">pytorch-lightning</span><span class="pc"><span class="mini open"></span>3 open</span></div><div class="pcell"><span class="pn">textgen</span><span class="pc"><span class="mini open"></span>3 open</span></div><div class="pcell"><span class="pn">gensim</span><span class="pc"><span class="mini open"></span>2 open</span></div><div class="pcell"><span class="pn">instructor</span><span class="pc">2 other</span></div><div class="pcell"><span class="pn">langgraph</span><span class="pc">2 other</span></div><div class="pcell"><span class="pn">ag2</span><span class="pc">1 other</span></div><div class="pcell"><span class="pn">arrow</span><span class="pc"><span class="mini open"></span>1 open</span></div><div class="pcell"><span class="pn">mem0</span><span class="pc"><span class="mini open"></span>1 open</span></div><div class="pcell"><span class="pn">ollama</span><span class="pc"><span class="mini open"></span>1 open</span></div><div class="pcell"><span class="pn">peft</span><span class="pc"><span class="mini open"></span>1 open</span></div><div class="pcell"><span class="pn">requests</span><span class="pc"><span class="mini open"></span>1 open</span></div><div class="pcell"><span class="pn">spaCy</span><span class="pc"><span class="mini open"></span>1 open</span></div></div><div class="foot">
+Every pull request fixes a real upstream issue, ships with a fail-before / pass-after regression test
+(or, for typing and docs changes, a CI-checked fix), and follows each project's contribution rules.
+Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request.
+<br>Generated August 15, 2026 at 6:11 PM PT.
+</div></div></body></html>
