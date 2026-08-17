@@ -1,10 +1,10 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 16, 2026 at 9:53 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 16, 2026 at 10:01 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **173** | **68** | **87** | **79%** | **37** | **13 days** |
+| **173** | **68** | **86** | **78%** | **37** | **13 days** |
 
 _23 in the last 7 days · 77 in the last 30._
 
@@ -12,7 +12,7 @@ _23 in the last 7 days · 77 in the last 30._
 
 | Date | Project | What | Status |
 |---|---|---|---|
-| 2026-08-16 | [langchain #39689](https://github.com/langchain-ai/langchain/pull/39689) | FileCallbackHandler.on_tool_end documents color as an override falling back to self.color but wrote the tool output with no color at all, so agent logs had every line coloured except the tool output; the three sibling writes in the same class and StdOutCallbackHandler both do it correctly | Open |
+| 2026-08-16 | [langchain #39689](https://github.com/langchain-ai/langchain/pull/39689) | FileCallbackHandler.on_tool_end documents color as an override falling back to self.color but wrote the tool output with no color at all, so agent logs had every line coloured except the tool output; the three sibling writes in the same class and StdOutCallbackHandler both do it correctly; auto-closed by their require-issue-link bot, which needs a maintainer-approved issue first | Closed on process (issue not actionable) |
 | 2026-08-16 | [pytorch #193728](https://github.com/pytorch/pytorch/pull/193728) | scaled_dot_product_attention never checked that key and value share a sequence length; the CPU flash kernel takes its key count from the value and walks the key pointer that far, so a longer value reads past the end of the key allocation and a large overrun dies with SIGBUS, while MATH and meta both reject the same input | Open |
 | 2026-08-16 | [ollama #17809](https://github.com/ollama/ollama/pull/17809) | the Modelfile parser's buffer guard tested strconv.IsPrint, which is false for format runes and non-ASCII spaces, so ollama create silently rewrote any SYSTEM/TEMPLATE value containing them: Persian می‌خواهم lost its ZWNJ and became a different word, and 👨‍👩‍👧 became three separate emoji | Open |
 | 2026-08-15 | [textgen #7642](https://github.com/oobabooga/textgen/pull/7642) | the ExLlamaV3 loader calls list() on the sampler priority, which is a newline-separated string in every default path, so it became one entry per character and both the sampler order and temperature_last were silently ignored | Open |
