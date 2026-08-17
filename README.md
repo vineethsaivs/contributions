@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 15, 2026 at 6:11 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 16, 2026 at 9:53 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **170** | **68** | **84** | **79%** | **36** | **12 days** |
+| **173** | **68** | **87** | **79%** | **37** | **13 days** |
 
-_24 in the last 7 days · 76 in the last 30._
+_23 in the last 7 days · 77 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-16 | [langchain #39689](https://github.com/langchain-ai/langchain/pull/39689) | FileCallbackHandler.on_tool_end documents color as an override falling back to self.color but wrote the tool output with no color at all, so agent logs had every line coloured except the tool output; the three sibling writes in the same class and StdOutCallbackHandler both do it correctly | Open |
+| 2026-08-16 | [pytorch #193728](https://github.com/pytorch/pytorch/pull/193728) | scaled_dot_product_attention never checked that key and value share a sequence length; the CPU flash kernel takes its key count from the value and walks the key pointer that far, so a longer value reads past the end of the key allocation and a large overrun dies with SIGBUS, while MATH and meta both reject the same input | Open |
+| 2026-08-16 | [ollama #17809](https://github.com/ollama/ollama/pull/17809) | the Modelfile parser's buffer guard tested strconv.IsPrint, which is false for format runes and non-ASCII spaces, so ollama create silently rewrote any SYSTEM/TEMPLATE value containing them: Persian می‌خواهم lost its ZWNJ and became a different word, and 👨‍👩‍👧 became three separate emoji | Open |
 | 2026-08-15 | [textgen #7642](https://github.com/oobabooga/textgen/pull/7642) | the ExLlamaV3 loader calls list() on the sampler priority, which is a newline-separated string in every default path, so it became one entry per character and both the sampler order and temperature_last were silently ignored | Open |
 | 2026-08-15 | [unsloth #8938](https://github.com/unslothai/unsloth/pull/8938) | custom_prompt_template is accepted, documented and forwarded through two public functions, but nothing ever read it: the Alpaca branch always rendered the hardcoded default, silently discarding the caller's prompt format | Open |
 | 2026-08-15 | [vllm #52465](https://github.com/vllm-project/vllm/pull/52465) | the Muse Glimmer reasoning parser drops every completed reasoning block when generation is truncated inside a later one, and its streaming path glues consecutive blocks together with no separator, so the two paths return different reasoning for the same generation | Open |
@@ -25,9 +28,6 @@ _24 in the last 7 days · 76 in the last 30._
 | 2026-08-13 | [unsloth #8723](https://github.com/unslothai/unsloth/pull/8723) | 10 shipped model_defaults express warmup as warmup_ratio and set no warmup_steps, but the training form read only warmup_steps and its type never declared the ratio, so every one of them silently kept the generic 5 | Open |
 | 2026-08-12 | [unsloth #8595](https://github.com/unslothai/unsloth/pull/8595) | getExternalMaxOutputTokens gated every cap row on providerType, so a custom OpenAI-compatible connection fell back to the generic 32K even for a model id whose family has a documented cap | Open |
 | 2026-08-12 | [unsloth #8593](https://github.com/unslothai/unsloth/pull/8593) | FAMILY_TRAIN_DEFAULTS advertised lr_warmup_steps for six diffusion families while the default constant scheduler never reads num_warmup_steps, so the documented LR ramp never happened | Open |
-| 2026-08-11 | [trl #6710](https://github.com/huggingface/trl/pull/6710) | RLOOTrainer.log iterated a None image entry when a batch mixed multimodal and text-only prompts, raising TypeError while building the completions table; GRPOTrainer already guarded the identical block | Open |
-| 2026-08-11 | [vllm #51859](https://github.com/vllm-project/vllm/pull/51859) | vllm run-batch bound the Prometheus metrics server with the deprecated --url instead of --host, so --host 127.0.0.1 exposed it on every interface while the module entry point honoured --host | Open |
-| 2026-08-11 | [accelerate #4160](https://github.com/huggingface/accelerate/pull/4160) | find_executable_batch_size dropped reduce_batch_size_fn in its documented decorator form, so a custom OOM back-off silently became the default 0.9 multiplier: 26 retry cycles instead of 5 | Open |
 
 _Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
