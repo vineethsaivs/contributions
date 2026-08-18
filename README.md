@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 17, 2026 at 9:37 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 18, 2026 at 1:31 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **176** | **71** | **86** | **79%** | **37** | **14 days** |
+| **179** | **71** | **89** | **79%** | **37** | **15 days** |
 
-_22 in the last 7 days · 77 in the last 30._
+_22 in the last 7 days · 78 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-18 | [vllm #52825](https://github.com/vllm-project/vllm/pull/52825) | validate_parsed_serve_args returns early for any subparser that is not serve, but vllm launch render builds its parser with make_arg_parser and explicitly calls the validator, so it accepted every serve flag and ran none of the pre-load checks: the chat-template check, --enable-auto-tool-choice requiring --tool-call-parser, the log-outputs and per-request-metrics checks and the multi-port external-LB validation were all skipped | Open |
+| 2026-08-18 | [unsloth #9225](https://github.com/unslothai/unsloth/pull/9225) | Recipe Studio's payload builder writes the field names the Data Designer schema defines (stddev for gaussian, prefix/short_form/uppercase for uuid) but the importer read params.std and params.format, keys nothing writes, so a gaussian standard deviation and a uuid format were silently lost on every save and reopen; the persistence hook re-imports the stored payload on load, so the app lost the value against its own payload | Open |
+| 2026-08-18 | [litellm #37313](https://github.com/BerriAI/litellm/pull/37313) | get_api_base accepts optional_params as a dict or a LiteLLM_Params object and reads every field off the parsed object, except stream, which it read with getattr off the raw argument; a dict has no stream attribute, so every dict caller was hardcoded to non-streaming and got the :generateContent Gemini or Vertex URL even with stream=True, and that wrong api_base flows into response hidden params, proxy metadata, Slack alerting and cooldown callbacks | Open |
 | 2026-08-17 | [ollama #17827](https://github.com/ollama/ollama/pull/17827) | humanDuration reads a rounded hour count in every branch guard and body except the years label, which recomputes from the truncated one, so in the last half hour before a year boundary the label goes backwards: 24 months, then 1 years, then 2 years; the years branch cannot legitimately emit 1 years at all, and the one-year undercount recurs at every later boundary | Open |
 | 2026-08-17 | [DeepSpeed #8268](https://github.com/deepspeedai/DeepSpeed/pull/8268) | add_tuning_arguments declares --warmup_min_ratio and --cos_min_ratio for WarmupCosineLR, but get_config_from_args routed every non-LRRangeTest, non-OneCycle schedule through the WarmupLR builder, so both flags were dropped and the config came back with warmup_min_lr/warmup_max_lr, which WarmupCosineLR rejects with a TypeError; get_lr_from_config had the mirror-image bug and raised KeyError on a config written for that schedule | Open |
 | 2026-08-17 | [Ray #65535](https://github.com/ray-project/ray/pull/65535) | Quantized.sample() short circuited to the wrapped sampler when q == 1, so tune.quniform(-10, 10, 1) returned raw floats and tune.qrandn / tune.qloguniform were wrong the same way, against a docstring on every q* helper promising the value is rounded to an integer increment of q; the integer domains are provably unchanged because at q = 1 the grid is every integer | Open |
@@ -30,7 +33,7 @@ _22 in the last 7 days · 77 in the last 30._
 | 2026-08-13 | [unsloth #8724](https://github.com/unslothai/unsloth/pull/8724) | both training-chart formatters drop to zero decimals at 1000 and then strip trailing zeroes with an optional-dot regex, so 25000 rendered as 25 and 1000000 as 1 in tooltips and on the axis | Open |
 | 2026-08-13 | [unsloth #8723](https://github.com/unslothai/unsloth/pull/8723) | 10 shipped model_defaults express warmup as warmup_ratio and set no warmup_steps, but the training form read only warmup_steps and its type never declared the ratio, so every one of them silently kept the generic 5 | Merged |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
