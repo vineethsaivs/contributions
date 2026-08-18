@@ -1,10 +1,10 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 17, 2026 at 9:33 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 17, 2026 at 9:37 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **176** | **69** | **88** | **78%** | **37** | **14 days** |
+| **176** | **71** | **86** | **79%** | **37** | **14 days** |
 
 _22 in the last 7 days · 77 in the last 30._
 
@@ -26,9 +26,9 @@ _22 in the last 7 days · 77 in the last 30._
 | 2026-08-14 | [unsloth #8837](https://github.com/unslothai/unsloth/pull/8837) | 2098b7cd4 made parallelSlotsClamped a required field of LlamaFlagCatalog but left four hand-built test fixtures without it, so npm run typecheck fails and Frontend CI has been red on main | Merged |
 | 2026-08-13 | [ollama #17734](https://github.com/ollama/ollama/pull/17734) | ParseFile counts both \r and \n, so a CRLF Modelfile counts two lines per line and every parse error reports a line number roughly double the real one | Open |
 | 2026-08-13 | [textgen #7641](https://github.com/oobabooga/textgen/pull/7641) | create_ui() binds stride_length twice, so all_params picks up the Perplexity tab's Stride slider and text-dataset LoRA training aborts on stock defaults with 'stride length must be smaller than cutoff length' | Open |
-| 2026-08-13 | [unsloth #8726](https://github.com/unslothai/unsloth/pull/8726) | nine model ids a model_defaults file names in its Also applies to header could not resolve to it, so they fell back to default.yaml; Qwen/Qwen3-30B-A3B-Instruct-2507 got lora_r 16 instead of its tuned 32 | Open |
+| 2026-08-13 | [unsloth #8726](https://github.com/unslothai/unsloth/pull/8726) | nine model ids a model_defaults file names in its Also applies to header could not resolve to it, so they fell back to default.yaml; Qwen/Qwen3-30B-A3B-Instruct-2507 got lora_r 16 instead of its tuned 32 | Merged |
 | 2026-08-13 | [unsloth #8724](https://github.com/unslothai/unsloth/pull/8724) | both training-chart formatters drop to zero decimals at 1000 and then strip trailing zeroes with an optional-dot regex, so 25000 rendered as 25 and 1000000 as 1 in tooltips and on the axis | Open |
-| 2026-08-13 | [unsloth #8723](https://github.com/unslothai/unsloth/pull/8723) | 10 shipped model_defaults express warmup as warmup_ratio and set no warmup_steps, but the training form read only warmup_steps and its type never declared the ratio, so every one of them silently kept the generic 5 | Open |
+| 2026-08-13 | [unsloth #8723](https://github.com/unslothai/unsloth/pull/8723) | 10 shipped model_defaults express warmup as warmup_ratio and set no warmup_steps, but the training form read only warmup_steps and its type never declared the ratio, so every one of them silently kept the generic 5 | Merged |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
