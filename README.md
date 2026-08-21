@@ -1,17 +1,19 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 20, 2026 at 11:17 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 20, 2026 at 7:16 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **188** | **73** | **95** | **78%** | **37** | **17 days** |
+| **190** | **73** | **97** | **78%** | **37** | **17 days** |
 
-_24 in the last 7 days · 80 in the last 30._
+_26 in the last 7 days · 82 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-20 | [unsloth #9447](https://github.com/unslothai/unsloth/pull/9447) | torch_amp_custom_fwd/_bwd are in _utils.__all__ but the device chain covered cuda, hip and xpu only, so on the MLX runtime the names were never bound and `from ._utils import *` raised AttributeError, taking unsloth.models, unsloth.save and unsloth.utils.attention_dispatch with it | Open |
+| 2026-08-20 | [unsloth #9445](https://github.com/unslothai/unsloth/pull/9445) | chat-adapter.ts grew three server-tuning imports the auto-load harness had no stubs for, so every scenario died as a bare ReferenceError inside the retry loop and main's Repo tests (CPU) went red at 70 failed / 1 passed; fixed by inlining the real dependency-free module rather than hand-mirroring it | Open |
 | 2026-08-20 | [litellm #37657](https://github.com/BerriAI/litellm/pull/37657) | with code_interpreter_interception a stream:true request came back as a bare ModelResponseStream, which has no __aiter__, so the caller's `async for` raised TypeError and the chunk-shaped object reached the response cache for a later request to trip over | Open |
 | 2026-08-20 | [Ray #65621](https://github.com/ray-project/ray/pull/65621) | flatten_dict(prevent_delimiter=True, flatten_list=True) raised UnboundLocalError, because the list branch re-checked `subkey`, a name only the dict branch binds | Open |
 | 2026-08-20 | [litellm #37655](https://github.com/BerriAI/litellm/pull/37655) | stream_chunk_builder dropped delta.reasoning_items on both of its paths, so a streamed reasoning turn lost the provider's encrypted reasoning state and could not be round-tripped through the Responses API bridge or replayed from the response cache | Open |
@@ -27,11 +29,8 @@ _24 in the last 7 days · 80 in the last 30._
 | 2026-08-17 | [ollama #17827](https://github.com/ollama/ollama/pull/17827) | humanDuration reads a rounded hour count in every branch guard and body except the years label, which recomputes from the truncated one, so in the last half hour before a year boundary the label goes backwards: 24 months, then 1 years, then 2 years; the years branch cannot legitimately emit 1 years at all, and the one-year undercount recurs at every later boundary | Open |
 | 2026-08-17 | [DeepSpeed #8268](https://github.com/deepspeedai/DeepSpeed/pull/8268) | add_tuning_arguments declares --warmup_min_ratio and --cos_min_ratio for WarmupCosineLR, but get_config_from_args routed every non-LRRangeTest, non-OneCycle schedule through the WarmupLR builder, so both flags were dropped and the config came back with warmup_min_lr/warmup_max_lr, which WarmupCosineLR rejects with a TypeError; get_lr_from_config had the mirror-image bug and raised KeyError on a config written for that schedule | Open |
 | 2026-08-17 | [Ray #65535](https://github.com/ray-project/ray/pull/65535) | Quantized.sample() short circuited to the wrapped sampler when q == 1, so tune.quniform(-10, 10, 1) returned raw floats and tune.qrandn / tune.qloguniform were wrong the same way, against a docstring on every q* helper promising the value is rounded to an integer increment of q; the integer domains are provably unchanged because at q = 1 the grid is every integer | Open |
-| 2026-08-16 | [langchain #39689](https://github.com/langchain-ai/langchain/pull/39689) | FileCallbackHandler.on_tool_end documents color as an override falling back to self.color but wrote the tool output with no color at all, so agent logs had every line coloured except the tool output; the three sibling writes in the same class and StdOutCallbackHandler both do it correctly; auto-closed by their require-issue-link bot, which needs a maintainer-approved issue first | Closed on process (issue not actionable) |
-| 2026-08-16 | [pytorch #193728](https://github.com/pytorch/pytorch/pull/193728) | scaled_dot_product_attention never checked that key and value share a sequence length; the CPU flash kernel takes its key count from the value and walks the key pointer that far, so a longer value reads past the end of the key allocation and a large overrun dies with SIGBUS, while MATH and meta both reject the same input | Open |
-| 2026-08-16 | [ollama #17809](https://github.com/ollama/ollama/pull/17809) | the Modelfile parser's buffer guard tested strconv.IsPrint, which is false for format runes and non-ASCII spaces, so ollama create silently rewrote any SYSTEM/TEMPLATE value containing them: Persian می‌خواهم lost its ZWNJ and became a different word, and 👨‍👩‍👧 became three separate emoji | Open |
 
-_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
