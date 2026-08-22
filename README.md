@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 21, 2026 at 10:54 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 22, 2026 at 10:19 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **193** | **74** | **99** | **79%** | **37** | **18 days** |
+| **196** | **74** | **101** | **78%** | **37** | **19 days** |
 
-_26 in the last 7 days · 84 in the last 30._
+_26 in the last 7 days · 86 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-22 | [pytorch-lightning #21916](https://github.com/Lightning-AI/pytorch-lightning/pull/21916) | scale_batch_size ran zero batches per trial when the search started after training had begun, so every trial succeeded and it returned a batch size the model cannot run | Open |
+| 2026-08-22 | [litellm #37943](https://github.com/BerriAI/litellm/pull/37943) | stream_chunk_builder raised on a raw SSE frame in a collected stream, and six of the nine guardrails that reassemble one call it with no guard, turning an already-delivered completion into a 500 | Open |
+| 2026-08-22 | [litellm #37942](https://github.com/BerriAI/litellm/pull/37942) | the Bedrock guardrail used request_data['api_key'] as its own AWS bearer token, so a BYOK credential override sent the caller's NVIDIA or OpenRouter key to AWS and the guardrail 403'd | Open |
 | 2026-08-21 | [litellm #37861](https://github.com/BerriAI/litellm/pull/37861) | MCP OAuth discovery ran the resource GET buffered, so a Streamable HTTP server answering GET with an open SSE stream stalled proxy startup; MCP_METADATA_TIMEOUT is httpx's per-read timeout and a keepalive resets it forever | Open |
 | 2026-08-21 | [vllm #53302](https://github.com/vllm-project/vllm/pull/53302) | --reasoning-parser qwen3 read only enable_thinking, so a chat template that closed the think block for any other reason left the engine in REASONING and returned the whole answer as reasoning with content null | Open |
 | 2026-08-21 | [litellm #37859](https://github.com/BerriAI/litellm/pull/37859) | a Responses API tool-only stream emitted output_text.done, content_part.done and output_item.done for a message item it never opened, so clients that track output items by id (the Vercel AI SDK) aborted the run before the tool result arrived | Open |
@@ -30,7 +33,7 @@ _26 in the last 7 days · 84 in the last 30._
 | 2026-08-18 | [unsloth #9225](https://github.com/unslothai/unsloth/pull/9225) | Recipe Studio's payload builder writes the field names the Data Designer schema defines (stddev for gaussian, prefix/short_form/uppercase for uuid) but the importer read params.std and params.format, keys nothing writes, so a gaussian standard deviation and a uuid format were silently lost on every save and reopen; the persistence hook re-imports the stored payload on load, so the app lost the value against its own payload | Merged |
 | 2026-08-18 | [litellm #37313](https://github.com/BerriAI/litellm/pull/37313) | get_api_base accepts optional_params as a dict or a LiteLLM_Params object and reads every field off the parsed object, except stream, which it read with getattr off the raw argument; a dict has no stream attribute, so every dict caller was hardcoded to non-streaming and got the :generateContent Gemini or Vertex URL even with stream=True, and that wrong api_base flows into response hidden params, proxy metadata, Slack alerting and cooldown callbacks | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
