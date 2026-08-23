@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 22, 2026 at 10:19 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 23, 2026 at 1:03 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **196** | **74** | **101** | **78%** | **37** | **19 days** |
+| **199** | **74** | **104** | **78%** | **37** | **20 days** |
 
-_26 in the last 7 days · 86 in the last 30._
+_26 in the last 7 days · 88 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-23 | [unsloth #9590](https://github.com/unslothai/unsloth/pull/9590) | main's Repo tests (CPU) went red because a contract test matched raw source for a set literal that a new entry wrapped across lines, while the rule it guards stayed intact | Open |
+| 2026-08-23 | [pytorch #194537](https://github.com/pytorch/pytorch/pull/194537) | the conv and avg_pool nn.functional docs carried no parameter types at all, so their pages showed bare names where every other page shows name (type) | Open |
+| 2026-08-23 | [pytorch #194535](https://github.com/pytorch/pytorch/pull/194535) | gather and scatter accept a 0-D tensor opposite a 1-D one, but the docs and the shape-check messages claim the dimensions must match | Open |
 | 2026-08-22 | [pytorch-lightning #21916](https://github.com/Lightning-AI/pytorch-lightning/pull/21916) | scale_batch_size ran zero batches per trial when the search started after training had begun, so every trial succeeded and it returned a batch size the model cannot run | Open |
 | 2026-08-22 | [litellm #37943](https://github.com/BerriAI/litellm/pull/37943) | stream_chunk_builder raised on a raw SSE frame in a collected stream, and six of the nine guardrails that reassemble one call it with no guard, turning an already-delivered completion into a 500 | Open |
 | 2026-08-22 | [litellm #37942](https://github.com/BerriAI/litellm/pull/37942) | the Bedrock guardrail used request_data['api_key'] as its own AWS bearer token, so a BYOK credential override sent the caller's NVIDIA or OpenRouter key to AWS and the guardrail 403'd | Open |
@@ -27,13 +30,8 @@ _26 in the last 7 days · 86 in the last 30._
 | 2026-08-19 | [litellm #37489](https://github.com/BerriAI/litellm/pull/37489) | _reset_expired_window parsed reset_at then called .replace(tzinfo=None) and compared it against datetime.utcnow(), so an offset compute_budget_reset_at had itself written was read as a wall clock: an Asia/Shanghai window due at 16:00 UTC stayed enforced until 00:00 UTC and an America/New_York window due at 05:00 UTC was reset at 00:00 UTC | Open |
 | 2026-08-19 | [litellm #37487](https://github.com/BerriAI/litellm/pull/37487) | langfuse_proxy_route ran base64.b64decode(...).split(':')[1] on the Authorization header before calling user_api_key_auth, so a missing header, non-base64, non-utf8 bytes or a value with no colon raised out of an unauthenticated request and became HTTP 500 with a traceback, on a route registered for GET, POST, PUT, PATCH and DELETE | Open |
 | 2026-08-19 | [litellm #37484](https://github.com/BerriAI/litellm/pull/37484) | transform_responses_api_request and transform_compact_response_api_request call remove_cache_control_flag_from_input_and_tools unconditionally, while the chat path has _should_preserve_cache_control_for_endpoint carving out the generic openai provider on a non-openai.com api_base, so a cache_control-aware gateway kept its breakpoints on /chat/completions and lost them on /responses | Open |
-| 2026-08-18 | [unsloth #9249](https://github.com/unslothai/unsloth/pull/9249) | RawTextDataLoader validates chunk_size > 0 and stride < chunk_size in both the constructor and smart_chunk_text but never the lower bound, so a negative stride is accepted and start_idx += chunk_size - stride advances by more than a whole chunk, silently never emitting the tokens in between: chunk_size=10 with stride=-5 drops 30 of 100 tokens with nothing raised and nothing logged | Open |
-| 2026-08-18 | [litellm #37431](https://github.com/BerriAI/litellm/pull/37431) | _update_internal_user_params filtered the /user/update payload against LiteLLM_ManagementEndpoint_MetadataFields but never against the _Premium list, so guardrails and prompts survived as top-level keys and reached LiteLLM_UserTable, which has no such columns, and the prisma write failed instead of storing the value; prepare_metadata_fields already copies them into metadata but never pops the top-level key, so each was written twice, while the sibling /key/update skips both lists | Open |
-| 2026-08-18 | [vllm #52825](https://github.com/vllm-project/vllm/pull/52825) | validate_parsed_serve_args returns early for any subparser that is not serve, but vllm launch render builds its parser with make_arg_parser and explicitly calls the validator, so it accepted every serve flag and ran none of the pre-load checks: the chat-template check, --enable-auto-tool-choice requiring --tool-call-parser, the log-outputs and per-request-metrics checks and the multi-port external-LB validation were all skipped | Merged |
-| 2026-08-18 | [unsloth #9225](https://github.com/unslothai/unsloth/pull/9225) | Recipe Studio's payload builder writes the field names the Data Designer schema defines (stddev for gaussian, prefix/short_form/uppercase for uuid) but the importer read params.std and params.format, keys nothing writes, so a gaussian standard deviation and a uuid format were silently lost on every save and reopen; the persistence hook re-imports the stored payload on load, so the app lost the value against its own payload | Merged |
-| 2026-08-18 | [litellm #37313](https://github.com/BerriAI/litellm/pull/37313) | get_api_base accepts optional_params as a dict or a LiteLLM_Params object and reads every field off the parsed object, except stream, which it read with getattr off the raw argument; a dict has no stream attribute, so every dict caller was hardcoded to non-streaming and got the :generateContent Gemini or Vertex URL even with stream=True, and that wrong api_base flows into response hidden params, proxy metadata, Slack alerting and cooldown callbacks | Open |
 
-_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
