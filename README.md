@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 24, 2026 at 5:31 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 25, 2026 at 11:54 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **202** | **76** | **104** | **78%** | **37** | **21 days** |
+| **205** | **77** | **106** | **78%** | **37** | **22 days** |
 
-_26 in the last 7 days · 89 in the last 30._
+_24 in the last 7 days · 86 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-25 | [Ray #65731](https://github.com/ray-project/ray/pull/65731) | tune.qrandint and tune.qlograndint never sampled the upper bound they document as inclusive, and raised ValueError when the quantization grid held a single point | Open |
+| 2026-08-25 | [litellm #38244](https://github.com/BerriAI/litellm/pull/38244) | shorten_message_to_fit_limit grew the message instead of trimming it whenever the target was small, because content[-0:] is the whole string | Open |
+| 2026-08-25 | [DeepSpeed #8317](https://github.com/deepspeedai/DeepSpeed/pull/8317) | the Ulysses all2all built its output shape from the wrong branch for the seq-first (s, b, n, h) layout, silently returning a transposed tensor when the head count divides evenly and raising on the reshape when it does not | Open |
 | 2026-08-24 | [DeepSpeed #8313](https://github.com/deepspeedai/DeepSpeed/pull/8313) | three norm-combining sites squared the per-tensor norms and then took the 1/norm_type root, so every p-norm except p=2 returned the wrong global norm and clipped the gradients by the wrong factor; ZeRO-3 also took an L2 norm per tensor whatever norm_type said | Open |
 | 2026-08-23 | [DeepSpeed #8305](https://github.com/deepspeedai/DeepSpeed/pull/8305) | ZeRO-3's partition() hardcoded free_data=True at two hops, so free_data=False never reached the guard and the leaf-module fast-sharding path was a no-op | Open |
 | 2026-08-23 | [DeepSpeed #8304](https://github.com/deepspeedai/DeepSpeed/pull/8304) | the SLURM launcher forwarded DeepSpeed's own --include to srun, which has no such flag, and sized the job from the unfiltered hostfile, so both resource filters were broken | Open |
@@ -30,7 +33,7 @@ _26 in the last 7 days · 89 in the last 30._
 | 2026-08-20 | [Ray #65621](https://github.com/ray-project/ray/pull/65621) | flatten_dict(prevent_delimiter=True, flatten_list=True) raised UnboundLocalError, because the list branch re-checked `subkey`, a name only the dict branch binds | Open |
 | 2026-08-20 | [litellm #37655](https://github.com/BerriAI/litellm/pull/37655) | stream_chunk_builder dropped delta.reasoning_items on both of its paths, so a streamed reasoning turn lost the provider's encrypted reasoning state and could not be round-tripped through the Responses API bridge or replayed from the response cache | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
