@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 25, 2026 at 1:21 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 26, 2026 at 11:51 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **205** | **77** | **106** | **78%** | **37** | **22 days** |
+| **208** | **78** | **108** | **78%** | **37** | **23 days** |
 
-_24 in the last 7 days · 86 in the last 30._
+_23 in the last 7 days · 88 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-26 | [DeepSpeed #8324](https://github.com/deepspeedai/DeepSpeed/pull/8324) | the flops profiler broadcast elementwise mul/add shapes from index 0 instead of from the trailing dimension, so scaling a [2, 3, 4] activation by a [4] vector was counted over [4, 3, 4] | Open |
+| 2026-08-26 | [Ray #65747](https://github.com/ray-project/ray/pull/65747) | PBT converted a perturbed integer hyperparameter back with int(), which truncates toward zero, so * 1.2 was a no-op below 5 while * 0.8 always landed lower and the parameter could only ratchet down to an absorbing 0 | Open |
+| 2026-08-26 | [DeepSpeed #8323](https://github.com/deepspeedai/DeepSpeed/pull/8323) | the flops profiler read a transposed convolution's weight as if it were a forward convolution's and sized its output with the forward shape formula, so every grouped transposed conv under-counted its macs by a factor of groups and a depthwise one reported zero | Open |
 | 2026-08-25 | [Ray #65731](https://github.com/ray-project/ray/pull/65731) | tune.qrandint and tune.qlograndint never sampled the upper bound they document as inclusive, and raised ValueError when the quantization grid held a single point | Open |
 | 2026-08-25 | [litellm #38244](https://github.com/BerriAI/litellm/pull/38244) | shorten_message_to_fit_limit grew the message instead of trimming it whenever the target was small, because content[-0:] is the whole string | Open |
 | 2026-08-25 | [DeepSpeed #8317](https://github.com/deepspeedai/DeepSpeed/pull/8317) | the Ulysses all2all built its output shape from the wrong branch for the seq-first (s, b, n, h) layout, silently returning a transposed tensor when the head count divides evenly and raising on the reshape when it does not | Open |
@@ -27,13 +30,8 @@ _24 in the last 7 days · 86 in the last 30._
 | 2026-08-21 | [litellm #37861](https://github.com/BerriAI/litellm/pull/37861) | MCP OAuth discovery ran the resource GET buffered, so a Streamable HTTP server answering GET with an open SSE stream stalled proxy startup; MCP_METADATA_TIMEOUT is httpx's per-read timeout and a keepalive resets it forever | Open |
 | 2026-08-21 | [vllm #53302](https://github.com/vllm-project/vllm/pull/53302) | --reasoning-parser qwen3 read only enable_thinking, so a chat template that closed the think block for any other reason left the engine in REASONING and returned the whole answer as reasoning with content null | Open |
 | 2026-08-21 | [litellm #37859](https://github.com/BerriAI/litellm/pull/37859) | a Responses API tool-only stream emitted output_text.done, content_part.done and output_item.done for a message item it never opened, so clients that track output items by id (the Vercel AI SDK) aborted the run before the tool result arrived | Open |
-| 2026-08-20 | [unsloth #9447](https://github.com/unslothai/unsloth/pull/9447) | torch_amp_custom_fwd/_bwd are in _utils.__all__ but the device chain covered cuda, hip and xpu only, so on the MLX runtime the names were never bound and `from ._utils import *` raised AttributeError, taking unsloth.models, unsloth.save and unsloth.utils.attention_dispatch with it | Open |
-| 2026-08-20 | [unsloth #9445](https://github.com/unslothai/unsloth/pull/9445) | chat-adapter.ts grew three server-tuning imports the auto-load harness had no stubs for, so every scenario died as a bare ReferenceError inside the retry loop and main's Repo tests (CPU) went red at 70 failed / 1 passed; fixed by inlining the real dependency-free module rather than hand-mirroring it | Open |
-| 2026-08-20 | [litellm #37657](https://github.com/BerriAI/litellm/pull/37657) | with code_interpreter_interception a stream:true request came back as a bare ModelResponseStream, which has no __aiter__, so the caller's `async for` raised TypeError and the chunk-shaped object reached the response cache for a later request to trip over | Open |
-| 2026-08-20 | [Ray #65621](https://github.com/ray-project/ray/pull/65621) | flatten_dict(prevent_delimiter=True, flatten_list=True) raised UnboundLocalError, because the list branch re-checked `subkey`, a name only the dict branch binds | Open |
-| 2026-08-20 | [litellm #37655](https://github.com/BerriAI/litellm/pull/37655) | stream_chunk_builder dropped delta.reasoning_items on both of its paths, so a streamed reasoning turn lost the provider's encrypted reasoning state and could not be round-tripped through the Responses API bridge or replayed from the response cache | Open |
 
-_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
