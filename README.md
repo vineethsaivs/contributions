@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 27, 2026 at 10:37 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 27, 2026 at 1:47 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **208** | **78** | **107** | **77%** | **37** | **23 days** |
+| **211** | **78** | **110** | **77%** | **37** | **24 days** |
 
-_18 in the last 7 days · 87 in the last 30._
+_21 in the last 7 days · 90 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-27 | [unsloth #9887](https://github.com/unslothai/unsloth/pull/9887) | quant_type defaults to None on ModelInfo, append_quant_type and register_model, but QUANT_TAG_MAP is keyed by QuantType, so using any of those defaults raised KeyError: None | Open |
+| 2026-08-27 | [DeepSpeed #8334](https://github.com/deepspeedai/DeepSpeed/pull/8334) | the curriculum schedule floored the difficulty to a multiple of difficulty_step with no lower clamp, so min_difficulty 8 with difficulty_step 16, a pair the tutorial recommends together, started training at difficulty 0 | Open |
+| 2026-08-27 | [pytorch #195043](https://github.com/pytorch/pytorch/pull/195043) | nn.grad.convNd_input is the reference conv_transpose is checked against but has no output_padding, so any non-default one made it reject the shape with 'grad_output[2:] shape ... must be equal to output size ...' | Open |
 | 2026-08-26 | [DeepSpeed #8324](https://github.com/deepspeedai/DeepSpeed/pull/8324) | the flops profiler broadcast elementwise mul/add shapes from index 0 instead of from the trailing dimension, so scaling a [2, 3, 4] activation by a [4] vector was counted over [4, 3, 4] | Open |
 | 2026-08-26 | [Ray #65747](https://github.com/ray-project/ray/pull/65747) | PBT converted a perturbed integer hyperparameter back with int(), which truncates toward zero, so * 1.2 was a no-op below 5 while * 0.8 always landed lower and the parameter could only ratchet down to an absorbing 0 | Open |
 | 2026-08-26 | [DeepSpeed #8323](https://github.com/deepspeedai/DeepSpeed/pull/8323) | the flops profiler read a transposed convolution's weight as if it were a forward convolution's and sized its output with the forward shape formula, so every grouped transposed conv under-counted its macs by a factor of groups and a depthwise one reported zero | Open |
@@ -27,9 +30,6 @@ _18 in the last 7 days · 87 in the last 30._
 | 2026-08-22 | [pytorch-lightning #21916](https://github.com/Lightning-AI/pytorch-lightning/pull/21916) | scale_batch_size ran zero batches per trial when the search started after training had begun, so every trial succeeded and it returned a batch size the model cannot run | Open |
 | 2026-08-22 | [litellm #37943](https://github.com/BerriAI/litellm/pull/37943) | stream_chunk_builder raised on a raw SSE frame in a collected stream, and six of the nine guardrails that reassemble one call it with no guard, turning an already-delivered completion into a 500 | Open |
 | 2026-08-22 | [litellm #37942](https://github.com/BerriAI/litellm/pull/37942) | the Bedrock guardrail used request_data['api_key'] as its own AWS bearer token, so a BYOK credential override sent the caller's NVIDIA or OpenRouter key to AWS and the guardrail 403'd | Open |
-| 2026-08-21 | [litellm #37861](https://github.com/BerriAI/litellm/pull/37861) | MCP OAuth discovery ran the resource GET buffered, so a Streamable HTTP server answering GET with an open SSE stream stalled proxy startup; MCP_METADATA_TIMEOUT is httpx's per-read timeout and a keepalive resets it forever | Open |
-| 2026-08-21 | [vllm #53302](https://github.com/vllm-project/vllm/pull/53302) | --reasoning-parser qwen3 read only enable_thinking, so a chat template that closed the think block for any other reason left the engine in REASONING and returned the whole answer as reasoning with content null | Open |
-| 2026-08-21 | [litellm #37859](https://github.com/BerriAI/litellm/pull/37859) | a Responses API tool-only stream emitted output_text.done, content_part.done and output_item.done for a message item it never opened, so clients that track output items by id (the Vercel AI SDK) aborted the run before the tool result arrived | Open |
 
 _Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
