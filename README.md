@@ -1,17 +1,19 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 28, 2026 at 10:50 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 29, 2026 at 12:15 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **215** | **82** | **110** | **78%** | **37** | **25 days** |
+| **217** | **82** | **112** | **78%** | **37** | **26 days** |
 
-_22 in the last 7 days · 92 in the last 30._
+_21 in the last 7 days · 92 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-29 | [litellm #38737](https://github.com/BerriAI/litellm/pull/38737) | the spend-log truncation wrote its tail as value[-end_chars:], and both shares floor to zero at a limit of 1 or less, so the tightest MAX_STRING_LENGTH_PROMPT_IN_DB stored the whole prompt plus a marker saying it had been skipped | Open |
+| 2026-08-29 | [vllm #54321](https://github.com/vllm-project/vllm/pull/54321) | an explicit tool_choice null was not treated as an absent one, so tools were never parsed out of the reply and a structured-outputs request carrying a null tool_choice and no tools was refused as asking for both | Open |
 | 2026-08-28 | [unsloth #9950](https://github.com/unslothai/unsloth/pull/9950) | unsloth's copy of unsloth-zoo's optimizer collapse list carried adamw_8bit, which the zoo deliberately leaves out because MLX implements it, so the notebook default was downgraded to plain adamw and the repo's own MLX test failed on every Apple Silicon machine | Open |
 | 2026-08-28 | [DeepSpeed #8347](https://github.com/deepspeedai/DeepSpeed/pull/8347) | batch_by_seqlens walked candidate slice ends with a range stopping at len(metrics), and batch_end is the exclusive end of the slice, so the last sample of the dataset was never placed in a microbatch | Open |
 | 2026-08-28 | [vllm #54297](https://github.com/vllm-project/vllm/pull/54297) | the Responses API backfilled id, status and annotations only when the key was absent, so an SDK round-tripping an item with an explicit null was rejected with a 400 and a 200-entry validation dump | Open |
@@ -26,13 +28,8 @@ _22 in the last 7 days · 92 in the last 30._
 | 2026-08-25 | [litellm #38244](https://github.com/BerriAI/litellm/pull/38244) | shorten_message_to_fit_limit grew the message instead of trimming it whenever the target was small, because content[-0:] is the whole string | Open |
 | 2026-08-25 | [DeepSpeed #8317](https://github.com/deepspeedai/DeepSpeed/pull/8317) | the Ulysses all2all built its output shape from the wrong branch for the seq-first (s, b, n, h) layout, silently returning a transposed tensor when the head count divides evenly and raising on the reshape when it does not | Merged |
 | 2026-08-24 | [DeepSpeed #8313](https://github.com/deepspeedai/DeepSpeed/pull/8313) | three norm-combining sites squared the per-tensor norms and then took the 1/norm_type root, so every p-norm except p=2 returned the wrong global norm and clipped the gradients by the wrong factor; ZeRO-3 also took an L2 norm per tensor whatever norm_type said | Merged |
-| 2026-08-23 | [DeepSpeed #8305](https://github.com/deepspeedai/DeepSpeed/pull/8305) | ZeRO-3's partition() hardcoded free_data=True at two hops, so free_data=False never reached the guard and the leaf-module fast-sharding path was a no-op | Open |
-| 2026-08-23 | [DeepSpeed #8304](https://github.com/deepspeedai/DeepSpeed/pull/8304) | the SLURM launcher forwarded DeepSpeed's own --include to srun, which has no such flag, and sized the job from the unfiltered hostfile, so both resource filters were broken | Open |
-| 2026-08-23 | [unsloth #9590](https://github.com/unslothai/unsloth/pull/9590) | main's Repo tests (CPU) went red because a contract test matched raw source for a set literal that a new entry wrapped across lines, while the rule it guards stayed intact | Closed, fix validated |
-| 2026-08-23 | [pytorch #194537](https://github.com/pytorch/pytorch/pull/194537) | the conv and avg_pool nn.functional docs carried no parameter types at all, so their pages showed bare names where every other page shows name (type) | Open |
-| 2026-08-23 | [pytorch #194535](https://github.com/pytorch/pytorch/pull/194535) | gather and scatter accept a 0-D tensor opposite a 1-D one, but the docs and the shape-check messages claim the dimensions must match | Open |
 
-_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
