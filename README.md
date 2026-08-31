@@ -1,22 +1,23 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 31, 2026 at 10:13 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 31, 2026 at 3:25 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **230** | **84** | **123** | **79%** | **39** | **28 days** |
+| **231** | **86** | **122** | **79%** | **39** | **28 days** |
 
-_28 in the last 7 days · 101 in the last 30._
+_29 in the last 7 days · 102 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-08-31 | [unsloth #10101](https://github.com/unslothai/unsloth/pull/10101) | get_ollama_eos_tokens collapses a token family into its shared prefix while rewriting the text it scans, so the answer depends on list order and the list came from a set: a Gemma-shaped vocabulary exported <unk> on some runs and a two-character <un stop token in its place on others | Open |
 | 2026-08-31 | [deepspeed #8378](https://github.com/deepspeedai/DeepSpeed/pull/8378) | a frozen parameter has no fp32 master copy, so get_fp32_state_dict_from_zero_checkpoint returned it in the model's own dtype while trainable parameters and buffers came back fp32, breaking its documented fp32 contract on every bf16 or fp16 run | Open |
 | 2026-08-31 | [deepspeed #8376](https://github.com/deepspeedai/DeepSpeed/pull/8376) | to_torch_tensor maps tied parameters onto one shared tensor and safetensors refuses tensors that share storage, so zero_to_fp32 --safe_serialization aborted on any model with tied weights, which is the usual embedding / lm_head pair | Open |
 | 2026-08-30 | [vllm #54499](https://github.com/vllm-project/vllm/pull/54499) | the Hunyuan A13B streaming parser reads its shorter side sequence at the main sequence's index, so a stream that matches six of the seven response-start tokens and then diverges raises IndexError instead of taking the fallback every earlier divergence takes | Open |
 | 2026-08-30 | [trl #6980](https://github.com/huggingface/trl/pull/6980) | the chunked lm_head backward matmuls the lm_head weight without the dtype cast its own forward applies, so under autocast a forward that succeeds cannot be backpropagated and raises a dtype mismatch | Open |
-| 2026-08-30 | [unsloth #10028](https://github.com/unslothai/unsloth/pull/10028) | the single-device block assigned a bare lambda to Accelerator.distributed_type, which is a property upstream, so it bound as a method and accelerate's != DistributedType.NO guards fired on a single device with the device_map error the block exists to prevent | Open |
+| 2026-08-30 | [unsloth #10028](https://github.com/unslothai/unsloth/pull/10028) | the single-device block assigned a bare lambda to Accelerator.distributed_type, which is a property upstream, so it bound as a method and accelerate's != DistributedType.NO guards fired on a single device with the device_map error the block exists to prevent | Merged |
 | 2026-08-30 | [pytorch #195376](https://github.com/pytorch/pytorch/pull/195376) | the non-empty guard in the nearest-upsample metas passed torch._check the product of the non-batch sizes, an int rather than a bool, so every zero-element input raised TypeError out of the check itself, including the zero-batch case eager upsamples fine | Open |
 | 2026-08-30 | [accelerate #4197](https://github.com/huggingface/accelerate/pull/4197) | convert_file_size_to_int applies the bit-vs-byte suffix rule to the decimal units only, so a max_memory entry given in gibibits is parsed as gibibytes and plans a device map against 8x the memory that is there | Open |
 | 2026-08-30 | [sentence-transformers #3971](https://github.com/huggingface/sentence-transformers/pull/3971) | two of the four multi-process workers never walk a list result, so the list-of-tensors and output_value=None shapes reach the results queue still on the accelerator, as handles the caller can no longer read once stop_multi_process_pool has torn the workers down | Open |
@@ -27,12 +28,8 @@ _28 in the last 7 days · 101 in the last 30._
 | 2026-08-29 | [pytorch-lightning #21923](https://github.com/Lightning-AI/pytorch-lightning/pull/21923) | lr_find's suggestion() sliced the loss curve with [skip_begin:-skip_end], so skip_end=0, the documented way to keep the whole curve, selected nothing and returned no suggestion at all | Open |
 | 2026-08-29 | [litellm #38737](https://github.com/BerriAI/litellm/pull/38737) | the spend-log truncation wrote its tail as value[-end_chars:], and both shares floor to zero at a limit of 1 or less, so the tightest MAX_STRING_LENGTH_PROMPT_IN_DB stored the whole prompt plus a marker saying it had been skipped | Open |
 | 2026-08-29 | [vllm #54321](https://github.com/vllm-project/vllm/pull/54321) | an explicit tool_choice null was not treated as an absent one, so tools were never parsed out of the reply and a structured-outputs request carrying a null tool_choice and no tools was refused as asking for both | Open |
-| 2026-08-28 | [unsloth #9950](https://github.com/unslothai/unsloth/pull/9950) | unsloth's copy of unsloth-zoo's optimizer collapse list carried adamw_8bit, which the zoo deliberately leaves out because MLX implements it, so the notebook default was downgraded to plain adamw and the repo's own MLX test failed on every Apple Silicon machine | Open |
-| 2026-08-28 | [DeepSpeed #8347](https://github.com/deepspeedai/DeepSpeed/pull/8347) | batch_by_seqlens walked candidate slice ends with a range stopping at len(metrics), and batch_end is the exclusive end of the slice, so the last sample of the dataset was never placed in a microbatch | Open |
-| 2026-08-28 | [vllm #54297](https://github.com/vllm-project/vllm/pull/54297) | the Responses API backfilled id, status and annotations only when the key was absent, so an SDK round-tripping an item with an explicit null was rejected with a 400 and a 200-entry validation dump | Open |
-| 2026-08-28 | [unsloth #9944](https://github.com/unslothai/unsloth/pull/9944) | the backwards-compatible trainer wrapper sorted keywords into trainer kwargs and config kwargs, but the elif and the else wrote to the same dict, so a keyword neither side takes, max_seq_length after trl 0.20 removed it from SFTConfig, was dropped in silence and the run trained at the default length | Open |
 
-_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
