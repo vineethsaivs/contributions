@@ -1,20 +1,22 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated August 31, 2026 at 3:25 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 1, 2026 at 9:21 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **231** | **86** | **122** | **79%** | **39** | **28 days** |
+| **233** | **87** | **123** | **79%** | **38** | **29 days** |
 
-_29 in the last 7 days · 102 in the last 30._
+_28 in the last 7 days · 102 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-01 | [unsloth #10153](https://github.com/unslothai/unsloth/pull/10153) | get_chat_template reads padding_side straight off whatever it is handed, so a vision checkpoint's processor, which keeps it on the tokenizer it wraps, raises AttributeError before the call can do anything | Open |
+| 2026-09-01 | [DeepSpeed #8386](https://github.com/deepspeedai/DeepSpeed/pull/8386) | mask_nan_or_inf_with_val_inplace takes a val argument and then builds its fill tensor from a hardcoded -1.0, so the one knob the refactor that created the helper introduced has never done anything | Open |
 | 2026-08-31 | [unsloth #10101](https://github.com/unslothai/unsloth/pull/10101) | get_ollama_eos_tokens collapses a token family into its shared prefix while rewriting the text it scans, so the answer depends on list order and the list came from a set: a Gemma-shaped vocabulary exported <unk> on some runs and a two-character <un stop token in its place on others | Open |
-| 2026-08-31 | [deepspeed #8378](https://github.com/deepspeedai/DeepSpeed/pull/8378) | a frozen parameter has no fp32 master copy, so get_fp32_state_dict_from_zero_checkpoint returned it in the model's own dtype while trainable parameters and buffers came back fp32, breaking its documented fp32 contract on every bf16 or fp16 run | Open |
-| 2026-08-31 | [deepspeed #8376](https://github.com/deepspeedai/DeepSpeed/pull/8376) | to_torch_tensor maps tied parameters onto one shared tensor and safetensors refuses tensors that share storage, so zero_to_fp32 --safe_serialization aborted on any model with tied weights, which is the usual embedding / lm_head pair | Open |
+| 2026-08-31 | [DeepSpeed #8378](https://github.com/deepspeedai/DeepSpeed/pull/8378) | a frozen parameter has no fp32 master copy, so get_fp32_state_dict_from_zero_checkpoint returned it in the model's own dtype while trainable parameters and buffers came back fp32, breaking its documented fp32 contract on every bf16 or fp16 run | Open |
+| 2026-08-31 | [DeepSpeed #8376](https://github.com/deepspeedai/DeepSpeed/pull/8376) | to_torch_tensor maps tied parameters onto one shared tensor and safetensors refuses tensors that share storage, so zero_to_fp32 --safe_serialization aborted on any model with tied weights, which is the usual embedding / lm_head pair | Open |
 | 2026-08-30 | [vllm #54499](https://github.com/vllm-project/vllm/pull/54499) | the Hunyuan A13B streaming parser reads its shorter side sequence at the main sequence's index, so a stream that matches six of the seven response-start tokens and then diverges raises IndexError instead of taking the fallback every earlier divergence takes | Open |
 | 2026-08-30 | [trl #6980](https://github.com/huggingface/trl/pull/6980) | the chunked lm_head backward matmuls the lm_head weight without the dtype cast its own forward applies, so under autocast a forward that succeeds cannot be backpropagated and raises a dtype mismatch | Open |
 | 2026-08-30 | [unsloth #10028](https://github.com/unslothai/unsloth/pull/10028) | the single-device block assigned a bare lambda to Accelerator.distributed_type, which is a property upstream, so it bound as a method and accelerate's != DistributedType.NO guards fired on a single device with the device_map error the block exists to prevent | Merged |
@@ -29,7 +31,7 @@ _29 in the last 7 days · 102 in the last 30._
 | 2026-08-29 | [litellm #38737](https://github.com/BerriAI/litellm/pull/38737) | the spend-log truncation wrote its tail as value[-end_chars:], and both shares floor to zero at a limit of 1 or less, so the tightest MAX_STRING_LENGTH_PROMPT_IN_DB stored the whole prompt plus a marker saying it had been skipped | Open |
 | 2026-08-29 | [vllm #54321](https://github.com/vllm-project/vllm/pull/54321) | an explicit tool_choice null was not treated as an absent one, so tools were never parsed out of the reply and a structured-outputs request carrying a null tool_choice and no tools was refused as asking for both | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
