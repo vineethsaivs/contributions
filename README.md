@@ -1,17 +1,18 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 2, 2026 at 12:27 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 2, 2026 at 2:10 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **236** | **93** | **117** | **78%** | **38** | **30 days** |
+| **237** | **93** | **118** | **78%** | **38** | **30 days** |
 
-_28 in the last 7 days · 105 in the last 30._
+_29 in the last 7 days · 106 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-02 | [pytorch #195779](https://github.com/pytorch/pytorch/pull/195779) | the torch.trapezoid and torch.cumulative_trapezoid doc examples print outputs the functions never produce: two results shown as bare Python floats and two as NumPy `array(...)`, though both are documented `-> Tensor`, plus a tensor printed after an assignment that outputs nothing | Open |
 | 2026-09-02 | [DeepSpeed #8395](https://github.com/deepspeedai/DeepSpeed/pull/8395) | elasticity v0.2 picked the micro batch by dividing the global batch by every GPU instead of by the data-parallel world, so with `model_parallel_size > 1` it chose a needlessly small micro batch or returned None when only the correct one was offered | Open |
 | 2026-09-02 | [DeepSpeed #8394](https://github.com/deepspeedai/DeepSpeed/pull/8394) | the flops profiler counted `F.interpolate(x, size=...)` over the output spatial shape alone, dropping the batch and channel dims, so the same upsample reported 4096 flops with `size=(64,64)` and 98304 with `scale_factor=2` | Open |
 | 2026-09-01 | [pytorch #195639](https://github.com/pytorch/pytorch/pull/195639) | gradcheck compares the two Jacobians with torch.allclose but never exposed its equal_nan, so a function defined on only part of the sampled domain produces two identical all-NaN Jacobians and is reported as a mismatch between them | Open |
@@ -27,14 +28,8 @@ _28 in the last 7 days · 105 in the last 30._
 | 2026-08-30 | [accelerate #4197](https://github.com/huggingface/accelerate/pull/4197) | convert_file_size_to_int applies the bit-vs-byte suffix rule to the decimal units only, so a max_memory entry given in gibibits is parsed as gibibytes and plans a device map against 8x the memory that is there | Open |
 | 2026-08-30 | [sentence-transformers #3971](https://github.com/huggingface/sentence-transformers/pull/3971) | two of the four multi-process workers never walk a list result, so the list-of-tensors and output_value=None shapes reach the results queue still on the accelerator, as handles the caller can no longer read once stop_multi_process_pool has torn the workers down | Merged |
 | 2026-08-30 | [datasets #8539](https://github.com/huggingface/datasets/pull/8539) | convert_file_size_to_int reads a lowercase trailing b as bits and divides by 8 on the decimal units only, so the five binary branches read 1Gib as one gibibyte and return a max_shard_size 8x too large | Open |
-| 2026-08-29 | [unsloth-zoo #1133](https://github.com/unslothai/unsloth-zoo/pull/1133) | the test suite's own sys.modules leak guard reported unsloth-zoo's own bitsandbytes stub as a test leak, so the first test in any session to import the package failed in teardown on every host without a real bitsandbytes | Open |
-| 2026-08-29 | [Ray #65790](https://github.com/ray-project/ray/pull/65790) | PBT's _quantiles sliced the top of the population as trials[-num_trials_in_quantile:], so quantile_fraction=0, documented as no exploitation at all, put every trial in the upper quantile and made all of them checkpoint every interval | Open |
-| 2026-08-29 | [DeepSpeed #8360](https://github.com/deepspeedai/DeepSpeed/pull/8360) | ZenFlow's gradient copy branched on grad_accum is None and then called .view() on the None in both arms, raising an AttributeError where the base ZeRO-1/2 copy raises its own assertion | Open |
-| 2026-08-29 | [pytorch-lightning #21923](https://github.com/Lightning-AI/pytorch-lightning/pull/21923) | lr_find's suggestion() sliced the loss curve with [skip_begin:-skip_end], so skip_end=0, the documented way to keep the whole curve, selected nothing and returned no suggestion at all | Open |
-| 2026-08-29 | [litellm #38737](https://github.com/BerriAI/litellm/pull/38737) | the spend-log truncation wrote its tail as value[-end_chars:], and both shares floor to zero at a limit of 1 or less, so the tightest MAX_STRING_LENGTH_PROMPT_IN_DB stored the whole prompt plus a marker saying it had been skipped | Open |
-| 2026-08-29 | [vllm #54321](https://github.com/vllm-project/vllm/pull/54321) | an explicit tool_choice null was not treated as an absent one, so tools were never parsed out of the reply and a structured-outputs request carrying a null tool_choice and no tools was refused as asking for both | Open |
 
-_Showing the 21 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
