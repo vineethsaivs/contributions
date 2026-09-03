@@ -1,17 +1,19 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 3, 2026 at 2:36 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 3, 2026 at 3:23 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **240** | **96** | **118** | **79%** | **38** | **31 days** |
+| **242** | **96** | **120** | **79%** | **38** | **31 days** |
 
-_29 in the last 7 days · 107 in the last 30._
+_31 in the last 7 days · 109 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-03 | [unsloth #10268](https://github.com/unslothai/unsloth/pull/10268) | the llama.cpp auto-install branches on `IS_KAGGLE_ENVIRONMENT` and calls `install_llama_cpp` identically either way, with the comment explaining the Kaggle carve-out left on the non-Kaggle arm | Open |
+| 2026-09-03 | [DeepSpeed #8408](https://github.com/deepspeedai/DeepSpeed/pull/8408) | `DSUNet._forward` accepts `timestep_cond` and `added_cond_kwargs` and forwards neither, and passes `return_dict` positionally into `UNet2DConditionModel.forward`, whose fourth positional is `class_labels`, so SDXL's required conditioning never arrives and `return_dict=False` is ignored | Open |
 | 2026-09-03 | [accelerate #4210](https://github.com/huggingface/accelerate/pull/4210) | `dtype_byte_size` ends in `bit_size // 8`, so all twenty sub-byte torch dtypes (uint1-uint7, int1-int7, float4_e2m1fn_x2, bits2x4, bits4x2, quint2x4, quint4x2) floor to 0 bytes and `compute_module_sizes` measures a 4-bit module as free | Open |
 | 2026-09-03 | [datasets #8559](https://github.com/huggingface/datasets/pull/8559) | `Dataset.repeat`'s example calls `take(2).repeat(2)`, which returns four rows, and prints six; `IterableDataset.repeat` carries the same example and omits `streaming=True`, so it builds a `Dataset` and never reaches the method being documented | Open |
 | 2026-09-03 | [pytorch #195936](https://github.com/pytorch/pytorch/pull/195936) | the `kaiser` window docstring prints `gaussian`'s output, ten values for a `kaiser(5)` call that returns five, and the `nuttall` docstring prints nuttall's values but calls `general_hamming`, which returns something else | Open |
@@ -32,7 +34,7 @@ _29 in the last 7 days · 107 in the last 30._
 | 2026-08-30 | [sentence-transformers #3971](https://github.com/huggingface/sentence-transformers/pull/3971) | two of the four multi-process workers never walk a list result, so the list-of-tensors and output_value=None shapes reach the results queue still on the accelerator, as handles the caller can no longer read once stop_multi_process_pool has torn the workers down | Merged |
 | 2026-08-30 | [datasets #8539](https://github.com/huggingface/datasets/pull/8539) | convert_file_size_to_int reads a lowercase trailing b as bits and divides by 8 on the decimal units only, so the five binary branches read 1Gib as one gibibyte and return a max_shard_size 8x too large | Open |
 
-_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 21 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
