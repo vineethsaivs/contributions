@@ -1,17 +1,18 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 3, 2026 at 3:23 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 3, 2026 at 11:16 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **242** | **96** | **120** | **79%** | **38** | **31 days** |
+| **243** | **96** | **120** | **78%** | **38** | **32 days** |
 
-_31 in the last 7 days · 109 in the last 30._
+_32 in the last 7 days · 110 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-04 | [Ray #65918](https://github.com/ray-project/ray/pull/65918) | resubmit of #65008, which the stale bot auto-closed while the fix was still valid: ASHA's callers apply `self._metric_op` before `_Bracket.on_result` sees the value, so a `None` metric raises TypeError before reaching the branch that exists to warn and keep the trial running | Open |
 | 2026-09-03 | [unsloth #10268](https://github.com/unslothai/unsloth/pull/10268) | the llama.cpp auto-install branches on `IS_KAGGLE_ENVIRONMENT` and calls `install_llama_cpp` identically either way, with the comment explaining the Kaggle carve-out left on the non-Kaggle arm | Open |
 | 2026-09-03 | [DeepSpeed #8408](https://github.com/deepspeedai/DeepSpeed/pull/8408) | `DSUNet._forward` accepts `timestep_cond` and `added_cond_kwargs` and forwards neither, and passes `return_dict` positionally into `UNet2DConditionModel.forward`, whose fourth positional is `class_labels`, so SDXL's required conditioning never arrives and `return_dict=False` is ignored | Open |
 | 2026-09-03 | [accelerate #4210](https://github.com/huggingface/accelerate/pull/4210) | `dtype_byte_size` ends in `bit_size // 8`, so all twenty sub-byte torch dtypes (uint1-uint7, int1-int7, float4_e2m1fn_x2, bits2x4, bits4x2, quint2x4, quint4x2) floor to 0 bytes and `compute_module_sizes` measures a 4-bit module as free | Open |
@@ -19,7 +20,7 @@ _31 in the last 7 days · 109 in the last 30._
 | 2026-09-03 | [pytorch #195936](https://github.com/pytorch/pytorch/pull/195936) | the `kaiser` window docstring prints `gaussian`'s output, ten values for a `kaiser(5)` call that returns five, and the `nuttall` docstring prints nuttall's values but calls `general_hamming`, which returns something else | Open |
 | 2026-09-02 | [pytorch #195779](https://github.com/pytorch/pytorch/pull/195779) | the torch.trapezoid and torch.cumulative_trapezoid doc examples print outputs the functions never produce: two results shown as bare Python floats and two as NumPy `array(...)`, though both are documented `-> Tensor`, plus a tensor printed after an assignment that outputs nothing | Open |
 | 2026-09-02 | [DeepSpeed #8395](https://github.com/deepspeedai/DeepSpeed/pull/8395) | elasticity v0.2 picked the micro batch by dividing the global batch by every GPU instead of by the data-parallel world, so with `model_parallel_size > 1` it chose a needlessly small micro batch or returned None when only the correct one was offered | Open |
-| 2026-09-02 | [DeepSpeed #8394](https://github.com/deepspeedai/DeepSpeed/pull/8394) | the flops profiler counted `F.interpolate(x, size=...)` over the output spatial shape alone, dropping the batch and channel dims, so the same upsample reported 4096 flops with `size=(64,64)` and 98304 with `scale_factor=2` | Open |
+| 2026-09-02 | [DeepSpeed #8394](https://github.com/deepspeedai/DeepSpeed/pull/8394) | the flops profiler counted `F.interpolate(x, size=...)` over the output spatial shape alone, dropping the batch and channel dims; after review it also floors each output spatial dim in the `scale_factor` branch, which multiplied the scales together and truncated once and so only agreed with torch for integer scales | Open |
 | 2026-09-01 | [pytorch #195639](https://github.com/pytorch/pytorch/pull/195639) | gradcheck compares the two Jacobians with torch.allclose but never exposed its equal_nan, so a function defined on only part of the sampled domain produces two identical all-NaN Jacobians and is reported as a mismatch between them | Open |
 | 2026-09-01 | [unsloth #10153](https://github.com/unslothai/unsloth/pull/10153) | get_chat_template reads padding_side straight off whatever it is handed, so a vision checkpoint's processor, which keeps it on the tokenizer it wraps, raises AttributeError before the call can do anything | Withdrawn |
 | 2026-09-01 | [DeepSpeed #8386](https://github.com/deepspeedai/DeepSpeed/pull/8386) | mask_nan_or_inf_with_val_inplace takes a val argument and then builds its fill tensor from a hardcoded -1.0, so the one knob the refactor that created the helper introduced has never done anything | Open |
@@ -34,7 +35,7 @@ _31 in the last 7 days · 109 in the last 30._
 | 2026-08-30 | [sentence-transformers #3971](https://github.com/huggingface/sentence-transformers/pull/3971) | two of the four multi-process workers never walk a list result, so the list-of-tensors and output_value=None shapes reach the results queue still on the accelerator, as handles the caller can no longer read once stop_multi_process_pool has torn the workers down | Merged |
 | 2026-08-30 | [datasets #8539](https://github.com/huggingface/datasets/pull/8539) | convert_file_size_to_int reads a lowercase trailing b as bits and divides by 8 on the decimal units only, so the five binary branches read 1Gib as one gibibyte and return a max_shard_size 8x too large | Open |
 
-_Showing the 21 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 22 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
