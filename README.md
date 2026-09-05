@@ -1,17 +1,25 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 3, 2026 at 11:16 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 5, 2026 at 12:58 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **243** | **96** | **120** | **78%** | **38** | **32 days** |
+| **251** | **96** | **128** | **78%** | **42** | **32 days** |
 
-_32 in the last 7 days · 110 in the last 30._
+_30 in the last 7 days · 111 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-04 | [Ray #65957](https://github.com/ray-project/ray/pull/65957) | `MedianStoppingRule` counts a trial with no result in the averaging window as a sample; `np.mean([])` is nan, the median becomes nan, and nan compares worse than every real score, so one such trial stops all the others | Open |
+| 2026-09-04 | [sentence-transformers #3984](https://github.com/huggingface/sentence-transformers/pull/3984) | Four docstrings state the same CoSENT objective and two invert the difference; each wrong one sits on a base class or subclass of a right one, running identical code | Open |
+| 2026-09-04 | [PyTorch Lightning #21931](https://github.com/Lightning-AI/pytorch-lightning/pull/21931) | The lr_finder ladder is not evenly spaced: the first step is twice as wide as the rest in linear mode and the square of the rest in exponential mode, and one rung is never visited | Open |
+| 2026-09-04 | [TRL #7069](https://github.com/huggingface/trl/pull/7069) | `compute_flops_per_token` raises `AttributeError` on Mixtral and Qwen2-MoE, two of the three MoE families its docstring names, and its MoE-layer rule is off by one | Open |
+| 2026-09-04 | [DeepSpeed #8419](https://github.com/deepspeedai/DeepSpeed/pull/8419) | Four flop counters in the profiler count the wrong element set: `F.linear` never charged its bias, `matmul` counted a dimension its output does not have for 1-D operands and dropped broadcast batch dims, and both `addmm` counters charged the bias over its own shape | Open |
+| 2026-09-04 | [Hugging Face datasets #8564](https://github.com/huggingface/datasets/pull/8564) | `Image`, `Pdf`, `Nifti` and `Video` document `X(decode=True, id=None)` as their repr, and all four declare `id` with `repr=False`, so none of them can print it; `video.py` also carries an unterminated string literal in its last example | Open |
+| 2026-09-04 | [Unsloth #10304](https://github.com/unslothai/unsloth/pull/10304) | `push_to_ollama` calls `create_ollama_modelfile` with the `gguf_location=` keyword it lost in a signature change and omits both required arguments, so every call raises TypeError before reaching Ollama | Open |
+| 2026-09-04 | [DeepSpeed #8413](https://github.com/deepspeedai/DeepSpeed/pull/8413) | `DSVAE.forward` tests `cuda_graph_created`, a flag only `DSUNet` sets, so the default `enable_cuda_graph=True` path raises AttributeError; `_forward` is copied from the UNet wrapper and binds a VAE's arguments to the wrong parameters; `_decode` accepts `generator` and drops it, which every diffusers pipeline passes | Open |
 | 2026-09-04 | [Ray #65918](https://github.com/ray-project/ray/pull/65918) | resubmit of #65008, which the stale bot auto-closed while the fix was still valid: ASHA's callers apply `self._metric_op` before `_Bracket.on_result` sees the value, so a `None` metric raises TypeError before reaching the branch that exists to warn and keep the trial running | Open |
 | 2026-09-03 | [unsloth #10268](https://github.com/unslothai/unsloth/pull/10268) | the llama.cpp auto-install branches on `IS_KAGGLE_ENVIRONMENT` and calls `install_llama_cpp` identically either way, with the comment explaining the Kaggle carve-out left on the non-Kaggle arm | Open |
 | 2026-09-03 | [DeepSpeed #8408](https://github.com/deepspeedai/DeepSpeed/pull/8408) | `DSUNet._forward` accepts `timestep_cond` and `added_cond_kwargs` and forwards neither, and passes `return_dict` positionally into `UNet2DConditionModel.forward`, whose fourth positional is `class_labels`, so SDXL's required conditioning never arrives and `return_dict=False` is ignored | Open |
@@ -21,21 +29,8 @@ _32 in the last 7 days · 110 in the last 30._
 | 2026-09-02 | [pytorch #195779](https://github.com/pytorch/pytorch/pull/195779) | the torch.trapezoid and torch.cumulative_trapezoid doc examples print outputs the functions never produce: two results shown as bare Python floats and two as NumPy `array(...)`, though both are documented `-> Tensor`, plus a tensor printed after an assignment that outputs nothing | Open |
 | 2026-09-02 | [DeepSpeed #8395](https://github.com/deepspeedai/DeepSpeed/pull/8395) | elasticity v0.2 picked the micro batch by dividing the global batch by every GPU instead of by the data-parallel world, so with `model_parallel_size > 1` it chose a needlessly small micro batch or returned None when only the correct one was offered | Open |
 | 2026-09-02 | [DeepSpeed #8394](https://github.com/deepspeedai/DeepSpeed/pull/8394) | the flops profiler counted `F.interpolate(x, size=...)` over the output spatial shape alone, dropping the batch and channel dims; after review it also floors each output spatial dim in the `scale_factor` branch, which multiplied the scales together and truncated once and so only agreed with torch for integer scales | Open |
-| 2026-09-01 | [pytorch #195639](https://github.com/pytorch/pytorch/pull/195639) | gradcheck compares the two Jacobians with torch.allclose but never exposed its equal_nan, so a function defined on only part of the sampled domain produces two identical all-NaN Jacobians and is reported as a mismatch between them | Open |
-| 2026-09-01 | [unsloth #10153](https://github.com/unslothai/unsloth/pull/10153) | get_chat_template reads padding_side straight off whatever it is handed, so a vision checkpoint's processor, which keeps it on the tokenizer it wraps, raises AttributeError before the call can do anything | Withdrawn |
-| 2026-09-01 | [DeepSpeed #8386](https://github.com/deepspeedai/DeepSpeed/pull/8386) | mask_nan_or_inf_with_val_inplace takes a val argument and then builds its fill tensor from a hardcoded -1.0, so the one knob the refactor that created the helper introduced has never done anything | Open |
-| 2026-08-31 | [unsloth #10101](https://github.com/unslothai/unsloth/pull/10101) | get_ollama_eos_tokens collapses a token family into its shared prefix while rewriting the text it scans, so the answer depends on list order and the list came from a set: a Gemma-shaped vocabulary exported <unk> on some runs and a two-character <un stop token in its place on others | Merged |
-| 2026-08-31 | [DeepSpeed #8378](https://github.com/deepspeedai/DeepSpeed/pull/8378) | a frozen parameter has no fp32 master copy, so get_fp32_state_dict_from_zero_checkpoint returned it in the model's own dtype while trainable parameters and buffers came back fp32, breaking its documented fp32 contract on every bf16 or fp16 run | Open |
-| 2026-08-31 | [DeepSpeed #8376](https://github.com/deepspeedai/DeepSpeed/pull/8376) | to_torch_tensor maps tied parameters onto one shared tensor and safetensors refuses tensors that share storage, so zero_to_fp32 --safe_serialization aborted on any model with tied weights, which is the usual embedding / lm_head pair | Open |
-| 2026-08-30 | [vllm #54499](https://github.com/vllm-project/vllm/pull/54499) | the Hunyuan A13B streaming parser reads its shorter side sequence at the main sequence's index, so a stream that matches six of the seven response-start tokens and then diverges raises IndexError instead of taking the fallback every earlier divergence takes | Open |
-| 2026-08-30 | [trl #6980](https://github.com/huggingface/trl/pull/6980) | the chunked lm_head backward matmuls the lm_head weight without the dtype cast its own forward applies, so under autocast a forward that succeeds cannot be backpropagated and raises a dtype mismatch | Open |
-| 2026-08-30 | [unsloth #10028](https://github.com/unslothai/unsloth/pull/10028) | the single-device block assigned a bare lambda to Accelerator.distributed_type, which is a property upstream, so it bound as a method and accelerate's != DistributedType.NO guards fired on a single device with the device_map error the block exists to prevent | Merged |
-| 2026-08-30 | [pytorch #195376](https://github.com/pytorch/pytorch/pull/195376) | the non-empty guard in the nearest-upsample metas passed torch._check the product of the non-batch sizes, an int rather than a bool, so every zero-element input raised TypeError out of the check itself, including the zero-batch case eager upsamples fine | Open |
-| 2026-08-30 | [accelerate #4197](https://github.com/huggingface/accelerate/pull/4197) | convert_file_size_to_int applies the bit-vs-byte suffix rule to the decimal units only, so a max_memory entry given in gibibits is parsed as gibibytes and plans a device map against 8x the memory that is there | Open |
-| 2026-08-30 | [sentence-transformers #3971](https://github.com/huggingface/sentence-transformers/pull/3971) | two of the four multi-process workers never walk a list result, so the list-of-tensors and output_value=None shapes reach the results queue still on the accelerator, as handles the caller can no longer read once stop_multi_process_pool has torn the workers down | Merged |
-| 2026-08-30 | [datasets #8539](https://github.com/huggingface/datasets/pull/8539) | convert_file_size_to_int reads a lowercase trailing b as bits and divides by 8 on the decimal units only, so the five binary branches read 1Gib as one gibibyte and return a max_shard_size 8x too large | Open |
 
-_Showing the 22 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
