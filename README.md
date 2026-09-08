@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 8, 2026 at 12:01 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 8, 2026 at 9:42 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **254** | **101** | **122** | **77%** | **42** | **1 days** |
+| **257** | **101** | **125** | **77%** | **42** | **2 days** |
 
-_20 in the last 7 days · 104 in the last 30._
+_23 in the last 7 days · 107 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-08 | [sentence-transformers #3993](https://github.com/huggingface/sentence-transformers/pull/3993) | `CachedGISTEmbedLoss` still read `tokenizer.vocab` after PR #3226 moved only the uncached loss to `get_vocab()`, so it raised AttributeError on GPT-2, XLM and Flaubert tokenizers | Open |
+| 2026-09-08 | [datasets #8588](https://github.com/huggingface/datasets/pull/8588) | `TranslationVariableLanguages` declares `languages` optional but `encode_example` built `set(self.languages)` before its own None guard, so the default feature raised TypeError on every example | Open |
+| 2026-09-08 | [Ray #65991](https://github.com/ray-project/ray/pull/65991) | With `constant_grid_search=True` every grid variant shared one `resolved_vars` dict, so all trials reported the last grid value as their hyperparameters while each ran its own correct config | Open |
 | 2026-09-07 | [accelerate #4228](https://github.com/huggingface/accelerate/pull/4228) | `split_between_processes(apply_padding=True)` raised TypeError for a tuple, a documented input type, because the slice keeps the tuple type and the padding was always a list | Open |
 | 2026-09-07 | [DeepSpeed #8455](https://github.com/deepspeedai/DeepSpeed/pull/8455) | With `partition_activations` on, `merge_tensors` handed the activation-checkpoint recompute a stray `None` after every non-tensor argument, shifting every argument that followed it | Open |
 | 2026-09-07 | [PyTorch Lightning #21936](https://github.com/Lightning-AI/pytorch-lightning/pull/21936) | `ckpt_path="last"` silently resumed from nothing whenever `ModelCheckpoint` saved to a remote filesystem: `os.path.normpath` stripped the protocol off the paths `fs.ls` returned, so every candidate resolved against local disk and was dropped | Open |
@@ -30,7 +33,7 @@ _20 in the last 7 days · 104 in the last 30._
 | 2026-09-03 | [datasets #8559](https://github.com/huggingface/datasets/pull/8559) | `Dataset.repeat`'s example calls `take(2).repeat(2)`, which returns four rows, and prints six; `IterableDataset.repeat` carries the same example and omits `streaming=True`, so it builds a `Dataset` and never reaches the method being documented | Open |
 | 2026-09-03 | [pytorch #195936](https://github.com/pytorch/pytorch/pull/195936) | the `kaiser` window docstring prints `gaussian`'s output, ten values for a `kaiser(5)` call that returns five, and the `nuttall` docstring prints nuttall's values but calls `general_hamming`, which returns something else | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
