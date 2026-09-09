@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 8, 2026 at 8:50 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 9, 2026 at 10:48 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **257** | **101** | **122** | **75%** | **42** | **2 days** |
+| **260** | **101** | **125** | **75%** | **42** | **3 days** |
 
-_23 in the last 7 days · 107 in the last 30._
+_23 in the last 7 days · 106 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-09 | [datasets #8594](https://github.com/huggingface/datasets/pull/8594) | IterableDatasetDict.shuffle could not pass max_buffer_input_shards, so shuffling a streamed dataset dict raised TypeError | Open |
+| 2026-09-09 | [PyTorch Lightning #21945](https://github.com/Lightning-AI/pytorch-lightning/pull/21945) | Fabric's call tracker leaked a forward hook per submodule on every failed call and carried its verdict into the next call | Open |
+| 2026-09-09 | [PyTorch Lightning #21944](https://github.com/Lightning-AI/pytorch-lightning/pull/21944) | Setting an attribute on a Fabric-wrapped model ran the model's own property getter, so a getter that guards an uninitialized value raised out of the assignment | Open |
 | 2026-09-08 | [sentence-transformers #3993](https://github.com/huggingface/sentence-transformers/pull/3993) | `CachedGISTEmbedLoss` still read `tokenizer.vocab` after PR #3226 moved only the uncached loss to `get_vocab()`, so it raised AttributeError on GPT-2, XLM and Flaubert tokenizers | Open |
 | 2026-09-08 | [datasets #8588](https://github.com/huggingface/datasets/pull/8588) | `TranslationVariableLanguages` declares `languages` optional but `encode_example` built `set(self.languages)` before its own None guard, so the default feature raised TypeError on every example | Open |
 | 2026-09-08 | [Ray #65991](https://github.com/ray-project/ray/pull/65991) | With `constant_grid_search=True` every grid variant shared one `resolved_vars` dict, so all trials reported the last grid value as their hyperparameters while each ran its own correct config | Open |
@@ -27,13 +30,8 @@ _23 in the last 7 days · 107 in the last 30._
 | 2026-09-04 | [Unsloth #10304](https://github.com/unslothai/unsloth/pull/10304) | `push_to_ollama` calls `create_ollama_modelfile` with the `gguf_location=` keyword it lost in a signature change and omits both required arguments, so every call raises TypeError before reaching Ollama | Merged |
 | 2026-09-04 | [DeepSpeed #8413](https://github.com/deepspeedai/DeepSpeed/pull/8413) | `DSVAE.forward` tests `cuda_graph_created`, a flag only `DSUNet` sets, so the default `enable_cuda_graph=True` path raises AttributeError; `_forward` is copied from the UNet wrapper and binds a VAE's arguments to the wrong parameters; `_decode` accepts `generator` and drops it, which every diffusers pipeline passes | Open |
 | 2026-09-04 | [Ray #65918](https://github.com/ray-project/ray/pull/65918) | resubmit of #65008, which the stale bot auto-closed while the fix was still valid: ASHA's callers apply `self._metric_op` before `_Bracket.on_result` sees the value, so a `None` metric raises TypeError before reaching the branch that exists to warn and keep the trial running | Open |
-| 2026-09-03 | [unsloth #10268](https://github.com/unslothai/unsloth/pull/10268) | the llama.cpp auto-install branches on `IS_KAGGLE_ENVIRONMENT` and calls `install_llama_cpp` identically either way, with the comment explaining the Kaggle carve-out left on the non-Kaggle arm | Open |
-| 2026-09-03 | [DeepSpeed #8408](https://github.com/deepspeedai/DeepSpeed/pull/8408) | `DSUNet._forward` accepts `timestep_cond` and `added_cond_kwargs` and forwards neither, and passes `return_dict` positionally into `UNet2DConditionModel.forward`, whose fourth positional is `class_labels`, so SDXL's required conditioning never arrives and `return_dict=False` is ignored | Open |
-| 2026-09-03 | [accelerate #4210](https://github.com/huggingface/accelerate/pull/4210) | `dtype_byte_size` ends in `bit_size // 8`, so all twenty sub-byte torch dtypes (uint1-uint7, int1-int7, float4_e2m1fn_x2, bits2x4, bits4x2, quint2x4, quint4x2) floor to 0 bytes and `compute_module_sizes` measures a 4-bit module as free | Closed, maintainer declined the fix |
-| 2026-09-03 | [datasets #8559](https://github.com/huggingface/datasets/pull/8559) | `Dataset.repeat`'s example calls `take(2).repeat(2)`, which returns four rows, and prints six; `IterableDataset.repeat` carries the same example and omits `streaming=True`, so it builds a `Dataset` and never reaches the method being documented | Open |
-| 2026-09-03 | [pytorch #195936](https://github.com/pytorch/pytorch/pull/195936) | the `kaiser` window docstring prints `gaussian`'s output, ten values for a `kaiser(5)` call that returns five, and the `nuttall` docstring prints nuttall's values but calls `general_hamming`, which returns something else | Open |
 
-_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
