@@ -1,17 +1,20 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 9, 2026 at 6:04 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 10, 2026 at 10:23 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **262** | **103** | **124** | **75%** | **42** | **4 days** |
+| **265** | **103** | **127** | **75%** | **42** | **4 days** |
 
-_25 in the last 7 days · 108 in the last 30._
+_23 in the last 7 days · 108 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-10 | [unsloth #10743](https://github.com/unslothai/unsloth/pull/10743) | test_raw_text_loader wrapped its whole body in try/except, so its 170 lines of assertions could never fail the suite | Open |
+| 2026-09-10 | [unsloth #10742](https://github.com/unslothai/unsloth/pull/10742) | to_sharegpt read the inside of an escaped brace pair as a column name, so a prompt asking for JSON reported its own text as a missing dataset column | Open |
+| 2026-09-10 | [unsloth #10741](https://github.com/unslothai/unsloth/pull/10741) | TextPreprocessor.clean_text deleted every non-ASCII character, so accented words lost their accents and a document in any non-Latin script came back empty | Open |
 | 2026-09-10 | [unsloth #10682](https://github.com/unslothai/unsloth/pull/10682) | Stripping the template BOS from a Llama 2 style expression removed its opening braces, so the prompt rendered as literal Jinja source | Open |
 | 2026-09-10 | [unsloth #10681](https://github.com/unslothai/unsloth/pull/10681) | LongRope applied the long RoPE factor a token early, and that same length read a long cos/sin cache nothing had built | Open |
 | 2026-09-09 | [datasets #8594](https://github.com/huggingface/datasets/pull/8594) | IterableDatasetDict.shuffle could not pass max_buffer_input_shards, so shuffling a streamed dataset dict raised TypeError | Open |
@@ -33,7 +36,7 @@ _25 in the last 7 days · 108 in the last 30._
 | 2026-09-04 | [DeepSpeed #8413](https://github.com/deepspeedai/DeepSpeed/pull/8413) | `DSVAE.forward` tests `cuda_graph_created`, a flag only `DSUNet` sets, so the default `enable_cuda_graph=True` path raises AttributeError; `_forward` is copied from the UNet wrapper and binds a VAE's arguments to the wrong parameters; `_decode` accepts `generator` and drops it, which every diffusers pipeline passes | Open |
 | 2026-09-04 | [Ray #65918](https://github.com/ray-project/ray/pull/65918) | resubmit of #65008, which the stale bot auto-closed while the fix was still valid: ASHA's callers apply `self._metric_op` before `_Bracket.on_result` sees the value, so a `None` metric raises TypeError before reaching the branch that exists to warn and keep the trial running | Open |
 
-_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 23 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
