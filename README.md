@@ -1,17 +1,21 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 11, 2026 at 2:05 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 12, 2026 at 1:45 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **268** | **107** | **125** | **75%** | **42** | **5 days** |
+| **272** | **107** | **129** | **75%** | **42** | **6 days** |
 
-_17 in the last 7 days · 109 in the last 30._
+_21 in the last 7 days · 108 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-12 | [unsloth-zoo #1194](https://github.com/unslothai/unsloth-zoo/pull/1194) | higher_precision_layernorms matched its float32 markers against the norm class plus a whole unrelated class, so Llama 4's neighbouring experts block upcast layernorm weights that should stay in float16 | Open |
+| 2026-09-12 | [accelerate #4252](https://github.com/huggingface/accelerate/pull/4252) | DataLoaderShard took the same torch_device_mesh argument its sibling DataLoaderDispatcher honours, documented none of it, and never read it | Open |
+| 2026-09-12 | [unsloth-zoo #1193](https://github.com/unslothai/unsloth-zoo/pull/1193) | an eight-branch chunked-prefill ladder was overwritten on the next line and only ever printed, so the startup line reported a number that never reached vLLM | Open |
+| 2026-09-12 | [accelerate #4251](https://github.com/huggingface/accelerate/pull/4251) | Accelerator.__init__ accepted a split_batches argument it never read, so Accelerator(split_batches=True) configured nothing and warned about nothing while its three sibling kwargs already raised | Open |
 | 2026-09-11 | [unsloth #10818](https://github.com/unslothai/unsloth/pull/10818) | the gradient-accumulation rewrite used octal escapes instead of group references, so the captured indents came back as control characters and the exec that follows could not parse the result | Open |
 | 2026-09-11 | [unsloth #10816](https://github.com/unslothai/unsloth/pull/10816) | upload_to_huggingface took a method argument and formatted the model card with method empty, so every card it pushed read 'Uploaded  model' instead of naming the method | Open |
 | 2026-09-11 | [DeepSpeed #8488](https://github.com/deepspeedai/DeepSpeed/pull/8488) | every _graph_replay copied only top-level tensors into the captured CUDA graph inputs, so SDXL's added_cond_kwargs dict was never refreshed and each image after the first replayed the first prompt's conditioning | Open |
@@ -26,11 +30,8 @@ _17 in the last 7 days · 109 in the last 30._
 | 2026-09-08 | [sentence-transformers #3993](https://github.com/huggingface/sentence-transformers/pull/3993) | `CachedGISTEmbedLoss` still read `tokenizer.vocab` after PR #3226 moved only the uncached loss to `get_vocab()`, so it raised AttributeError on GPT-2, XLM and Flaubert tokenizers | Merged |
 | 2026-09-08 | [datasets #8588](https://github.com/huggingface/datasets/pull/8588) | `TranslationVariableLanguages` declares `languages` optional but `encode_example` built `set(self.languages)` before its own None guard, so the default feature raised TypeError on every example | Open |
 | 2026-09-08 | [Ray #65991](https://github.com/ray-project/ray/pull/65991) | With `constant_grid_search=True` every grid variant shared one `resolved_vars` dict, so all trials reported the last grid value as their hyperparameters while each ran its own correct config | Open |
-| 2026-09-07 | [accelerate #4228](https://github.com/huggingface/accelerate/pull/4228) | `split_between_processes(apply_padding=True)` raised TypeError for a tuple, a documented input type, because the slice keeps the tuple type and the padding was always a list | Closed, maintainer declined the fix |
-| 2026-09-07 | [DeepSpeed #8455](https://github.com/deepspeedai/DeepSpeed/pull/8455) | With `partition_activations` on, `merge_tensors` handed the activation-checkpoint recompute a stray `None` after every non-tensor argument, shifting every argument that followed it | Open |
-| 2026-09-07 | [PyTorch Lightning #21936](https://github.com/Lightning-AI/pytorch-lightning/pull/21936) | `ckpt_path="last"` silently resumed from nothing whenever `ModelCheckpoint` saved to a remote filesystem: `os.path.normpath` stripped the protocol off the paths `fs.ls` returned, so every candidate resolved against local disk and was dropped | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
