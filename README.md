@@ -1,6 +1,6 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 13, 2026 at 1:46 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 13, 2026 at 3:09 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
@@ -12,7 +12,7 @@ _31 in the last 7 days · 115 in the last 30._
 
 | Date | Project | What | Status |
 |---|---|---|---|
-| 2026-09-13 | [DeepSpeed #8506](https://github.com/deepspeedai/DeepSpeed/pull/8506) | Skip unused parameters consistently in ZenFlow updates | Open |
+| 2026-09-13 | [DeepSpeed #8506](https://github.com/deepspeedai/DeepSpeed/pull/8506) | Skip unused parameters in ZenFlow ZeRO-1/2 updates | Open |
 | 2026-09-13 | [DeepSpeed #8505](https://github.com/deepspeedai/DeepSpeed/pull/8505) | Count examples in structured DataAnalyzer batches | Open |
 | 2026-09-13 | [unsloth #10874](https://github.com/unslothai/unsloth/pull/10874) | Pass Q-GaLore optimizer options to bitsandbytes by name | Open |
 | 2026-09-13 | [sentence-transformers #4013](https://github.com/huggingface/sentence-transformers/pull/4013) | Keep label-grouped batches valid across shuffled rounds | Open |
