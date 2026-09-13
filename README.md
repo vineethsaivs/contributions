@@ -1,17 +1,22 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 12, 2026 at 10:32 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 13, 2026 at 12:57 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **277** | **108** | **115** | **67%** | **38** | **6 days** |
+| **282** | **109** | **134** | **74%** | **38** | **7 days** |
 
-_26 in the last 7 days · 113 in the last 30._
+_31 in the last 7 days · 115 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-13 | [DeepSpeed #8506](https://github.com/deepspeedai/DeepSpeed/pull/8506) | Skip unused parameters consistently in ZenFlow updates | Open |
+| 2026-09-13 | [DeepSpeed #8505](https://github.com/deepspeedai/DeepSpeed/pull/8505) | Count examples in structured DataAnalyzer batches | Open |
+| 2026-09-13 | [unsloth #10874](https://github.com/unslothai/unsloth/pull/10874) | Pass Q-GaLore optimizer options to bitsandbytes by name | Open |
+| 2026-09-13 | [sentence-transformers #4013](https://github.com/huggingface/sentence-transformers/pull/4013) | Keep label-grouped batches valid across shuffled rounds | Open |
+| 2026-09-13 | [sentence-transformers #4012](https://github.com/huggingface/sentence-transformers/pull/4012) | Stabilize ListMLE loss for large finite scores | Open |
 | 2026-09-12 | [vllm #56647](https://github.com/vllm-project/vllm/pull/56647) | Serve benchmarks counted sequential requests in one second as concurrent | Open |
 | 2026-09-12 | [DeepSpeed #8496](https://github.com/deepspeedai/DeepSpeed/pull/8496) | ZenFlow's low-precision Adam step counters stopped at 256 or 2048 | Open |
 | 2026-09-12 | [DeepSpeed #8495](https://github.com/deepspeedai/DeepSpeed/pull/8495) | OneCycle silently replaced each Adam parameter group's beta2 with 0.99 | Open |
@@ -24,11 +29,6 @@ _26 in the last 7 days · 113 in the last 30._
 | 2026-09-11 | [unsloth #10818](https://github.com/unslothai/unsloth/pull/10818) | the gradient-accumulation rewrite used octal escapes instead of group references, so the captured indents came back as control characters and the exec that follows could not parse the result | Open |
 | 2026-09-11 | [unsloth #10816](https://github.com/unslothai/unsloth/pull/10816) | upload_to_huggingface took a method argument and formatted the model card with method empty, so every card it pushed read 'Uploaded  model' instead of naming the method | Open |
 | 2026-09-11 | [DeepSpeed #8488](https://github.com/deepspeedai/DeepSpeed/pull/8488) | every _graph_replay copied only top-level tensors into the captured CUDA graph inputs, so SDXL's added_cond_kwargs dict was never refreshed and each image after the first replayed the first prompt's conditioning | Open |
-| 2026-09-10 | [unsloth #10743](https://github.com/unslothai/unsloth/pull/10743) | test_raw_text_loader wrapped its whole body in try/except, so its 170 lines of assertions could never fail the suite | Open |
-| 2026-09-10 | [unsloth #10742](https://github.com/unslothai/unsloth/pull/10742) | to_sharegpt read the inside of an escaped brace pair as a column name, so a prompt asking for JSON reported its own text as a missing dataset column | Open |
-| 2026-09-10 | [unsloth #10741](https://github.com/unslothai/unsloth/pull/10741) | TextPreprocessor.clean_text deleted every non-ASCII character, so accented words lost their accents and a document in any non-Latin script came back empty | Open |
-| 2026-09-10 | [unsloth #10682](https://github.com/unslothai/unsloth/pull/10682) | Stripping the template BOS from a Llama 2 style expression removed its opening braces, so the prompt rendered as literal Jinja source | Merged |
-| 2026-09-10 | [unsloth #10681](https://github.com/unslothai/unsloth/pull/10681) | LongRope applied the long RoPE factor a token early, and that same length read a long cos/sin cache nothing had built | Open |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
