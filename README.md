@@ -1,17 +1,19 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 13, 2026 at 8:32 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 13, 2026 at 8:55 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **284** | **110** | **135** | **74%** | **38** | **7 days** |
+| **286** | **110** | **137** | **74%** | **38** | **7 days** |
 
-_33 in the last 7 days · 117 in the last 30._
+_35 in the last 7 days · 119 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-13 | [pytorch #196942](https://github.com/pytorch/pytorch/pull/196942) | Draft: Reject class attributes hiding registered submodules | Open |
+| 2026-09-13 | [pytorch #196941](https://github.com/pytorch/pytorch/pull/196941) | Draft: Use the supplied generator throughout sparse initialization | Open |
 | 2026-09-13 | [unsloth #10879](https://github.com/unslothai/unsloth/pull/10879) | Invalidate packed attention caches when lengths change | Open |
 | 2026-09-13 | [unsloth #10878](https://github.com/unslothai/unsloth/pull/10878) | Restore full-rank gradients after Q-GaLore updates | Open |
 | 2026-09-13 | [DeepSpeed #8506](https://github.com/deepspeedai/DeepSpeed/pull/8506) | Skip unused parameters in ZenFlow ZeRO-1/2 updates | Open |
@@ -29,7 +31,7 @@ _33 in the last 7 days · 117 in the last 30._
 | 2026-09-12 | [unsloth-zoo #1193](https://github.com/unslothai/unsloth-zoo/pull/1193) | an eight-branch chunked-prefill ladder was overwritten on the next line and only ever printed, so the startup line reported a number that never reached vLLM | Open |
 | 2026-09-12 | [accelerate #4251](https://github.com/huggingface/accelerate/pull/4251) | Accelerator.__init__ accepted a split_batches argument it never read, so Accelerator(split_batches=True) configured nothing and warned about nothing while its three sibling kwargs already raised | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
