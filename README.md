@@ -1,17 +1,22 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 12:03 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 11:00 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **305** | **117** | **149** | **75%** | **39** | **9 days** |
+| **310** | **117** | **154** | **75%** | **39** | **9 days** |
 
-_48 in the last 7 days · 132 in the last 30._
+_53 in the last 7 days · 137 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-15 | [accelerate #4267](https://github.com/huggingface/accelerate/pull/4267) | Filter nonpersistent buffers by their qualified names | Open |
+| 2026-09-15 | [unsloth #11040](https://github.com/unslothai/unsloth/pull/11040) | Count the final EOS token within the raw-text chunk budget | Open |
+| 2026-09-15 | [unsloth #11039](https://github.com/unslothai/unsloth/pull/11039) | Match stopping criteria separately for each generated sequence | Open |
+| 2026-09-15 | [DeepSpeed #8529](https://github.com/deepspeedai/DeepSpeed/pull/8529) | Keep Random-LTD sequence lengths above the configured minimum | Open |
+| 2026-09-15 | [DeepSpeed #8528](https://github.com/deepspeedai/DeepSpeed/pull/8528) | Keep tensor scheduler bounds fixed across LR updates | Open |
 | 2026-09-15 | [crewai #7471](https://github.com/crewAIInc/crewAI/pull/7471) | Draft: fix(rag): enforce chunk size and overlap when merging splits | Open |
 | 2026-09-14 | [ollama #18462](https://github.com/ollama/ollama/pull/18462) | tokenizer: keep Unicode punctuation intact in WordPiece | Open |
 | 2026-09-14 | [pytorch #197072](https://github.com/pytorch/pytorch/pull/197072) | Draft: Support differentiable learning rates in Adadelta and Adamax | Open |
@@ -32,7 +37,7 @@ _48 in the last 7 days · 132 in the last 30._
 | 2026-09-14 | [unsloth #10931](https://github.com/unslothai/unsloth/pull/10931) | Apply Q-GaLore weight decay before the projected update | Open |
 | 2026-09-14 | [DeepSpeed #8516](https://github.com/deepspeedai/DeepSpeed/pull/8516) | Skip absent buffers when loading AutoTP checkpoints | Open |
 
-_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 24 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
