@@ -1,17 +1,22 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 11:16 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 1:12 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **310** | **121** | **150** | **76%** | **39** | **9 days** |
+| **311** | **121** | **151** | **76%** | **39** | **9 days** |
 
-_53 in the last 7 days · 137 in the last 30._
+_54 in the last 7 days · 138 in the last 30._
+
+## Bug reports
+
+- [trl #7221](https://github.com/huggingface/trl/issues/7221): Reproduced NaN entropy for valid zero-probability tokens, including finite float16 inputs; PyTorch categorical entropy remains finite.
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-15 | [sentence-transformers #4028](https://github.com/huggingface/sentence-transformers/pull/4028) | Group tied scores when evaluating paraphrase mining | Open |
 | 2026-09-15 | [accelerate #4267](https://github.com/huggingface/accelerate/pull/4267) | Filter nonpersistent buffers by their qualified names | Open |
 | 2026-09-15 | [unsloth #11040](https://github.com/unslothai/unsloth/pull/11040) | Count the final EOS token within the raw-text chunk budget | Open |
 | 2026-09-15 | [unsloth #11039](https://github.com/unslothai/unsloth/pull/11039) | Match stopping criteria separately for each generated sequence | Open |
@@ -37,7 +42,7 @@ _53 in the last 7 days · 137 in the last 30._
 | 2026-09-14 | [unsloth #10931](https://github.com/unslothai/unsloth/pull/10931) | Apply Q-GaLore weight decay before the projected update | Open |
 | 2026-09-14 | [DeepSpeed #8516](https://github.com/deepspeedai/DeepSpeed/pull/8516) | Skip absent buffers when loading AutoTP checkpoints | Open |
 
-_Showing the 24 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 25 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
