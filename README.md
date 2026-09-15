@@ -1,10 +1,10 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 11:00 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 11:07 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **310** | **117** | **154** | **75%** | **39** | **9 days** |
+| **310** | **121** | **150** | **76%** | **39** | **9 days** |
 
 _53 in the last 7 days · 137 in the last 30._
 
@@ -31,8 +31,8 @@ _53 in the last 7 days · 137 in the last 30._
 | 2026-09-14 | [pytorch #197019](https://github.com/pytorch/pytorch/pull/197019) | Draft: Support differentiable learning rates in RMSprop | Open |
 | 2026-09-14 | [DeepSpeed #8518](https://github.com/deepspeedai/DeepSpeed/pull/8518) | Accept gradient iterators in global norm helpers | Open |
 | 2026-09-14 | [DeepSpeed #8517](https://github.com/deepspeedai/DeepSpeed/pull/8517) | Restore memory-mapped datasets when unpickling | Open |
-| 2026-09-14 | [unsloth-zoo #1218](https://github.com/unslothai/unsloth-zoo/pull/1218) | Pass the RNG flag to the offloaded checkpoint function | Open |
-| 2026-09-14 | [unsloth-zoo #1217](https://github.com/unslothai/unsloth-zoo/pull/1217) | Count tokens for custom losses without model keyword arguments | Open |
+| 2026-09-14 | [unsloth-zoo #1218](https://github.com/unslothai/unsloth-zoo/pull/1218) | Pass the RNG flag to the offloaded checkpoint function | Merged |
+| 2026-09-14 | [unsloth-zoo #1217](https://github.com/unslothai/unsloth-zoo/pull/1217) | Count tokens for custom losses without model keyword arguments | Merged |
 | 2026-09-14 | [sentence-transformers #4019](https://github.com/huggingface/sentence-transformers/pull/4019) | Avoid overflow in batch-hard soft-margin triplet loss | Open |
 | 2026-09-14 | [unsloth #10931](https://github.com/unslothai/unsloth/pull/10931) | Apply Q-GaLore weight decay before the projected update | Open |
 | 2026-09-14 | [DeepSpeed #8516](https://github.com/deepspeedai/DeepSpeed/pull/8516) | Skip absent buffers when loading AutoTP checkpoints | Open |
