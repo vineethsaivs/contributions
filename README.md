@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 1:24 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 4:08 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **312** | **121** | **152** | **76%** | **39** | **9 days** |
+| **315** | **124** | **152** | **76%** | **39** | **9 days** |
 
-_55 in the last 7 days · 139 in the last 30._
+_58 in the last 7 days · 142 in the last 30._
 
 ## Bug reports
 
@@ -16,6 +16,9 @@ _55 in the last 7 days · 139 in the last 30._
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-15 | [accelerate #4268](https://github.com/huggingface/accelerate/pull/4268) | Keep cached buffers registered as buffers | Open |
+| 2026-09-15 | [unsloth-zoo #1237](https://github.com/unslothai/unsloth-zoo/pull/1237) | Keep negative embedding rows classified as trained | Open |
+| 2026-09-15 | [DeepSpeed #8530](https://github.com/deepspeedai/DeepSpeed/pull/8530) | Fix ZeRO-3 checkpoint conversion with --debug | Open |
 | 2026-09-15 | [litellm #41286](https://github.com/BerriAI/litellm/pull/41286) | Draft: fix(proxy): count Gemini contents in local token estimates | Open |
 | 2026-09-15 | [sentence-transformers #4028](https://github.com/huggingface/sentence-transformers/pull/4028) | Group tied scores when evaluating paraphrase mining | Open |
 | 2026-09-15 | [accelerate #4267](https://github.com/huggingface/accelerate/pull/4267) | Filter nonpersistent buffers by their qualified names | Open |
@@ -28,8 +31,8 @@ _55 in the last 7 days · 139 in the last 30._
 | 2026-09-14 | [pytorch #197072](https://github.com/pytorch/pytorch/pull/197072) | Draft: Support differentiable learning rates in Adadelta and Adamax | Open |
 | 2026-09-14 | [accelerate #4264](https://github.com/huggingface/accelerate/pull/4264) | Clamp skipped dataloader lengths at zero | Open |
 | 2026-09-14 | [DeepSpeed #8520](https://github.com/deepspeedai/DeepSpeed/pull/8520) | Fill curriculum batches across repeated cluster shuffles | Open |
-| 2026-09-14 | [sentence-transformers #4021](https://github.com/huggingface/sentence-transformers/pull/4021) | Match contrastive-tension loader length to its batches | Open |
-| 2026-09-14 | [sentence-transformers #4020](https://github.com/huggingface/sentence-transformers/pull/4020) | Keep single hard pairs in OnlineContrastiveLoss | Open |
+| 2026-09-14 | [sentence-transformers #4021](https://github.com/huggingface/sentence-transformers/pull/4021) | Match contrastive-tension loader length to its batches | Merged |
+| 2026-09-14 | [sentence-transformers #4020](https://github.com/huggingface/sentence-transformers/pull/4020) | Keep single hard pairs in OnlineContrastiveLoss | Merged |
 | 2026-09-14 | [vllm #56919](https://github.com/vllm-project/vllm/pull/56919) | Draft: [Bugfix][Benchmark] Parse decode metrics as Prometheus samples | Open |
 | 2026-09-14 | [vllm #56918](https://github.com/vllm-project/vllm/pull/56918) | [Bugfix][Benchmark] Use concurrency for per-user throughput | Open |
 | 2026-09-14 | [accelerate #4262](https://github.com/huggingface/accelerate/pull/4262) | Honor scheduler adjustment during gradient accumulation | Open |
@@ -39,11 +42,11 @@ _55 in the last 7 days · 139 in the last 30._
 | 2026-09-14 | [DeepSpeed #8517](https://github.com/deepspeedai/DeepSpeed/pull/8517) | Restore memory-mapped datasets when unpickling | Open |
 | 2026-09-14 | [unsloth-zoo #1218](https://github.com/unslothai/unsloth-zoo/pull/1218) | Pass the RNG flag to the offloaded checkpoint function | Merged |
 | 2026-09-14 | [unsloth-zoo #1217](https://github.com/unslothai/unsloth-zoo/pull/1217) | Count tokens for custom losses without model keyword arguments | Merged |
-| 2026-09-14 | [sentence-transformers #4019](https://github.com/huggingface/sentence-transformers/pull/4019) | Avoid overflow in batch-hard soft-margin triplet loss | Open |
+| 2026-09-14 | [sentence-transformers #4019](https://github.com/huggingface/sentence-transformers/pull/4019) | Avoid overflow in batch-hard soft-margin triplet loss | Merged |
 | 2026-09-14 | [unsloth #10931](https://github.com/unslothai/unsloth/pull/10931) | Apply Q-GaLore weight decay before the projected update | Open |
 | 2026-09-14 | [DeepSpeed #8516](https://github.com/deepspeedai/DeepSpeed/pull/8516) | Skip absent buffers when loading AutoTP checkpoints | Open |
 
-_Showing the 26 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 29 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
