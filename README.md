@@ -1,17 +1,19 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 14, 2026 at 2:28 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 14, 2026 at 6:18 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **296** | **117** | **140** | **75%** | **38** | **8 days** |
+| **298** | **117** | **142** | **75%** | **38** | **8 days** |
 
-_42 in the last 7 days · 126 in the last 30._
+_44 in the last 7 days · 128 in the last 30._
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-14 | [vllm #56919](https://github.com/vllm-project/vllm/pull/56919) | Draft: [Bugfix][Benchmark] Parse decode metrics as Prometheus samples | Open |
+| 2026-09-14 | [vllm #56918](https://github.com/vllm-project/vllm/pull/56918) | [Bugfix][Benchmark] Use concurrency for per-user throughput | Open |
 | 2026-09-14 | [accelerate #4262](https://github.com/huggingface/accelerate/pull/4262) | Honor scheduler adjustment during gradient accumulation | Open |
 | 2026-09-14 | [pytorch #197020](https://github.com/pytorch/pytorch/pull/197020) | Draft: Support complex parameters in SparseAdam | Open |
 | 2026-09-14 | [pytorch #197019](https://github.com/pytorch/pytorch/pull/197019) | Draft: Support differentiable learning rates in RMSprop | Open |
@@ -32,7 +34,7 @@ _42 in the last 7 days · 126 in the last 30._
 | 2026-09-13 | [sentence-transformers #4013](https://github.com/huggingface/sentence-transformers/pull/4013) | Keep label-grouped batches valid across shuffled rounds | Open |
 | 2026-09-13 | [sentence-transformers #4012](https://github.com/huggingface/sentence-transformers/pull/4012) | Stabilize ListMLE loss for large finite scores | Open |
 
-_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 21 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
