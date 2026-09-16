@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 4:08 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 15, 2026 at 5:29 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **315** | **124** | **152** | **76%** | **39** | **9 days** |
+| **316** | **124** | **153** | **76%** | **39** | **9 days** |
 
-_58 in the last 7 days · 142 in the last 30._
+_59 in the last 7 days · 143 in the last 30._
 
 ## Bug reports
 
@@ -16,6 +16,7 @@ _58 in the last 7 days · 142 in the last 30._
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-15 | [vllm #57090](https://github.com/vllm-project/vllm/pull/57090) | Draft: [Bugfix][Benchmark] Keep all requests in prefix-repetition samples | Open |
 | 2026-09-15 | [accelerate #4268](https://github.com/huggingface/accelerate/pull/4268) | Keep cached buffers registered as buffers | Open |
 | 2026-09-15 | [unsloth-zoo #1237](https://github.com/unslothai/unsloth-zoo/pull/1237) | Keep negative embedding rows classified as trained | Open |
 | 2026-09-15 | [DeepSpeed #8530](https://github.com/deepspeedai/DeepSpeed/pull/8530) | Fix ZeRO-3 checkpoint conversion with --debug | Open |
@@ -46,7 +47,7 @@ _58 in the last 7 days · 142 in the last 30._
 | 2026-09-14 | [unsloth #10931](https://github.com/unslothai/unsloth/pull/10931) | Apply Q-GaLore weight decay before the projected update | Open |
 | 2026-09-14 | [DeepSpeed #8516](https://github.com/deepspeedai/DeepSpeed/pull/8516) | Skip absent buffers when loading AutoTP checkpoints | Open |
 
-_Showing the 29 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 30 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
