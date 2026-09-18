@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 18, 2026 at 12:34 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 18, 2026 at 1:15 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | **331** | **129** | **160** | **75%** | **39** | **99 days** |
 
-_1125 GitHub contributions in the last year · 199 in the last 7 days · 454 in the last 30._
+_1127 GitHub contributions in the last year · 201 in the last 7 days · 456 in the last 30._
 
 ## Bug reports
 
@@ -31,7 +31,7 @@ _1125 GitHub contributions in the last year · 199 in the last 7 days · 454 in 
 | 2026-09-15 | [DeepSpeed #8533](https://github.com/deepspeedai/DeepSpeed/pull/8533) | Normalize Gram Newton-Schulz inputs before casting to fp16 | Open |
 | 2026-09-15 | [sentence-transformers #4033](https://github.com/huggingface/sentence-transformers/pull/4033) | Keep Euclidean similarity gradients finite at zero distance | Open |
 | 2026-09-15 | [sentence-transformers #4032](https://github.com/huggingface/sentence-transformers/pull/4032) | Return zero ranking loss when no label pairs are ordered | Open |
-| 2026-09-15 | [vllm #57090](https://github.com/vllm-project/vllm/pull/57090) | Draft: [Bugfix][Benchmark] Keep all requests in prefix-repetition samples | Open |
+| 2026-09-15 | [vllm #57090](https://github.com/vllm-project/vllm/pull/57090) | [Bugfix][Benchmark] Keep all requests in prefix-repetition samples | Open |
 | 2026-09-15 | [accelerate #4268](https://github.com/huggingface/accelerate/pull/4268) | Keep cached buffers registered as buffers | Open |
 | 2026-09-15 | [unsloth-zoo #1237](https://github.com/unslothai/unsloth-zoo/pull/1237) | Keep negative embedding rows classified as trained | Merged |
 | 2026-09-15 | [DeepSpeed #8530](https://github.com/deepspeedai/DeepSpeed/pull/8530) | Fix ZeRO-3 checkpoint conversion with --debug | Open |
