@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 18, 2026 at 4:07 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 19, 2026 at 4:19 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **331** | **129** | **160** | **75%** | **39** | **99 days** |
+| **335** | **129** | **164** | **75%** | **39** | **100 days** |
 
-_1129 GitHub contributions in the last year · 203 in the last 7 days · 458 in the last 30._
+_1135 GitHub contributions in the last year · 188 in the last 7 days · 455 in the last 30._
 
 ## Bug reports
 
@@ -16,6 +16,10 @@ _1129 GitHub contributions in the last year · 203 in the last 7 days · 458 in 
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-19 | [unsloth-zoo #1286](https://github.com/unslothai/unsloth-zoo/pull/1286) | Floor the DAPO normalizer so an empty batch is not a nan | Open |
+| 2026-09-19 | [unsloth #11337](https://github.com/unslothai/unsloth/pull/11337) | Stop dividing the GRPO eval loss by the accumulation steps | Open |
+| 2026-09-19 | [accelerate #4282](https://github.com/huggingface/accelerate/pull/4282) | Make reduce(reduction="none") perform no reduction | Open |
+| 2026-09-19 | [sentence-transformers #4051](https://github.com/huggingface/sentence-transformers/pull/4051) | Count PListMLE rank positions from one, not zero | Open |
 | 2026-09-18 | [unsloth-zoo #1282](https://github.com/unslothai/unsloth-zoo/pull/1282) | Mask the luspo loss elementwise before aggregating | Open |
 | 2026-09-18 | [unsloth #11277](https://github.com/unslothai/unsloth/pull/11277) | Apply the logit scale on the fused cross entropy path | Open |
 | 2026-09-18 | [DeepSpeed #8589](https://github.com/deepspeedai/DeepSpeed/pull/8589) | Decay OneCycle momentum instead of growing it past 1.0 | Open |
@@ -44,7 +48,7 @@ _1129 GitHub contributions in the last year · 203 in the last 7 days · 458 in 
 | 2026-09-15 | [DeepSpeed #8528](https://github.com/deepspeedai/DeepSpeed/pull/8528) | Keep tensor scheduler bounds fixed across LR updates | Open |
 | 2026-09-15 | [crewai #7471](https://github.com/crewAIInc/crewAI/pull/7471) | Draft: fix(rag): enforce chunk size and overlap when merging splits | Open |
 
-_Showing the 27 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 31 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
