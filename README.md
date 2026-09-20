@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 20, 2026 at 11:29 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 20, 2026 at 12:48 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **342** | **129** | **170** | **75%** | **39** | **101 days** |
+| **344** | **129** | **172** | **75%** | **39** | **101 days** |
 
-_1148 GitHub contributions in the last year · 164 in the last 7 days · 459 in the last 30._
+_1152 GitHub contributions in the last year · 168 in the last 7 days · 463 in the last 30._
 
 ## Bug reports
 
@@ -16,6 +16,8 @@ _1148 GitHub contributions in the last year · 164 in the last 7 days · 459 in 
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-20 | [DeepSpeed #8614](https://github.com/deepspeedai/DeepSpeed/pull/8614) | Say why a bf16 gradient norm cannot be clipped from | Open |
+| 2026-09-20 | [DeepSpeed #8613](https://github.com/deepspeedai/DeepSpeed/pull/8613) | Include the expert gradients in the unfused fp16 clip norm | Open |
 | 2026-09-20 | [sentence-transformers #4054](https://github.com/huggingface/sentence-transformers/pull/4054) | Cap reranked scores by the positives the first stage missed | Open |
 | 2026-09-20 | [accelerate #4294](https://github.com/huggingface/accelerate/pull/4294) | Unscale gradients once when FSDP clipping gets a partial list | Open |
 | 2026-09-20 | [unsloth-zoo #1301](https://github.com/unslothai/unsloth-zoo/pull/1301) | Warn that the GRPO entropy bonus is ignored on this path | Open |
@@ -33,7 +35,7 @@ _1148 GitHub contributions in the last year · 164 in the last 7 days · 459 in 
 | 2026-09-18 | [DeepSpeed #8588](https://github.com/deepspeedai/DeepSpeed/pull/8588) | Report the unscaled gradient norm from FP16_UnfusedOptimizer | Open |
 | 2026-09-18 | [DeepSpeed #8587](https://github.com/deepspeedai/DeepSpeed/pull/8587) | Weight the TiledLoss backward pass the way the forward does | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
