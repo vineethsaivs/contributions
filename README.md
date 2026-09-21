@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 21, 2026 at 12:11 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 21, 2026 at 11:34 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **344** | **129** | **171** | **75%** | **39** | **102 days** |
+| **348** | **129** | **174** | **74%** | **39** | **102 days** |
 
-_1155 GitHub contributions in the last year · 128 in the last 7 days · 461 in the last 30._
+_1165 GitHub contributions in the last year · 139 in the last 7 days · 471 in the last 30._
 
 ## Bug reports
 
@@ -16,6 +16,10 @@ _1155 GitHub contributions in the last year · 128 in the last 7 days · 461 in 
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-09-21 | [DeepSpeed #8620](https://github.com/deepspeedai/DeepSpeed/pull/8620) | Top-2 MoE gating sampled the second expert in eval, so routing was not reproducible | Open |
+| 2026-09-21 | [unsloth #11470](https://github.com/unslothai/unsloth/pull/11470) | `embedding_learning_rate` silently trained the whole model with weight decay 0 | Open |
+| 2026-09-21 | [unsloth-zoo #1323](https://github.com/unslothai/unsloth-zoo/pull/1323) | Size the GRPO mini-batch plan from the current step, not the first one | Open |
+| 2026-09-21 | [unsloth-zoo #1322](https://github.com/unslothai/unsloth-zoo/pull/1322) | Neutralise an unscored vLLM logprob before the GRPO importance ratio | Open |
 | 2026-09-20 | [DeepSpeed #8614](https://github.com/deepspeedai/DeepSpeed/pull/8614) | Say why a bf16 gradient norm cannot be clipped from | Open |
 | 2026-09-20 | [DeepSpeed #8613](https://github.com/deepspeedai/DeepSpeed/pull/8613) | Include the expert gradients in the unfused fp16 clip norm | Open |
 | 2026-09-20 | [sentence-transformers #4054](https://github.com/huggingface/sentence-transformers/pull/4054) | Cap reranked scores by the positives the first stage missed | Open |
@@ -29,13 +33,8 @@ _1155 GitHub contributions in the last year · 128 in the last 7 days · 461 in 
 | 2026-09-19 | [unsloth #11337](https://github.com/unslothai/unsloth/pull/11337) | Stop dividing the GRPO eval loss by the accumulation steps | Open |
 | 2026-09-19 | [accelerate #4282](https://github.com/huggingface/accelerate/pull/4282) | Make reduce(reduction="none") perform no reduction | Open |
 | 2026-09-19 | [sentence-transformers #4051](https://github.com/huggingface/sentence-transformers/pull/4051) | Count PListMLE rank positions from one, not zero | Open |
-| 2026-09-18 | [unsloth-zoo #1282](https://github.com/unslothai/unsloth-zoo/pull/1282) | Mask the luspo loss elementwise before aggregating | Open |
-| 2026-09-18 | [unsloth #11277](https://github.com/unslothai/unsloth/pull/11277) | Apply the logit scale on the fused cross entropy path | Open |
-| 2026-09-18 | [DeepSpeed #8589](https://github.com/deepspeedai/DeepSpeed/pull/8589) | Decay OneCycle momentum instead of growing it past 1.0 | Open |
-| 2026-09-18 | [DeepSpeed #8588](https://github.com/deepspeedai/DeepSpeed/pull/8588) | Report the unscaled gradient norm from FP16_UnfusedOptimizer | Open |
-| 2026-09-18 | [DeepSpeed #8587](https://github.com/deepspeedai/DeepSpeed/pull/8587) | the older TiledLoss returned a loss whose gradient is not the derivative of that loss; its author asked for it and its only caller to be deleted instead of fixed | Open |
 
-_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
