@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 20, 2026 at 12:48 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 21, 2026 at 12:11 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **344** | **129** | **172** | **75%** | **39** | **101 days** |
+| **344** | **129** | **171** | **75%** | **39** | **102 days** |
 
-_1152 GitHub contributions in the last year · 168 in the last 7 days · 463 in the last 30._
+_1155 GitHub contributions in the last year · 128 in the last 7 days · 461 in the last 30._
 
 ## Bug reports
 
@@ -33,7 +33,7 @@ _1152 GitHub contributions in the last year · 168 in the last 7 days · 463 in 
 | 2026-09-18 | [unsloth #11277](https://github.com/unslothai/unsloth/pull/11277) | Apply the logit scale on the fused cross entropy path | Open |
 | 2026-09-18 | [DeepSpeed #8589](https://github.com/deepspeedai/DeepSpeed/pull/8589) | Decay OneCycle momentum instead of growing it past 1.0 | Open |
 | 2026-09-18 | [DeepSpeed #8588](https://github.com/deepspeedai/DeepSpeed/pull/8588) | Report the unscaled gradient norm from FP16_UnfusedOptimizer | Open |
-| 2026-09-18 | [DeepSpeed #8587](https://github.com/deepspeedai/DeepSpeed/pull/8587) | Weight the TiledLoss backward pass the way the forward does | Open |
+| 2026-09-18 | [DeepSpeed #8587](https://github.com/deepspeedai/DeepSpeed/pull/8587) | the older TiledLoss returned a loss whose gradient is not the derivative of that loss; its author asked for it and its only caller to be deleted instead of fixed | Open |
 
 _Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
