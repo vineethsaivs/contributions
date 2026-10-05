@@ -1,40 +1,43 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated September 21, 2026 at 11:45 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 5, 2026 at 10:07 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **348** | **132** | **171** | **75%** | **39** | **102 days** |
+| **403** | **169** | **175** | **74%** | **42** | **115 days** |
 
-_1167 GitHub contributions in the last year · 141 in the last 7 days · 473 in the last 30._
+_1353 GitHub contributions in the last year · 81 in the last 7 days · 495 in the last 30._
 
 ## Bug reports
 
+- [flax #5594](https://github.com/google/flax/issues/5594): nnx.GRUCell is missing the b_hn bias that its docstring and linen.GRUCell both specify.
 - [trl #7221](https://github.com/huggingface/trl/issues/7221): Reproduced NaN entropy for valid zero-probability tokens, including finite float16 inputs; PyTorch categorical entropy remains finite.
 
 ## Recent activity
 
 | Date | Project | What | Status |
 |---|---|---|---|
-| 2026-09-21 | [DeepSpeed #8620](https://github.com/deepspeedai/DeepSpeed/pull/8620) | Top-2 MoE gating sampled the second expert in eval, so routing was not reproducible | Open |
-| 2026-09-21 | [unsloth #11470](https://github.com/unslothai/unsloth/pull/11470) | `embedding_learning_rate` silently trained the whole model with weight decay 0 | Open |
-| 2026-09-21 | [unsloth-zoo #1323](https://github.com/unslothai/unsloth-zoo/pull/1323) | Size the GRPO mini-batch plan from the current step, not the first one | Open |
-| 2026-09-21 | [unsloth-zoo #1322](https://github.com/unslothai/unsloth-zoo/pull/1322) | Neutralise an unscored vLLM logprob before the GRPO importance ratio | Open |
-| 2026-09-20 | [DeepSpeed #8614](https://github.com/deepspeedai/DeepSpeed/pull/8614) | Say why a bf16 gradient norm cannot be clipped from | Open |
-| 2026-09-20 | [DeepSpeed #8613](https://github.com/deepspeedai/DeepSpeed/pull/8613) | Include the expert gradients in the unfused fp16 clip norm | Open |
-| 2026-09-20 | [sentence-transformers #4054](https://github.com/huggingface/sentence-transformers/pull/4054) | Cap reranked scores by the positives the first stage missed | Open |
-| 2026-09-20 | [accelerate #4294](https://github.com/huggingface/accelerate/pull/4294) | Unscale gradients once when FSDP clipping gets a partial list | Open |
-| 2026-09-20 | [unsloth-zoo #1301](https://github.com/unslothai/unsloth-zoo/pull/1301) | Warn that the GRPO entropy bonus is ignored on this path | Open |
-| 2026-09-20 | [DeepSpeed #8612](https://github.com/deepspeedai/DeepSpeed/pull/8612) | Forward the per-head Muon tag at every muon_update call site | Open |
-| 2026-09-19 | [unsloth-zoo #1291](https://github.com/unslothai/unsloth-zoo/pull/1291) | Give TiledMLP autocast a device type torch understands | Open |
-| 2026-09-19 | [unsloth-zoo #1290](https://github.com/unslothai/unsloth-zoo/pull/1290) | Size TiledMLP tiles over the whole batch, not one sequence | Open |
-| 2026-09-19 | [DeepSpeed #8601](https://github.com/deepspeedai/DeepSpeed/pull/8601) | Clear the gradient ZenFlow just offloaded, not param.grad | Open |
-| 2026-09-19 | [unsloth-zoo #1286](https://github.com/unslothai/unsloth-zoo/pull/1286) | Floor the DAPO normalizer so an empty batch is not a nan | Open |
-| 2026-09-19 | [unsloth #11337](https://github.com/unslothai/unsloth/pull/11337) | Stop dividing the GRPO eval loss by the accumulation steps | Open |
-| 2026-09-19 | [accelerate #4282](https://github.com/huggingface/accelerate/pull/4282) | Make reduce(reduction="none") perform no reduction | Open |
-| 2026-09-19 | [sentence-transformers #4051](https://github.com/huggingface/sentence-transformers/pull/4051) | Count PListMLE rank positions from one, not zero | Open |
+| 2026-10-04 | [flax #5611](https://github.com/google/flax/pull/5611) | norm layers with axis_name and mask averaged per-device masked means, and a fully padded device made every device's stats nan | Open |
+| 2026-10-04 | [Ray #66711](https://github.com/ray-project/ray/pull/66711) | metric_analysis avg used training_iteration as the count, so sparse metrics' averages were wrong | Open |
+| 2026-10-04 | [flax #5610](https://github.com/google/flax/pull/5610) | CIRCULAR ConvTranspose(transpose_kernel=True) was a circularly shifted transpose of CIRCULAR Conv for most strides | Open |
+| 2026-10-04 | [Ray #66710](https://github.com/ray-project/ray/pull/66710) | HyperBand stopped each bracket's best trials short of max_t unless eta**s divides max_t | Open |
+| 2026-10-04 | [unsloth #12697](https://github.com/unslothai/unsloth/pull/12697) | the #12458 regression test raised TypeError on Transformers 4.x before checking anything | Open |
+| 2026-10-03 | [unsloth #12642](https://github.com/unslothai/unsloth/pull/12642) | DoRA models generated without the DoRA magnitude: fast decode ran the plain LoRA delta | Merged |
+| 2026-10-03 | [DeepSpeed #8735](https://github.com/deepspeedai/DeepSpeed/pull/8735) | fp32 pipeline parallelism clipped every stage with the first stage's gradient norm | Open |
+| 2026-10-03 | [flax #5609](https://github.com/google/flax/pull/5609) | nnx.view(mha, decode=True, batch_size=..., max_length=...) never created the KV cache | Open |
+| 2026-10-03 | [sentence-transformers #4120](https://github.com/huggingface/sentence-transformers/pull/4120) | ParaphraseMiningEvaluator(add_transitive_closure=True) followed pairs marked False in duplicates_dict as duplicates | Open |
+| 2026-10-02 | [DeepSpeed #8729](https://github.com/deepspeedai/DeepSpeed/pull/8729) | ZeRO++ qgZ across nodes returned 2D weight gradients scaled by GPUs per node (8x on 8-GPU nodes) | Open |
+| 2026-10-02 | [flax #5608](https://github.com/google/flax/pull/5608) | nnx OptimizedLSTMCell and GRUCell applied orthogonal init to the fused (H, kH) kernel, so no gate block was orthogonal | Open |
+| 2026-10-02 | [sentence-transformers #4117](https://github.com/huggingface/sentence-transformers/pull/4117) | With SparseAutoEncoder(normalize=True), CSR compared de-normalized reconstructions with the normalized input | Open |
+| 2026-10-01 | [DeepSpeed #8725](https://github.com/deepspeedai/DeepSpeed/pull/8725) | FusedLamb applied Adam's bias correction after LAMB's trust ratio, shrinking every step (0.32x at t=1, 0.15x near t=10) | Open |
+| 2026-10-01 | [sentence-transformers #4111](https://github.com/huggingface/sentence-transformers/pull/4111) | CSR's SparseAutoEncoder masked pre-activations in place for the aux loss, so the 4k reconstruction term trained nothing | Open |
+| 2026-10-01 | [optax #1799](https://github.com/google-deepmind/optax/pull/1799) | projection_l1_sphere returned points off the sphere for inputs inside the l1 ball that contain zeros | Open |
+| 2026-10-01 | [unsloth #12458](https://github.com/unslothai/unsloth/pull/12458) | With embedding_learning_rate and adamw_8bit, trained embeddings got 8-bit Adam state instead of transformers' 32-bit | Merged |
+| 2026-10-01 | [sentence-transformers #4109](https://github.com/huggingface/sentence-transformers/pull/4109) | NO_DUPLICATES and GROUP_BY_LABEL batch samplers ignored args.seed, so every seed trained on the same batch order | Open |
+| 2026-10-01 | [DeepSpeed #8721](https://github.com/deepspeedai/DeepSpeed/pull/8721) | DeepSpeedCPUAdagrad crashed on every real nn.Embedding(sparse=True) step (uncoalesced sparse grad) | Open |
+| 2026-10-01 | [flax #5606](https://github.com/google/flax/pull/5606) | nnx.GroupNorm gave wrong outputs when reduction_axes left more than the batch axis unreduced | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
