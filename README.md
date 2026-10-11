@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 10, 2026 at 2:05 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 11, 2026 at 11:06 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **421** | **179** | **178** | **74%** | **42** | **121 days** |
+| **424** | **180** | **180** | **74%** | **42** | **122 days** |
 
-_1420 GitHub contributions in the last year · 76 in the last 7 days · 509 in the last 30._
+_1425 GitHub contributions in the last year · 72 in the last 7 days · 507 in the last 30._
 
 ## Bug reports
 
@@ -17,8 +17,11 @@ _1420 GitHub contributions in the last year · 76 in the last 7 days · 509 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-11 | [unsloth #13335](https://github.com/unslothai/unsloth/pull/13335) | DiffusionTrainer always raised for an SFTConfig because to_dict() masked eos_token and pad_token | Open |
+| 2026-10-11 | [Ray #66923](https://github.com/ray-project/ray/pull/66923) | CombinedStopper stopped calling later stoppers once one returned True, starving stateful stoppers of results | Open |
+| 2026-10-11 | [tunix #2819](https://github.com/google/tunix/pull/2819) | PPO built its reward tensor with the completion ids int dtype, truncating every score toward zero | Open |
 | 2026-10-10 | [tunix #2809](https://github.com/google/tunix/pull/2809) | ORPO SFT term scored the first prompt token of every left-padded row from a pad position | Open |
-| 2026-10-10 | [unsloth #13254](https://github.com/unslothai/unsloth/pull/13254) | Fused LoRA kernels ran on a DoRA adapter activated after get_peft_model, dropping its magnitude | Open |
+| 2026-10-10 | [unsloth #13254](https://github.com/unslothai/unsloth/pull/13254) | Fused LoRA kernels ran on a DoRA adapter activated after get_peft_model, dropping its magnitude | Merged |
 | 2026-10-10 | [DeepSpeed #8804](https://github.com/deepspeedai/DeepSpeed/pull/8804) | WarmupLR, WarmupDecayLR and WarmupCosineLR rejected warmup_num_steps=0, crashing HF Trainer runs with no warmup | Open |
 | 2026-10-10 | [Ray #66919](https://github.com/ray-project/ray/pull/66919) | PB2 truncated GP suggestions for integer hyperparameters instead of rounding | Open |
 | 2026-10-09 | [flax #5619](https://github.com/google/flax/pull/5619) | nnx.metrics.Average let a masked nan or inf turn the whole average into nan | Open |
@@ -36,7 +39,7 @@ _1420 GitHub contributions in the last year · 76 in the last 7 days · 509 in t
 | 2026-10-06 | [DeepSpeed #8764](https://github.com/deepspeedai/DeepSpeed/pull/8764) | NPUQuantizer truncates instead of rounding, doubling ZeRO++ quantization error on Ascend | Open |
 | 2026-10-06 | [DeepSpeed #8763](https://github.com/deepspeedai/DeepSpeed/pull/8763) | Flops profiler reports FLOPS and samples/s too low by the gradient accumulation factor | Open |
 
-_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 21 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
