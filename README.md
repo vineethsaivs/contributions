@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 11, 2026 at 11:06 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 12, 2026 at 9:17 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **424** | **180** | **180** | **74%** | **42** | **122 days** |
+| **427** | **181** | **182** | **74%** | **42** | **123 days** |
 
-_1425 GitHub contributions in the last year · 72 in the last 7 days · 507 in the last 30._
+_1434 GitHub contributions in the last year · 79 in the last 7 days · 495 in the last 30._
 
 ## Bug reports
 
@@ -17,7 +17,10 @@ _1425 GitHub contributions in the last year · 72 in the last 7 days · 507 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
-| 2026-10-11 | [unsloth #13335](https://github.com/unslothai/unsloth/pull/13335) | DiffusionTrainer always raised for an SFTConfig because to_dict() masked eos_token and pad_token | Open |
+| 2026-10-12 | [tunix #2827](https://github.com/google/tunix/pull/2827) | Agentic GRPO reward and metric fns scored only the first assistant message of each multi-turn trajectory | Open |
+| 2026-10-12 | [unsloth #13454](https://github.com/unslothai/unsloth/pull/13454) | Granite fast decode summed the normed hidden states into the residual because the residual aliased an in-place norm | Open |
+| 2026-10-12 | [Ray #66939](https://github.com/ray-project/ray/pull/66939) | With mode="max", a trial that had not reported the metric yet was ranked as the top job and given the free resources | Open |
+| 2026-10-11 | [unsloth #13335](https://github.com/unslothai/unsloth/pull/13335) | DiffusionTrainer always raised for an SFTConfig because to_dict() masked eos_token and pad_token | Merged |
 | 2026-10-11 | [Ray #66923](https://github.com/ray-project/ray/pull/66923) | CombinedStopper stopped calling later stoppers once one returned True, starving stateful stoppers of results | Open |
 | 2026-10-11 | [tunix #2819](https://github.com/google/tunix/pull/2819) | PPO built its reward tensor with the completion ids int dtype, truncating every score toward zero | Open |
 | 2026-10-10 | [tunix #2809](https://github.com/google/tunix/pull/2809) | ORPO SFT term scored the first prompt token of every left-padded row from a pad position | Open |
@@ -32,14 +35,8 @@ _1425 GitHub contributions in the last year · 72 in the last 7 days · 507 in t
 | 2026-10-07 | [DeepSpeed #8771](https://github.com/deepspeedai/DeepSpeed/pull/8771) | One fp16 overflow step reset SuperOffload weights to 0 and left nan Adam moments | Open |
 | 2026-10-07 | [unsloth-zoo #1618](https://github.com/unslothai/unsloth-zoo/pull/1618) | Merged export dropped the trained lora_B bias of lora_bias=True adapters | Merged |
 | 2026-10-07 | [unsloth #12981](https://github.com/unslothai/unsloth/pull/12981) | Fused LoRA kernels and decode dropped lora_B's bias when lora_bias=True | Merged |
-| 2026-10-06 | [flax #5613](https://github.com/google/flax/pull/5613) | nnx.metrics.Welford ignored mask, so masked padding went into the mean, std and SEM | Open |
-| 2026-10-06 | [sentence-transformers #4132](https://github.com/huggingface/sentence-transformers/pull/4132) | Equal-size datasets got the same permutation under multi-dataset NO_DUPLICATES sampling | Closed, maintainer declined the fix |
-| 2026-10-06 | [flax #5614](https://github.com/google/flax/pull/5614) | DynamicScale grew the loss scale one finite step late, after growth_interval + 1 steps | Open |
-| 2026-10-06 | [DeepSpeed #8765](https://github.com/deepspeedai/DeepSpeed/pull/8765) | simd_width KeyErrors on Apple Silicon because py-cpuinfo reports no CPU flags, so CPU ops cannot build | Open |
-| 2026-10-06 | [DeepSpeed #8764](https://github.com/deepspeedai/DeepSpeed/pull/8764) | NPUQuantizer truncates instead of rounding, doubling ZeRO++ quantization error on Ascend | Open |
-| 2026-10-06 | [DeepSpeed #8763](https://github.com/deepspeedai/DeepSpeed/pull/8763) | Flops profiler reports FLOPS and samples/s too low by the gradient accumulation factor | Open |
 
-_Showing the 21 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
