@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 12, 2026 at 9:27 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 13, 2026 at 10:59 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **427** | **184** | **179** | **74%** | **42** | **123 days** |
+| **428** | **186** | **178** | **74%** | **42** | **124 days** |
 
-_1436 GitHub contributions in the last year · 81 in the last 7 days · 497 in the last 30._
+_1441 GitHub contributions in the last year · 61 in the last 7 days · 465 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,7 @@ _1436 GitHub contributions in the last year · 81 in the last 7 days · 497 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-13 | [unsloth #13643](https://github.com/unslothai/unsloth/pull/13643) | Gemma and Gemma2 fast decode returned wrong hidden states on every step for float32 models | Open |
 | 2026-10-12 | [tunix #2827](https://github.com/google/tunix/pull/2827) | Agentic GRPO reward and metric fns scored only the first assistant message of each multi-turn trajectory | Open |
 | 2026-10-12 | [unsloth #13454](https://github.com/unslothai/unsloth/pull/13454) | Granite fast decode summed the normed hidden states into the residual because the residual aliased an in-place norm | Open |
 | 2026-10-12 | [Ray #66939](https://github.com/ray-project/ray/pull/66939) | With mode="max", a trial that had not reported the metric yet was ranked as the top job and given the free resources | Open |
@@ -36,7 +37,7 @@ _1436 GitHub contributions in the last year · 81 in the last 7 days · 497 in t
 | 2026-10-07 | [unsloth-zoo #1618](https://github.com/unslothai/unsloth-zoo/pull/1618) | Merged export dropped the trained lora_B bias of lora_bias=True adapters | Merged |
 | 2026-10-07 | [unsloth #12981](https://github.com/unslothai/unsloth/pull/12981) | Fused LoRA kernels and decode dropped lora_B's bias when lora_bias=True | Merged |
 
-_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
