@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 14, 2026 at 11:41 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 14, 2026 at 11:50 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **434** | **186** | **184** | **74%** | **42** | **125 days** |
+| **434** | **187** | **183** | **75%** | **42** | **125 days** |
 
-_1451 GitHub contributions in the last year · 60 in the last 7 days · 432 in the last 30._
+_1452 GitHub contributions in the last year · 61 in the last 7 days · 433 in the last 30._
 
 ## Bug reports
 
@@ -23,7 +23,7 @@ _1451 GitHub contributions in the last year · 60 in the last 7 days · 432 in t
 | 2026-10-14 | [Ray #67013](https://github.com/ray-project/ray/pull/67013) | Repeater passed the last repeat's error flag with the group's mean score, so searchers that skip errored trials dropped a valid mean | Open |
 | 2026-10-14 | [vllm #61661](https://github.com/vllm-project/vllm/pull/61661) | Generation token metrics counted tokens that were trimmed off after a stop string matched mid-step | Open |
 | 2026-10-14 | [vllm #61660](https://github.com/vllm-project/vllm/pull/61660) | Completions with echo=True and max_tokens=0 reported one completion token and returned a token id that is not in the response | Open |
-| 2026-10-13 | [unsloth #13643](https://github.com/unslothai/unsloth/pull/13643) | Gemma and Gemma2 fast decode returned wrong hidden states on every step for float32 models | Open |
+| 2026-10-13 | [unsloth #13643](https://github.com/unslothai/unsloth/pull/13643) | Gemma and Gemma2 fast decode returned wrong hidden states on every step for float32 models | Merged |
 | 2026-10-12 | [tunix #2827](https://github.com/google/tunix/pull/2827) | Agentic GRPO reward and metric fns scored only the first assistant message of each multi-turn trajectory | Open |
 | 2026-10-12 | [unsloth #13454](https://github.com/unslothai/unsloth/pull/13454) | Granite fast decode summed the normed hidden states into the residual because the residual aliased an in-place norm | Open |
 | 2026-10-12 | [Ray #66939](https://github.com/ray-project/ray/pull/66939) | With mode="max", a trial that had not reported the metric yet was ranked as the top job and given the free resources | Open |
