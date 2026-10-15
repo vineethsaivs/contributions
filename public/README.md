@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 14, 2026 at 11:50 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 15, 2026 at 11:14 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **434** | **187** | **183** | **75%** | **42** | **125 days** |
+| **436** | **187** | **185** | **75%** | **42** | **126 days** |
 
-_1452 GitHub contributions in the last year · 61 in the last 7 days · 433 in the last 30._
+_1459 GitHub contributions in the last year · 55 in the last 7 days · 390 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,8 @@ _1452 GitHub contributions in the last year · 61 in the last 7 days · 433 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-15 | [unsloth #13906](https://github.com/unslothai/unsloth/pull/13906) | A padded prefill on a sliding-window model (Mistral) attended one key more than the configured window | Open |
+| 2026-10-15 | [tunix #2915](https://github.com/google/tunix/pull/2915) | PeftTrainer passed the eval hook a sum of batch losses for scalar losses but a mean for weighted losses | Open |
 | 2026-10-14 | [sentence-transformers #4181](https://github.com/huggingface/sentence-transformers/pull/4181) | The nan/inf filter replaced a loss component with a value divided by optimizer steps instead of logged calls, shifting the logged mean | Open |
 | 2026-10-14 | [tunix #2880](https://github.com/google/tunix/pull/2880) | DAPOLearner appended reward_shaping to the caller's reward_fns list, so reusing the list doubled the overlong penalty | Open |
 | 2026-10-14 | [unsloth #13751](https://github.com/unslothai/unsloth/pull/13751) | FastLanguageModel.get_peft_model accepted layers_pattern but never passed it to PEFT, so the argument had no effect | Open |
@@ -35,7 +37,7 @@ _1452 GitHub contributions in the last year · 61 in the last 7 days · 433 in t
 | 2026-10-10 | [DeepSpeed #8804](https://github.com/deepspeedai/DeepSpeed/pull/8804) | WarmupLR, WarmupDecayLR and WarmupCosineLR rejected warmup_num_steps=0, crashing HF Trainer runs with no warmup | Open |
 | 2026-10-10 | [Ray #66919](https://github.com/ray-project/ray/pull/66919) | PB2 truncated GP suggestions for integer hyperparameters instead of rounding | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
