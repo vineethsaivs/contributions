@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 15, 2026 at 11:30 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 16, 2026 at 8:43 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **436** | **192** | **180** | **75%** | **42** | **126 days** |
+| **439** | **192** | **183** | **75%** | **42** | **127 days** |
 
-_1463 GitHub contributions in the last year · 59 in the last 7 days · 394 in the last 30._
+_1468 GitHub contributions in the last year · 54 in the last 7 days · 371 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,9 @@ _1463 GitHub contributions in the last year · 59 in the last 7 days · 394 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-16 | [unsloth #14021](https://github.com/unslothai/unsloth/pull/14021) | FastModel.get_peft_model raised a ValueError for finetune_last_n_layers and layers_to_transform with the default targets | Open |
+| 2026-10-16 | [Ray #67115](https://github.com/ray-project/ray/pull/67115) | MedianStoppingRule averaged a finished trial's last result into its running mean up to three times | Open |
+| 2026-10-16 | [tunix #2949](https://github.com/google/tunix/pull/2949) | LogitStrategy averaged KL, task and teacher losses over padded positions, skewing the loss and metrics | Open |
 | 2026-10-15 | [unsloth #13906](https://github.com/unslothai/unsloth/pull/13906) | A padded prefill on a sliding-window model (Mistral) attended one key more than the configured window | Open |
 | 2026-10-15 | [tunix #2915](https://github.com/google/tunix/pull/2915) | PeftTrainer passed the eval hook a sum of batch losses for scalar losses but a mean for weighted losses | Open |
 | 2026-10-14 | [sentence-transformers #4181](https://github.com/huggingface/sentence-transformers/pull/4181) | The nan/inf filter replaced a loss component with a value divided by optimizer steps instead of logged calls, shifting the logged mean | Merged |
@@ -32,12 +35,8 @@ _1463 GitHub contributions in the last year · 59 in the last 7 days · 394 in t
 | 2026-10-11 | [unsloth #13335](https://github.com/unslothai/unsloth/pull/13335) | DiffusionTrainer always raised for an SFTConfig because to_dict() masked eos_token and pad_token | Merged |
 | 2026-10-11 | [Ray #66923](https://github.com/ray-project/ray/pull/66923) | CombinedStopper stopped calling later stoppers once one returned True, starving stateful stoppers of results | Open |
 | 2026-10-11 | [tunix #2819](https://github.com/google/tunix/pull/2819) | PPO built its reward tensor with the completion ids int dtype, truncating every score toward zero | Open |
-| 2026-10-10 | [tunix #2809](https://github.com/google/tunix/pull/2809) | ORPO SFT term scored the first prompt token of every left-padded row from a pad position | Open |
-| 2026-10-10 | [unsloth #13254](https://github.com/unslothai/unsloth/pull/13254) | Fused LoRA kernels ran on a DoRA adapter activated after get_peft_model, dropping its magnitude | Merged |
-| 2026-10-10 | [DeepSpeed #8804](https://github.com/deepspeedai/DeepSpeed/pull/8804) | WarmupLR, WarmupDecayLR and WarmupCosineLR rejected warmup_num_steps=0, crashing HF Trainer runs with no warmup | Open |
-| 2026-10-10 | [Ray #66919](https://github.com/ray-project/ray/pull/66919) | PB2 truncated GP suggestions for integer hyperparameters instead of rounding | Open |
 
-_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
