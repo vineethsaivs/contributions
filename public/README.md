@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 16, 2026 at 8:43 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 16, 2026 at 9:27 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **439** | **192** | **183** | **75%** | **42** | **127 days** |
+| **440** | **192** | **184** | **75%** | **42** | **127 days** |
 
-_1468 GitHub contributions in the last year · 54 in the last 7 days · 371 in the last 30._
+_1471 GitHub contributions in the last year · 57 in the last 7 days · 374 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,7 @@ _1468 GitHub contributions in the last year · 54 in the last 7 days · 371 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-16 | [vllm #62038](https://github.com/vllm-project/vllm/pull/62038) | A NaN logit_bias value was clamped to -100, silently banning that token | Open |
 | 2026-10-16 | [unsloth #14021](https://github.com/unslothai/unsloth/pull/14021) | FastModel.get_peft_model raised a ValueError for finetune_last_n_layers and layers_to_transform with the default targets | Open |
 | 2026-10-16 | [Ray #67115](https://github.com/ray-project/ray/pull/67115) | MedianStoppingRule averaged a finished trial's last result into its running mean up to three times | Open |
 | 2026-10-16 | [tunix #2949](https://github.com/google/tunix/pull/2949) | LogitStrategy averaged KL, task and teacher losses over padded positions, skewing the loss and metrics | Open |
@@ -32,11 +33,8 @@ _1468 GitHub contributions in the last year · 54 in the last 7 days · 371 in t
 | 2026-10-12 | [tunix #2827](https://github.com/google/tunix/pull/2827) | Agentic GRPO reward and metric fns scored only the first assistant message of each multi-turn trajectory | Open |
 | 2026-10-12 | [unsloth #13454](https://github.com/unslothai/unsloth/pull/13454) | Granite fast decode summed the normed hidden states into the residual because the residual aliased an in-place norm | Open |
 | 2026-10-12 | [Ray #66939](https://github.com/ray-project/ray/pull/66939) | With mode="max", a trial that had not reported the metric yet was ranked as the top job and given the free resources | Open |
-| 2026-10-11 | [unsloth #13335](https://github.com/unslothai/unsloth/pull/13335) | DiffusionTrainer always raised for an SFTConfig because to_dict() masked eos_token and pad_token | Merged |
-| 2026-10-11 | [Ray #66923](https://github.com/ray-project/ray/pull/66923) | CombinedStopper stopped calling later stoppers once one returned True, starving stateful stoppers of results | Open |
-| 2026-10-11 | [tunix #2819](https://github.com/google/tunix/pull/2819) | PPO built its reward tensor with the completion ids int dtype, truncating every score toward zero | Open |
 
-_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
