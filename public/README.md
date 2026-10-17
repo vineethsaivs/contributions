@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 16, 2026 at 9:27 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 16, 2026 at 8:52 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **440** | **192** | **184** | **75%** | **42** | **127 days** |
+| **441** | **192** | **185** | **75%** | **42** | **127 days** |
 
-_1471 GitHub contributions in the last year · 57 in the last 7 days · 374 in the last 30._
+_1474 GitHub contributions in the last year · 60 in the last 7 days · 377 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,7 @@ _1471 GitHub contributions in the last year · 57 in the last 7 days · 374 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-16 | [sentence-transformers #4203](https://github.com/huggingface/sentence-transformers/pull/4203) | Pooling("cls") crashed on top of WordEmbeddings because a None cls_token_embeddings counted as present | Open |
 | 2026-10-16 | [vllm #62038](https://github.com/vllm-project/vllm/pull/62038) | A NaN logit_bias value was clamped to -100, silently banning that token | Open |
 | 2026-10-16 | [unsloth #14021](https://github.com/unslothai/unsloth/pull/14021) | FastModel.get_peft_model raised a ValueError for finetune_last_n_layers and layers_to_transform with the default targets | Open |
 | 2026-10-16 | [Ray #67115](https://github.com/ray-project/ray/pull/67115) | MedianStoppingRule averaged a finished trial's last result into its running mean up to three times | Open |
@@ -34,7 +35,7 @@ _1471 GitHub contributions in the last year · 57 in the last 7 days · 374 in t
 | 2026-10-12 | [unsloth #13454](https://github.com/unslothai/unsloth/pull/13454) | Granite fast decode summed the normed hidden states into the residual because the residual aliased an in-place norm | Open |
 | 2026-10-12 | [Ray #66939](https://github.com/ray-project/ray/pull/66939) | With mode="max", a trial that had not reported the metric yet was ranked as the top job and given the free resources | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
