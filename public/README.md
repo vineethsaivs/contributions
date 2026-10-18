@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 16, 2026 at 8:52 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 18, 2026 at 12:01 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **441** | **192** | **185** | **75%** | **42** | **127 days** |
+| **444** | **192** | **188** | **75%** | **42** | **129 days** |
 
-_1474 GitHub contributions in the last year · 60 in the last 7 days · 377 in the last 30._
+_1479 GitHub contributions in the last year · 51 in the last 7 days · 360 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,9 @@ _1474 GitHub contributions in the last year · 60 in the last 7 days · 377 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-17 | [Ray #67137](https://github.com/ray-project/ray/pull/67137) | HyperBand could keep a trial reporting NaN and stop the best trial of its bracket | Open |
+| 2026-10-17 | [unsloth #14112](https://github.com/unslothai/unsloth/pull/14112) | GRPO compute_loss filed kl, completion_length and clip_ratio metrics under the wrong train/eval bucket for eval_on_start and standalone evaluate() | Open |
+| 2026-10-17 | [tunix #2961](https://github.com/google/tunix/pull/2961) | PPO evaluation sampled with the TRAIN rollout config, ignoring the eval temperature, top_p and top_k | Open |
 | 2026-10-16 | [sentence-transformers #4203](https://github.com/huggingface/sentence-transformers/pull/4203) | Pooling("cls") crashed on top of WordEmbeddings because a None cls_token_embeddings counted as present | Open |
 | 2026-10-16 | [vllm #62038](https://github.com/vllm-project/vllm/pull/62038) | A NaN logit_bias value was clamped to -100, silently banning that token | Open |
 | 2026-10-16 | [unsloth #14021](https://github.com/unslothai/unsloth/pull/14021) | FastModel.get_peft_model raised a ValueError for finetune_last_n_layers and layers_to_transform with the default targets | Open |
@@ -30,12 +33,8 @@ _1474 GitHub contributions in the last year · 60 in the last 7 days · 377 in t
 | 2026-10-14 | [Ray #67013](https://github.com/ray-project/ray/pull/67013) | Repeater passed the last repeat's error flag with the group's mean score, so searchers that skip errored trials dropped a valid mean | Open |
 | 2026-10-14 | [vllm #61661](https://github.com/vllm-project/vllm/pull/61661) | Generation token metrics counted tokens that were trimmed off after a stop string matched mid-step | Open |
 | 2026-10-14 | [vllm #61660](https://github.com/vllm-project/vllm/pull/61660) | Completions with echo=True and max_tokens=0 reported one completion token and returned a token id that is not in the response | Open |
-| 2026-10-13 | [unsloth #13643](https://github.com/unslothai/unsloth/pull/13643) | Gemma and Gemma2 fast decode returned wrong hidden states on every step for float32 models | Merged |
-| 2026-10-12 | [tunix #2827](https://github.com/google/tunix/pull/2827) | Agentic GRPO reward and metric fns scored only the first assistant message of each multi-turn trajectory | Open |
-| 2026-10-12 | [unsloth #13454](https://github.com/unslothai/unsloth/pull/13454) | Granite fast decode summed the normed hidden states into the residual because the residual aliased an in-place norm | Open |
-| 2026-10-12 | [Ray #66939](https://github.com/ray-project/ray/pull/66939) | With mode="max", a trial that had not reported the metric yet was ranked as the top job and given the free resources | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
