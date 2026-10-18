@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 18, 2026 at 12:01 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 18, 2026 at 11:31 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **444** | **192** | **188** | **75%** | **42** | **129 days** |
+| **446** | **192** | **190** | **75%** | **42** | **129 days** |
 
-_1479 GitHub contributions in the last year · 51 in the last 7 days · 360 in the last 30._
+_1483 GitHub contributions in the last year · 55 in the last 7 days · 364 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,8 @@ _1479 GitHub contributions in the last year · 51 in the last 7 days · 360 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-18 | [sentence-transformers #4225](https://github.com/huggingface/sentence-transformers/pull/4225) | fit() with several train objectives trained everything after the first 1/k of the run at learning rate 0 | Open |
+| 2026-10-18 | [unsloth #14150](https://github.com/unslothai/unsloth/pull/14150) | FastSentenceTransformer.get_peft_model silently ignored layers_to_transform, layers_pattern, use_rslora and modules_to_save on the fast encoder path | Open |
 | 2026-10-17 | [Ray #67137](https://github.com/ray-project/ray/pull/67137) | HyperBand could keep a trial reporting NaN and stop the best trial of its bracket | Open |
 | 2026-10-17 | [unsloth #14112](https://github.com/unslothai/unsloth/pull/14112) | GRPO compute_loss filed kl, completion_length and clip_ratio metrics under the wrong train/eval bucket for eval_on_start and standalone evaluate() | Open |
 | 2026-10-17 | [tunix #2961](https://github.com/google/tunix/pull/2961) | PPO evaluation sampled with the TRAIN rollout config, ignoring the eval temperature, top_p and top_k | Open |
@@ -34,7 +36,7 @@ _1479 GitHub contributions in the last year · 51 in the last 7 days · 360 in t
 | 2026-10-14 | [vllm #61661](https://github.com/vllm-project/vllm/pull/61661) | Generation token metrics counted tokens that were trimmed off after a stop string matched mid-step | Open |
 | 2026-10-14 | [vllm #61660](https://github.com/vllm-project/vllm/pull/61660) | Completions with echo=True and max_tokens=0 reported one completion token and returned a token id that is not in the response | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
