@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 19, 2026 at 3:23 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 19, 2026 at 3:38 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **447** | **192** | **191** | **75%** | **42** | **130 days** |
+| **447** | **196** | **186** | **75%** | **42** | **130 days** |
 
-_1493 GitHub contributions in the last year · 56 in the last 7 days · 361 in the last 30._
+_1495 GitHub contributions in the last year · 58 in the last 7 days · 363 in the last 30._
 
 ## Bug reports
 
@@ -21,14 +21,14 @@ _1493 GitHub contributions in the last year · 56 in the last 7 days · 361 in t
 | 2026-10-18 | [sentence-transformers #4225](https://github.com/huggingface/sentence-transformers/pull/4225) | fit() with several train objectives trained everything after the first 1/k of the run at learning rate 0 | Open |
 | 2026-10-18 | [unsloth #14150](https://github.com/unslothai/unsloth/pull/14150) | FastSentenceTransformer.get_peft_model silently ignored layers_to_transform, layers_pattern, use_rslora and modules_to_save on the fast encoder path | Open |
 | 2026-10-17 | [Ray #67137](https://github.com/ray-project/ray/pull/67137) | HyperBand could keep a trial reporting NaN and stop the best trial of its bracket | Open |
-| 2026-10-17 | [unsloth #14112](https://github.com/unslothai/unsloth/pull/14112) | GRPO compute_loss filed kl, completion_length and clip_ratio metrics under the wrong train/eval bucket for eval_on_start and standalone evaluate() | Open |
+| 2026-10-17 | [unsloth #14112](https://github.com/unslothai/unsloth/pull/14112) | GRPO compute_loss filed kl, completion_length and clip_ratio metrics under the wrong train/eval bucket for eval_on_start and standalone evaluate() | Merged |
 | 2026-10-17 | [tunix #2961](https://github.com/google/tunix/pull/2961) | PPO evaluation sampled with the TRAIN rollout config, ignoring the eval temperature, top_p and top_k | Open |
-| 2026-10-16 | [sentence-transformers #4203](https://github.com/huggingface/sentence-transformers/pull/4203) | Pooling("cls") crashed on top of WordEmbeddings because a None cls_token_embeddings counted as present | Open |
+| 2026-10-16 | [sentence-transformers #4203](https://github.com/huggingface/sentence-transformers/pull/4203) | Pooling("cls") crashed on top of WordEmbeddings because a None cls_token_embeddings counted as present | Closed, maintainer declined the fix |
 | 2026-10-16 | [vllm #62038](https://github.com/vllm-project/vllm/pull/62038) | A NaN logit_bias value was clamped to -100, silently banning that token | Open |
-| 2026-10-16 | [unsloth #14021](https://github.com/unslothai/unsloth/pull/14021) | FastModel.get_peft_model raised a ValueError for finetune_last_n_layers and layers_to_transform with the default targets | Open |
+| 2026-10-16 | [unsloth #14021](https://github.com/unslothai/unsloth/pull/14021) | FastModel.get_peft_model raised a ValueError for finetune_last_n_layers and layers_to_transform with the default targets | Merged |
 | 2026-10-16 | [Ray #67115](https://github.com/ray-project/ray/pull/67115) | MedianStoppingRule averaged a finished trial's last result into its running mean up to three times | Open |
 | 2026-10-16 | [tunix #2949](https://github.com/google/tunix/pull/2949) | LogitStrategy averaged KL, task and teacher losses over padded positions, skewing the loss and metrics | Open |
-| 2026-10-15 | [unsloth #13906](https://github.com/unslothai/unsloth/pull/13906) | A padded prefill on a sliding-window model (Mistral) attended one key more than the configured window | Open |
+| 2026-10-15 | [unsloth #13906](https://github.com/unslothai/unsloth/pull/13906) | A padded prefill on a sliding-window model (Mistral) attended one key more than the configured window | Merged |
 | 2026-10-15 | [tunix #2915](https://github.com/google/tunix/pull/2915) | PeftTrainer passed the eval hook a sum of batch losses for scalar losses but a mean for weighted losses | Open |
 | 2026-10-14 | [sentence-transformers #4181](https://github.com/huggingface/sentence-transformers/pull/4181) | The nan/inf filter replaced a loss component with a value divided by optimizer steps instead of logged calls, shifting the logged mean | Merged |
 | 2026-10-14 | [tunix #2880](https://github.com/google/tunix/pull/2880) | DAPOLearner appended reward_shaping to the caller's reward_fns list, so reusing the list doubled the overlong penalty | Open |
