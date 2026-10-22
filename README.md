@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 21, 2026 at 9:34 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 22, 2026 at 10:48 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **450** | **202** | **183** | **76%** | **42** | **132 days** |
+| **455** | **202** | **188** | **76%** | **42** | **133 days** |
 
-_1515 GitHub contributions in the last year · 61 in the last 7 days · 350 in the last 30._
+_1522 GitHub contributions in the last year · 57 in the last 7 days · 343 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,11 @@ _1515 GitHub contributions in the last year · 61 in the last 7 days · 350 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-22 | [unsloth #14726](https://github.com/unslothai/unsloth/pull/14726) | Studio vision training trained the word "None" for rows with a null caption | Open |
+| 2026-10-22 | [unsloth #14725](https://github.com/unslothai/unsloth/pull/14725) | Studio API key creation accepted an out-of-range expires_in_days | Open |
+| 2026-10-22 | [Ray #67280](https://github.com/ray-project/ray/pull/67280) | OptunaSearch sampled off-grid values for tune.qrandint (and could return the exclusive upper bound with q=1) | Open |
+| 2026-10-22 | [unsloth-zoo #1972](https://github.com/unslothai/unsloth-zoo/pull/1972) | add_new_tokens with method="interpolation" broke or wrote wrong vectors when new_tokens held a repeated entry | Open |
+| 2026-10-22 | [unsloth #14721](https://github.com/unslothai/unsloth/pull/14721) | Studio training requests accepted a NaN weight_decay | Open |
 | 2026-10-20 | [Ray #67199](https://github.com/ray-project/ray/pull/67199) | OptunaSearch rejected tune.qlograndint because it passed a quantization step together with log=True | Open |
 | 2026-10-20 | [unsloth #14380](https://github.com/unslothai/unsloth/pull/14380) | RawTextDataLoader raised on CSV text cells larger than 128 KB | Open |
 | 2026-10-20 | [unsloth #14378](https://github.com/unslothai/unsloth/pull/14378) | has_internet set the process-wide socket timeout to 3 seconds and never restored it | Merged |
@@ -31,10 +36,8 @@ _1515 GitHub contributions in the last year · 61 in the last 7 days · 350 in t
 | 2026-10-16 | [unsloth #14021](https://github.com/unslothai/unsloth/pull/14021) | FastModel.get_peft_model raised a ValueError for finetune_last_n_layers and layers_to_transform with the default targets | Merged |
 | 2026-10-16 | [Ray #67115](https://github.com/ray-project/ray/pull/67115) | MedianStoppingRule averaged a finished trial's last result into its running mean up to three times | Open |
 | 2026-10-16 | [tunix #2949](https://github.com/google/tunix/pull/2949) | LogitStrategy averaged KL, task and teacher losses over padded positions, skewing the loss and metrics | Open |
-| 2026-10-15 | [unsloth #13906](https://github.com/unslothai/unsloth/pull/13906) | A padded prefill on a sliding-window model (Mistral) attended one key more than the configured window | Merged |
-| 2026-10-15 | [tunix #2915](https://github.com/google/tunix/pull/2915) | PeftTrainer passed the eval hook a sum of batch losses for scalar losses but a mean for weighted losses | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
