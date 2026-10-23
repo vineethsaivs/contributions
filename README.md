@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 23, 2026 at 12:42 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 23, 2026 at 2:05 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **458** | **202** | **191** | **76%** | **42** | **134 days** |
+| **459** | **202** | **192** | **76%** | **42** | **134 days** |
 
-_1532 GitHub contributions in the last year · 56 in the last 7 days · 342 in the last 30._
+_1535 GitHub contributions in the last year · 59 in the last 7 days · 345 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,7 @@ _1532 GitHub contributions in the last year · 56 in the last 7 days · 342 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-23 | [DeepSpeed #8896](https://github.com/deepspeedai/DeepSpeed/pull/8896) | Draft: With comms profiling on, the first all_gather_object or monitored_barrier printed "wrong comm_op specified" and exited the process with status 0 | Open |
 | 2026-10-23 | [unsloth #14999](https://github.com/unslothai/unsloth/pull/14999) | Studio dropped a column mapped to the system role when the advisor mapping also carried metadata | Open |
 | 2026-10-23 | [Ray #67335](https://github.com/ray-project/ray/pull/67335) | Reusing a RunConfig with callbacks for a second Tuner.fit() errored the trials, because the default callbacks were appended to the caller's list | Open |
 | 2026-10-22 | [unsloth #14726](https://github.com/unslothai/unsloth/pull/14726) | Studio vision training trained the word "None" for rows with a null caption | Open |
@@ -35,7 +36,7 @@ _1532 GitHub contributions in the last year · 56 in the last 7 days · 342 in t
 | 2026-10-17 | [unsloth #14112](https://github.com/unslothai/unsloth/pull/14112) | GRPO compute_loss filed kl, completion_length and clip_ratio metrics under the wrong train/eval bucket for eval_on_start and standalone evaluate() | Merged |
 | 2026-10-17 | [tunix #2961](https://github.com/google/tunix/pull/2961) | PPO evaluation sampled with the TRAIN rollout config, ignoring the eval temperature, top_p and top_k | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
