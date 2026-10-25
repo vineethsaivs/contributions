@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 24, 2026 at 8:30 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 25, 2026 at 1:37 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **462** | **203** | **194** | **76%** | **42** | **135 days** |
+| **465** | **203** | **197** | **76%** | **42** | **136 days** |
 
-_1544 GitHub contributions in the last year · 67 in the last 7 days · 346 in the last 30._
+_1549 GitHub contributions in the last year · 64 in the last 7 days · 343 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,9 @@ _1544 GitHub contributions in the last year · 67 in the last 7 days · 346 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-25 | [unsloth #15282](https://github.com/unslothai/unsloth/pull/15282) | Studio /v1/messages with a Connection model answered 500 instead of 400 for an out-of-range sampling value | Open |
+| 2026-10-25 | [Ray #67408](https://github.com/ray-project/ray/pull/67408) | HyperOptSearch returned values off the grid for tune.qrandint and tune.qlograndint (0 for qrandint(1, 10, 3), 10 for qrandint(0, 9, 5)) | Open |
+| 2026-10-25 | [unsloth-zoo #2086](https://github.com/unslothai/unsloth-zoo/pull/2086) | higher_precision_softmax rewrote a softmax with a compound first argument into a TypeError (Falcon) or a SyntaxError (SLANet, SLANeXt) in the generated module | Open |
 | 2026-10-24 | [Ray #67378](https://github.com/ray-project/ray/pull/67378) | CLIReporter and JupyterNotebookReporter with sort_by_metric=True crashed with a TypeError when a terminated trial never reported the metric | Open |
 | 2026-10-24 | [unsloth #15176](https://github.com/unslothai/unsloth/pull/15176) | Studio training requests accepted a random_seed outside the numpy range, which only failed in set_seed after the model had loaded | Open |
 | 2026-10-24 | [vllm #63521](https://github.com/vllm-project/vllm/pull/63521) | Draft: An unsupported endpoint-load-metrics-format header logged the Python builtin "format" instead of the format name | Open |
@@ -32,9 +35,8 @@ _1544 GitHub contributions in the last year · 67 in the last 7 days · 346 in t
 | 2026-10-20 | [Ray #67199](https://github.com/ray-project/ray/pull/67199) | OptunaSearch rejected tune.qlograndint because it passed a quantization step together with log=True | Open |
 | 2026-10-20 | [unsloth #14380](https://github.com/unslothai/unsloth/pull/14380) | RawTextDataLoader raised on CSV text cells larger than 128 KB | Open |
 | 2026-10-20 | [unsloth #14378](https://github.com/unslothai/unsloth/pull/14378) | has_internet set the process-wide socket timeout to 3 seconds and never restored it | Merged |
-| 2026-10-19 | [Ray #67171](https://github.com/ray-project/ray/pull/67171) | BayesOptSearch.register_analysis paired results with the wrong configs once any trial had no results | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
