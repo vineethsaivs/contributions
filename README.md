@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 23, 2026 at 2:05 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 24, 2026 at 8:24 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **459** | **202** | **192** | **76%** | **42** | **134 days** |
+| **462** | **202** | **195** | **76%** | **42** | **135 days** |
 
-_1535 GitHub contributions in the last year · 59 in the last 7 days · 345 in the last 30._
+_1541 GitHub contributions in the last year · 64 in the last 7 days · 343 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,9 @@ _1535 GitHub contributions in the last year · 59 in the last 7 days · 345 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-24 | [Ray #67378](https://github.com/ray-project/ray/pull/67378) | CLIReporter and JupyterNotebookReporter with sort_by_metric=True crashed with a TypeError when a terminated trial never reported the metric | Open |
+| 2026-10-24 | [unsloth #15176](https://github.com/unslothai/unsloth/pull/15176) | Studio training requests accepted a random_seed outside the numpy range, which only failed in set_seed after the model had loaded | Open |
+| 2026-10-24 | [vllm #63521](https://github.com/vllm-project/vllm/pull/63521) | Draft: An unsupported endpoint-load-metrics-format header logged the Python builtin "format" instead of the format name | Open |
 | 2026-10-23 | [DeepSpeed #8896](https://github.com/deepspeedai/DeepSpeed/pull/8896) | Draft: With comms profiling on, the first all_gather_object or monitored_barrier printed "wrong comm_op specified" and exited the process with status 0 | Open |
 | 2026-10-23 | [unsloth #14999](https://github.com/unslothai/unsloth/pull/14999) | Studio dropped a column mapped to the system role when the advisor mapping also carried metadata | Open |
 | 2026-10-23 | [Ray #67335](https://github.com/ray-project/ray/pull/67335) | Reusing a RunConfig with callbacks for a second Tuner.fit() errored the trials, because the default callbacks were appended to the caller's list | Open |
@@ -30,13 +33,8 @@ _1535 GitHub contributions in the last year · 59 in the last 7 days · 345 in t
 | 2026-10-20 | [unsloth #14380](https://github.com/unslothai/unsloth/pull/14380) | RawTextDataLoader raised on CSV text cells larger than 128 KB | Open |
 | 2026-10-20 | [unsloth #14378](https://github.com/unslothai/unsloth/pull/14378) | has_internet set the process-wide socket timeout to 3 seconds and never restored it | Merged |
 | 2026-10-19 | [Ray #67171](https://github.com/ray-project/ray/pull/67171) | BayesOptSearch.register_analysis paired results with the wrong configs once any trial had no results | Open |
-| 2026-10-18 | [sentence-transformers #4225](https://github.com/huggingface/sentence-transformers/pull/4225) | fit() with several train objectives trained everything after the first 1/k of the run at learning rate 0 | Merged |
-| 2026-10-18 | [unsloth #14150](https://github.com/unslothai/unsloth/pull/14150) | FastSentenceTransformer.get_peft_model silently ignored layers_to_transform, layers_pattern, use_rslora and modules_to_save on the fast encoder path | Merged |
-| 2026-10-17 | [Ray #67137](https://github.com/ray-project/ray/pull/67137) | HyperBand could keep a trial reporting NaN and stop the best trial of its bracket | Open |
-| 2026-10-17 | [unsloth #14112](https://github.com/unslothai/unsloth/pull/14112) | GRPO compute_loss filed kl, completion_length and clip_ratio metrics under the wrong train/eval bucket for eval_on_start and standalone evaluate() | Merged |
-| 2026-10-17 | [tunix #2961](https://github.com/google/tunix/pull/2961) | PPO evaluation sampled with the TRAIN rollout config, ignoring the eval temperature, top_p and top_k | Open |
 
-_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
