@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 24, 2026 at 8:24 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 24, 2026 at 8:30 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **462** | **202** | **195** | **76%** | **42** | **135 days** |
+| **462** | **203** | **194** | **76%** | **42** | **135 days** |
 
-_1541 GitHub contributions in the last year · 64 in the last 7 days · 343 in the last 30._
+_1544 GitHub contributions in the last year · 67 in the last 7 days · 346 in the last 30._
 
 ## Bug reports
 
@@ -23,7 +23,7 @@ _1541 GitHub contributions in the last year · 64 in the last 7 days · 343 in t
 | 2026-10-23 | [DeepSpeed #8896](https://github.com/deepspeedai/DeepSpeed/pull/8896) | Draft: With comms profiling on, the first all_gather_object or monitored_barrier printed "wrong comm_op specified" and exited the process with status 0 | Open |
 | 2026-10-23 | [unsloth #14999](https://github.com/unslothai/unsloth/pull/14999) | Studio dropped a column mapped to the system role when the advisor mapping also carried metadata | Open |
 | 2026-10-23 | [Ray #67335](https://github.com/ray-project/ray/pull/67335) | Reusing a RunConfig with callbacks for a second Tuner.fit() errored the trials, because the default callbacks were appended to the caller's list | Open |
-| 2026-10-22 | [unsloth #14726](https://github.com/unslothai/unsloth/pull/14726) | Studio vision training trained the word "None" for rows with a null caption | Open |
+| 2026-10-22 | [unsloth #14726](https://github.com/unslothai/unsloth/pull/14726) | Studio vision training trained the word "None" for rows with a null caption | Merged |
 | 2026-10-22 | [unsloth #14725](https://github.com/unslothai/unsloth/pull/14725) | Studio API key creation accepted an out-of-range expires_in_days | Open |
 | 2026-10-22 | [Ray #67280](https://github.com/ray-project/ray/pull/67280) | OptunaSearch sampled off-grid values for tune.qrandint (and could return the exclusive upper bound with q=1) | Open |
 | 2026-10-22 | [unsloth-zoo #1972](https://github.com/unslothai/unsloth-zoo/pull/1972) | add_new_tokens with method="interpolation" broke or wrote wrong vectors when new_tokens held a repeated entry | Open |
