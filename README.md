@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 26, 2026 at 1:30 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 26, 2026 at 1:36 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | **468** | **209** | **194** | **76%** | **42** | **137 days** |
 
-_1561 GitHub contributions in the last year · 64 in the last 7 days · 318 in the last 30._
+_1563 GitHub contributions in the last year · 66 in the last 7 days · 320 in the last 30._
 
 ## Bug reports
 
@@ -25,7 +25,7 @@ _1561 GitHub contributions in the last year · 64 in the last 7 days · 318 in t
 | 2026-10-25 | [unsloth-zoo #2086](https://github.com/unslothai/unsloth-zoo/pull/2086) | higher_precision_softmax rewrote a softmax with a compound first argument into a TypeError (Falcon) or a SyntaxError (SLANet, SLANeXt) in the generated module | Merged |
 | 2026-10-24 | [Ray #67378](https://github.com/ray-project/ray/pull/67378) | CLIReporter and JupyterNotebookReporter with sort_by_metric=True crashed with a TypeError when a terminated trial never reported the metric | Open |
 | 2026-10-24 | [unsloth #15176](https://github.com/unslothai/unsloth/pull/15176) | Studio training requests accepted a random_seed outside the numpy range, which only failed in set_seed after the model had loaded | Merged |
-| 2026-10-24 | [vllm #63521](https://github.com/vllm-project/vllm/pull/63521) | Draft: An unsupported endpoint-load-metrics-format header logged the Python builtin "format" instead of the format name | Open |
+| 2026-10-24 | [vllm #63521](https://github.com/vllm-project/vllm/pull/63521) | An unsupported endpoint-load-metrics-format header logged the Python builtin "format" instead of the format name | Open |
 | 2026-10-23 | [DeepSpeed #8896](https://github.com/deepspeedai/DeepSpeed/pull/8896) | Draft: With comms profiling on, the first all_gather_object or monitored_barrier printed "wrong comm_op specified" and exited the process with status 0 | Open |
 | 2026-10-23 | [unsloth #14999](https://github.com/unslothai/unsloth/pull/14999) | Studio dropped a column mapped to the system role when the advisor mapping also carried metadata | Merged |
 | 2026-10-23 | [Ray #67335](https://github.com/ray-project/ray/pull/67335) | Reusing a RunConfig with callbacks for a second Tuner.fit() errored the trials, because the default callbacks were appended to the caller's list | Open |
