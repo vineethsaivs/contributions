@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 26, 2026 at 4:06 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 27, 2026 at 1:58 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **472** | **210** | **196** | **76%** | **42** | **137 days** |
+| **476** | **211** | **199** | **76%** | **42** | **138 days** |
 
-_1573 GitHub contributions in the last year · 76 in the last 7 days · 330 in the last 30._
+_1584 GitHub contributions in the last year · 77 in the last 7 days · 324 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,10 @@ _1573 GitHub contributions in the last year · 76 in the last 7 days · 330 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-27 | [unsloth-zoo #2154](https://github.com/unslothai/unsloth-zoo/pull/2154) | On TRL 0.18.2 (the declared floor), prompt/completion SFT through Unsloth trained on the prompt tokens too, because completion_mask became a labels column that TRL 0.18's collator never reads | Open |
+| 2026-10-27 | [vllm #64102](https://github.com/vllm-project/vllm/pull/64102) | A vllm run-batch input line with a missing, null or non-string url crashed validate_batch with a raw KeyError: 'url' instead of reporting the bad field | Open |
+| 2026-10-27 | [unsloth-zoo #2152](https://github.com/unslothai/unsloth-zoo/pull/2152) | On transformers 4.52 to 4.57, an old-layout bnb skip entry never matched model.language_model.layers.N for Qwen2-VL and Qwen2.5-VL, so a layer meant to stay in bf16 became Linear4bit | Open |
+| 2026-10-27 | [Ray #67482](https://github.com/ray-project/ray/pull/67482) | tune.sample_from values never reached trial.evaluated_params, so TensorBoard hparams, the CLI table and Aim left them out; with every varied param on sample_from, TensorBoard logged no hparams at all | Open |
 | 2026-10-26 | [litellm #48440](https://github.com/BerriAI/litellm/pull/48440) | create_eval dropped the caller's metadata and create_run had the assignment commented out, so metadata was accepted and silently dropped; re-filed against main from #34735 | Open |
 | 2026-10-26 | [litellm #48439](https://github.com/BerriAI/litellm/pull/48439) | CloudflareChatConfig sent OpenAI content-part arrays unflattened, so Cloudflare Workers AI rejected them with a type mismatch (array not in string); still true on main, re-filed against main from #33991 | Open |
 | 2026-10-26 | [vllm #63814](https://github.com/vllm-project/vllm/pull/63814) | --fingerprint-mode custom without --fingerprint-value started the server and silently dropped system_fingerprint from every response, the same as mode none | Open |
@@ -30,11 +34,8 @@ _1573 GitHub contributions in the last year · 76 in the last 7 days · 330 in t
 | 2026-10-24 | [Ray #67378](https://github.com/ray-project/ray/pull/67378) | CLIReporter and JupyterNotebookReporter with sort_by_metric=True crashed with a TypeError when a terminated trial never reported the metric | Open |
 | 2026-10-24 | [unsloth #15176](https://github.com/unslothai/unsloth/pull/15176) | Studio training requests accepted a random_seed outside the numpy range, which only failed in set_seed after the model had loaded | Merged |
 | 2026-10-24 | [vllm #63521](https://github.com/vllm-project/vllm/pull/63521) | An unsupported endpoint-load-metrics-format header logged the Python builtin "format" instead of the format name | Open |
-| 2026-10-23 | [DeepSpeed #8896](https://github.com/deepspeedai/DeepSpeed/pull/8896) | Draft: With comms profiling on, the first all_gather_object or monitored_barrier printed "wrong comm_op specified" and exited the process with status 0 | Open |
-| 2026-10-23 | [unsloth #14999](https://github.com/unslothai/unsloth/pull/14999) | Studio dropped a column mapped to the system role when the advisor mapping also carried metadata | Merged |
-| 2026-10-23 | [Ray #67335](https://github.com/ray-project/ray/pull/67335) | Reusing a RunConfig with callbacks for a second Tuner.fit() errored the trials, because the default callbacks were appended to the caller's list | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
