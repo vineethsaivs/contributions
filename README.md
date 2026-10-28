@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 28, 2026 at 1:20 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 28, 2026 at 2:57 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **479** | **217** | **195** | **76%** | **42** | **139 days** |
+| **480** | **217** | **195** | **76%** | **42** | **139 days** |
 
-_1597 GitHub contributions in the last year · 80 in the last 7 days · 326 in the last 30._
+_1601 GitHub contributions in the last year · 84 in the last 7 days · 330 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,7 @@ _1597 GitHub contributions in the last year · 80 in the last 7 days · 326 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-28 | [vllm #64337](https://github.com/vllm-project/vllm/pull/64337) | A chat request (input_audio or audio_url) carrying a WAV cut to 30 bytes returned HTTP 500 instead of 400, because load_audio re-raised libsndfile's RuntimeError for any error code outside the format-detection ones | Open |
 | 2026-10-28 | [unsloth-zoo #2214](https://github.com/unslothai/unsloth-zoo/pull/2214) | On transformers 4.52 to 4.57 the compiler silently dropped the causal mask for models that do not use SDPA (T5, mT5, UMT5, GPT-J, CodeGen, GPT-NeoX-Japanese, Bloom), so every position saw future tokens and training loss and generations were wrong with no error | Open |
 | 2026-10-28 | [Ray #67509](https://github.com/ray-project/ray/pull/67509) | NevergradSearch returned nan for every tune.randn and tune.qrandn parameter, because the unbounded domain became ng.p.Scalar(lower=-inf, upper=inf), which starts at NaN on nevergrad 1.0.12 | Open |
 | 2026-10-28 | [unsloth #15775](https://github.com/unslothai/unsloth/pull/15775) | The legacy unsloth-cli.py documents --dtype None (its own usage line; the help says None for auto detection), but on every non-MLX backend it crashed with an AssertionError, because the CLI passed the string "None" to FastLanguageModel.from_pretrained, which asserts dtype is None or a torch dtype | Open |
@@ -35,7 +36,7 @@ _1597 GitHub contributions in the last year · 80 in the last 7 days · 326 in t
 | 2026-10-25 | [Ray #67408](https://github.com/ray-project/ray/pull/67408) | HyperOptSearch returned values off the grid for tune.qrandint and tune.qlograndint (0 for qrandint(1, 10, 3), 10 for qrandint(0, 9, 5)) | Open |
 | 2026-10-25 | [unsloth-zoo #2086](https://github.com/unslothai/unsloth-zoo/pull/2086) | higher_precision_softmax rewrote a softmax with a compound first argument into a TypeError (Falcon) or a SyntaxError (SLANet, SLANeXt) in the generated module | Merged |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
