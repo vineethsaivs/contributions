@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 28, 2026 at 2:57 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 29, 2026 at 11:15 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **480** | **217** | **195** | **76%** | **42** | **139 days** |
+| **483** | **217** | **198** | **76%** | **42** | **140 days** |
 
-_1601 GitHub contributions in the last year · 84 in the last 7 days · 330 in the last 30._
+_1609 GitHub contributions in the last year · 81 in the last 7 days · 317 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,9 @@ _1601 GitHub contributions in the last year · 84 in the last 7 days · 330 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-29 | [Ray #67558](https://github.com/ray-project/ray/pull/67558) | tune.qrandint(0, 100, 10) in ZOOptSearch suggested values like 8, 16 and 65 and could never reach the inclusive upper bound 100, because convert_search_space dropped q for the Integer branch | Open |
+| 2026-10-29 | [DeepSpeed #8947](https://github.com/deepspeedai/DeepSpeed/pull/8947) | generalized_jsd_loss reported a wrong valid_token_count and loss for bf16 and fp16 logits (bf16 rounded 97992 valid tokens to 97792; fp16 with more than 65504 returned int64 max and the loss collapsed to about 0), because it cast response_mask to the logits dtype before summing | Open |
+| 2026-10-29 | [unsloth-zoo #2254](https://github.com/unslothai/unsloth-zoo/pull/2254) | The compiled LED encoder returned different hidden states from stock LED (max diff 0.025), because convert_attention_masks_to_bool rewrote LED's additive encoder mask into a boolean one that LED's non-SDPA Longformer encoder still reads additively | Open |
 | 2026-10-28 | [vllm #64337](https://github.com/vllm-project/vllm/pull/64337) | A chat request (input_audio or audio_url) carrying a WAV cut to 30 bytes returned HTTP 500 instead of 400, because load_audio re-raised libsndfile's RuntimeError for any error code outside the format-detection ones | Open |
 | 2026-10-28 | [unsloth-zoo #2214](https://github.com/unslothai/unsloth-zoo/pull/2214) | On transformers 4.52 to 4.57 the compiler silently dropped the causal mask for models that do not use SDPA (T5, mT5, UMT5, GPT-J, CodeGen, GPT-NeoX-Japanese, Bloom), so every position saw future tokens and training loss and generations were wrong with no error | Open |
 | 2026-10-28 | [Ray #67509](https://github.com/ray-project/ray/pull/67509) | NevergradSearch returned nan for every tune.randn and tune.qrandn parameter, because the unbounded domain became ng.p.Scalar(lower=-inf, upper=inf), which starts at NaN on nevergrad 1.0.12 | Open |
@@ -32,9 +35,6 @@ _1601 GitHub contributions in the last year · 84 in the last 7 days · 330 in t
 | 2026-10-26 | [unsloth #15389](https://github.com/unslothai/unsloth/pull/15389) | Studio answered 500 instead of 422 for a request integer past signed 64-bit (createdAt/updatedAt on the chat history routes and /api/prompts, offset on /api/chat/attachments, since on /api/scheduled-tasks/runs) | Merged |
 | 2026-10-26 | [unsloth-zoo #2117](https://github.com/unslothai/unsloth-zoo/pull/2117) | The patched PEFT LoRA forward applied only the first adapter under set_adapter(["a", "b"]), so the second adapter had no effect and received no gradient | Merged |
 | 2026-10-26 | [Ray #67425](https://github.com/ray-project/ray/pull/67425) | Tuner.fit() crashed in resolve_placeholders with a TypeError when a search space mixed a non-primitive option with a primitive one, e.g. tune.grid_search([Act("relu"), 5]) | Open |
-| 2026-10-25 | [unsloth #15282](https://github.com/unslothai/unsloth/pull/15282) | Studio /v1/messages with a Connection model answered 500 instead of 400 for an out-of-range sampling value | Merged |
-| 2026-10-25 | [Ray #67408](https://github.com/ray-project/ray/pull/67408) | HyperOptSearch returned values off the grid for tune.qrandint and tune.qlograndint (0 for qrandint(1, 10, 3), 10 for qrandint(0, 9, 5)) | Open |
-| 2026-10-25 | [unsloth-zoo #2086](https://github.com/unslothai/unsloth-zoo/pull/2086) | higher_precision_softmax rewrote a softmax with a compound first argument into a TypeError (Falcon) or a SyntaxError (SLANet, SLANeXt) in the generated module | Merged |
 
 _Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
