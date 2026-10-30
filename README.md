@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 29, 2026 at 9:16 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 30, 2026 at 10:17 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **483** | **217** | **198** | **76%** | **42** | **140 days** |
+| **487** | **217** | **202** | **76%** | **42** | **141 days** |
 
-_1623 GitHub contributions in the last year · 95 in the last 7 days · 331 in the last 30._
+_1630 GitHub contributions in the last year · 92 in the last 7 days · 328 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,10 @@ _1623 GitHub contributions in the last year · 95 in the last 7 days · 331 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-10-30 | [DeepSpeed #8960](https://github.com/deepspeedai/DeepSpeed/pull/8960) | sequence_tiled_compute(..., output_reduction="mean") rescaled the gradient of other terms summed into the same loss (x.grad error 0.75), because backward did incoming_grad /= shards in place on the tensor autograd shares across summed branches | Open |
+| 2026-10-30 | [unsloth-zoo #2283](https://github.com/unslothai/unsloth-zoo/pull/2283) | merge_and_overwrite_lora on a GPT-2 Conv1D LoRA adapter crashed with Bad in-place call on rectangular layers or silently merged a transposed delta on square ones, because _merge_lora added B@A to the base weight as (out, in) while Conv1D adapters (fan_in_fan_out=True) store (in, out) | Open |
+| 2026-10-30 | [Ray #67618](https://github.com/ray-project/ray/pull/67618) | A nested points_to_evaluate entry crashed on_trial_complete in BayesOptSearch with ValueError (Parameters' keys do not match the expected set of keys), because suggest stored the popped nested point while the optimizer registers flattened a/x keys | Open |
+| 2026-10-30 | [Ray #67616](https://github.com/ray-project/ray/pull/67616) | A nested points_to_evaluate entry in OptunaSearch was silently ignored (Optuna sampled the parameter at random) or rejected with a misleading validate_warmstart error (Dim of point ... do not match), because the space is flattened to a/b keys but the points were stored as given | Open |
 | 2026-10-29 | [Ray #67558](https://github.com/ray-project/ray/pull/67558) | tune.qrandint(0, 100, 10) in ZOOptSearch suggested values like 8, 16 and 65 and could never reach the inclusive upper bound 100, because convert_search_space dropped q for the Integer branch | Open |
 | 2026-10-29 | [DeepSpeed #8947](https://github.com/deepspeedai/DeepSpeed/pull/8947) | generalized_jsd_loss reported a wrong valid_token_count and loss for bf16 and fp16 logits (bf16 rounded 97992 valid tokens to 97792; fp16 with more than 65504 returned int64 max and the loss collapsed to about 0), because it cast response_mask to the logits dtype before summing | Open |
 | 2026-10-29 | [unsloth-zoo #2254](https://github.com/unslothai/unsloth-zoo/pull/2254) | The compiled LED encoder returned different hidden states from stock LED (max diff 0.025), because convert_attention_masks_to_bool rewrote LED's additive encoder mask into a boolean one that LED's non-SDPA Longformer encoder still reads additively | Open |
@@ -36,7 +40,7 @@ _1623 GitHub contributions in the last year · 95 in the last 7 days · 331 in t
 | 2026-10-26 | [unsloth-zoo #2117](https://github.com/unslothai/unsloth-zoo/pull/2117) | The patched PEFT LoRA forward applied only the first adapter under set_adapter(["a", "b"]), so the second adapter had no effect and received no gradient | Merged |
 | 2026-10-26 | [Ray #67425](https://github.com/ray-project/ray/pull/67425) | Tuner.fit() crashed in resolve_placeholders with a TypeError when a search space mixed a non-primitive option with a primitive one, e.g. tune.grid_search([Act("relu"), 5]) | Open |
 
-_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 22 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
