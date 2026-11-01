@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated October 31, 2026 at 12:06 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 1, 2026 at 10:59 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **487** | **217** | **202** | **76%** | **42** | **141 days** |
+| **492** | **218** | **206** | **76%** | **42** | **143 days** |
 
-_1635 GitHub contributions in the last year · 89 in the last 7 days · 307 in the last 30._
+_1642 GitHub contributions in the last year · 87 in the last 7 days · 307 in the last 30._
 
 ## Bug reports
 
@@ -17,6 +17,11 @@ _1635 GitHub contributions in the last year · 89 in the last 7 days · 307 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-01 | [unsloth-zoo #2351](https://github.com/unslothai/unsloth-zoo/pull/2351) | requires_grad_for_gradient_checkpointing re-registered a module's other forward hooks with always_call=False, so a hook that must run when forward raises (the float32 bias exit hook) went silent | Open |
+| 2026-11-01 | [unsloth #16425](https://github.com/unslothai/unsloth/pull/16425) | get_chat_template(mapping=...) silently ignored the mapping whenever it kept the role key, so Llama 3.1 wrote human/gpt as headers and ChatML turned every turn into a system turn | Open |
+| 2026-11-01 | [unsloth #16424](https://github.com/unslothai/unsloth/pull/16424) | unsloth-cli.py applied --chunk_size and --stride only to --raw_text_file, so --dataset notes.txt (or .md, .json, .jsonl) silently used 2048/512 | Open |
+| 2026-10-31 | [unsloth-zoo #2327](https://github.com/unslothai/unsloth-zoo/pull/2327) | finetune_vision_layers = False still put LoRA on GIT's vision tower (12 extra Linears on a tiny GIT), because the get_peft_regex fallback drops the model-part requirement and GIT's decoder has no language tag | Open |
+| 2026-10-31 | [DeepSpeed #8969](https://github.com/deepspeedai/DeepSpeed/pull/8969) | A blank or # line in .deepspeed_env aborted the launch with ValueError, and a commented-out # VAR=val line was exported as a variable named # VAR, because runner.py split every line on = and unpacked two values | Open |
 | 2026-10-30 | [DeepSpeed #8960](https://github.com/deepspeedai/DeepSpeed/pull/8960) | sequence_tiled_compute(..., output_reduction="mean") rescaled the gradient of other terms summed into the same loss (x.grad error 0.75), because backward did incoming_grad /= shards in place on the tensor autograd shares across summed branches | Open |
 | 2026-10-30 | [unsloth-zoo #2283](https://github.com/unslothai/unsloth-zoo/pull/2283) | merge_and_overwrite_lora on a GPT-2 Conv1D LoRA adapter crashed with Bad in-place call on rectangular layers or silently merged a transposed delta on square ones, because _merge_lora added B@A to the base weight as (out, in) while Conv1D adapters (fan_in_fan_out=True) store (in, out) | Open |
 | 2026-10-30 | [Ray #67618](https://github.com/ray-project/ray/pull/67618) | A nested points_to_evaluate entry crashed on_trial_complete in BayesOptSearch with ValueError (Parameters' keys do not match the expected set of keys), because suggest stored the popped nested point while the optimizer registers flattened a/x keys | Open |
@@ -28,19 +33,8 @@ _1635 GitHub contributions in the last year · 89 in the last 7 days · 307 in t
 | 2026-10-28 | [unsloth-zoo #2214](https://github.com/unslothai/unsloth-zoo/pull/2214) | On transformers 4.52 to 4.57 the compiler silently dropped the causal mask for models that do not use SDPA (T5, mT5, UMT5, GPT-J, CodeGen, GPT-NeoX-Japanese, Bloom), so every position saw future tokens and training loss and generations were wrong with no error | Open |
 | 2026-10-28 | [Ray #67509](https://github.com/ray-project/ray/pull/67509) | NevergradSearch returned nan for every tune.randn and tune.qrandn parameter, because the unbounded domain became ng.p.Scalar(lower=-inf, upper=inf), which starts at NaN on nevergrad 1.0.12 | Open |
 | 2026-10-28 | [unsloth #15775](https://github.com/unslothai/unsloth/pull/15775) | The legacy unsloth-cli.py documents --dtype None (its own usage line; the help says None for auto detection), but on every non-MLX backend it crashed with an AssertionError, because the CLI passed the string "None" to FastLanguageModel.from_pretrained, which asserts dtype is None or a torch dtype | Open |
-| 2026-10-27 | [unsloth-zoo #2154](https://github.com/unslothai/unsloth-zoo/pull/2154) | On TRL 0.18.2 (the declared floor), prompt/completion SFT through Unsloth trained on the prompt tokens too, because completion_mask became a labels column that TRL 0.18's collator never reads | Merged |
-| 2026-10-27 | [vllm #64102](https://github.com/vllm-project/vllm/pull/64102) | A vllm run-batch input line with a missing, null or non-string url crashed validate_batch with a raw KeyError: 'url' instead of reporting the bad field | Open |
-| 2026-10-27 | [unsloth-zoo #2152](https://github.com/unslothai/unsloth-zoo/pull/2152) | On transformers 4.52 to 4.57, an old-layout bnb skip entry never matched model.language_model.layers.N for Qwen2-VL and Qwen2.5-VL, so a layer meant to stay in bf16 became Linear4bit | Merged |
-| 2026-10-27 | [Ray #67482](https://github.com/ray-project/ray/pull/67482) | tune.sample_from values never reached trial.evaluated_params, so TensorBoard hparams, the CLI table and Aim left them out; with every varied param on sample_from, TensorBoard logged no hparams at all | Open |
-| 2026-10-26 | [litellm #48440](https://github.com/BerriAI/litellm/pull/48440) | create_eval dropped the caller's metadata and create_run had the assignment commented out, so metadata was accepted and silently dropped; re-filed against main from #34735 | Open |
-| 2026-10-26 | [litellm #48439](https://github.com/BerriAI/litellm/pull/48439) | CloudflareChatConfig sent OpenAI content-part arrays unflattened, so Cloudflare Workers AI rejected them with a type mismatch (array not in string); still true on main, re-filed against main from #33991 | Open |
-| 2026-10-26 | [vllm #63814](https://github.com/vllm-project/vllm/pull/63814) | --fingerprint-mode custom without --fingerprint-value started the server and silently dropped system_fingerprint from every response, the same as mode none | Open |
-| 2026-10-26 | [DeepSpeed #8916](https://github.com/deepspeedai/DeepSpeed/pull/8916) | With checkpoint.writer set and data_parallel unset (the default), plain data parallel on ZeRO 0, 1 and 2 with no mpu or MoE crashed at engine init with AttributeError: 'UniversalParallelInfo' object has no attribute 'dp_rank' | Open |
-| 2026-10-26 | [unsloth #15389](https://github.com/unslothai/unsloth/pull/15389) | Studio answered 500 instead of 422 for a request integer past signed 64-bit (createdAt/updatedAt on the chat history routes and /api/prompts, offset on /api/chat/attachments, since on /api/scheduled-tasks/runs) | Merged |
-| 2026-10-26 | [unsloth-zoo #2117](https://github.com/unslothai/unsloth-zoo/pull/2117) | The patched PEFT LoRA forward applied only the first adapter under set_adapter(["a", "b"]), so the second adapter had no effect and received no gradient | Merged |
-| 2026-10-26 | [Ray #67425](https://github.com/ray-project/ray/pull/67425) | Tuner.fit() crashed in resolve_placeholders with a TypeError when a search space mixed a non-primitive option with a primitive one, e.g. tune.grid_search([Act("relu"), 5]) | Open |
 
-_Showing the 22 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
