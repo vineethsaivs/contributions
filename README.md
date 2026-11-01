@@ -1,15 +1,16 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 1, 2026 at 10:59 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 1, 2026 at 12:02 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **492** | **218** | **206** | **76%** | **42** | **143 days** |
+| **495** | **218** | **209** | **76%** | **42** | **143 days** |
 
-_1642 GitHub contributions in the last year · 87 in the last 7 days · 307 in the last 30._
+_1648 GitHub contributions in the last year · 93 in the last 7 days · 313 in the last 30._
 
 ## Bug reports
 
+- [peft #4094](https://github.com/huggingface/peft/issues/4094): reduce_intruder_dimension does not transpose the delta weight for fan_in_fan_out (GPT-2 Conv1D) or nn.Embedding LoRA layers, so the rebuilt adapter is wrong.
 - [flax #5594](https://github.com/google/flax/issues/5594): nnx.GRUCell is missing the b_hn bias that its docstring and linen.GRUCell both specify.
 - [trl #7221](https://github.com/huggingface/trl/issues/7221): Reproduced NaN entropy for valid zero-probability tokens, including finite float16 inputs; PyTorch categorical entropy remains finite.
 
@@ -17,6 +18,9 @@ _1642 GitHub contributions in the last year · 87 in the last 7 days · 307 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-01 | [Ray #67670](https://github.com/ray-project/ray/pull/67670) | Tuner.restore ignored max_concurrent_trials: errored and unfinished trials were re-queued straight into the controller, so all of them started at once | Open |
+| 2026-11-01 | [DeepSpeed #8978](https://github.com/deepspeedai/DeepSpeed/pull/8978) | launcher_helper always exited 0, so under --launcher mpich a rank that crashed or was killed was reported as a success | Open |
+| 2026-11-01 | [DeepSpeed #8977](https://github.com/deepspeedai/DeepSpeed/pull/8977) | With --venv_script, the pdsh runner's remote pkill pattern no longer named deepspeed.launcher.launch and the unquoted ; split the remote command, so ranks survived Ctrl-C | Open |
 | 2026-11-01 | [unsloth-zoo #2351](https://github.com/unslothai/unsloth-zoo/pull/2351) | requires_grad_for_gradient_checkpointing re-registered a module's other forward hooks with always_call=False, so a hook that must run when forward raises (the float32 bias exit hook) went silent | Open |
 | 2026-11-01 | [unsloth #16425](https://github.com/unslothai/unsloth/pull/16425) | get_chat_template(mapping=...) silently ignored the mapping whenever it kept the role key, so Llama 3.1 wrote human/gpt as headers and ChatML turned every turn into a system turn | Open |
 | 2026-11-01 | [unsloth #16424](https://github.com/unslothai/unsloth/pull/16424) | unsloth-cli.py applied --chunk_size and --stride only to --raw_text_file, so --dataset notes.txt (or .md, .json, .jsonl) silently used 2048/512 | Open |
@@ -34,7 +38,7 @@ _1642 GitHub contributions in the last year · 87 in the last 7 days · 307 in t
 | 2026-10-28 | [Ray #67509](https://github.com/ray-project/ray/pull/67509) | NevergradSearch returned nan for every tune.randn and tune.qrandn parameter, because the unbounded domain became ng.p.Scalar(lower=-inf, upper=inf), which starts at NaN on nevergrad 1.0.12 | Open |
 | 2026-10-28 | [unsloth #15775](https://github.com/unslothai/unsloth/pull/15775) | The legacy unsloth-cli.py documents --dtype None (its own usage line; the help says None for auto detection), but on every non-MLX backend it crashed with an AssertionError, because the CLI passed the string "None" to FastLanguageModel.from_pretrained, which asserts dtype is None or a torch dtype | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
