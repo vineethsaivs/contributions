@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 3, 2026 at 10:46 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 3, 2026 at 11:54 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **502** | **219** | **215** | **76%** | **42** | **145 days** |
+| **503** | **219** | **216** | **76%** | **42** | **145 days** |
 
-_1668 GitHub contributions in the last year · 80 in the last 7 days · 317 in the last 30._
+_1672 GitHub contributions in the last year · 84 in the last 7 days · 321 in the last 30._
 
 ## Bug reports
 
@@ -18,6 +18,7 @@ _1668 GitHub contributions in the last year · 80 in the last 7 days · 317 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-03 | [vllm #65477](https://github.com/vllm-project/vllm/pull/65477) | VLLM_FLOAT32_MATMUL_PRECISION is declared case_sensitive=False but returned the raw string, so HIGH passed validation and torch.set_float32_matmul_precision silently stayed on highest | Open |
 | 2026-11-03 | [Ray #67751](https://github.com/ray-project/ray/pull/67751) | ExperimentPlateauStopper.__call__ kept a NaN in its top values, so the standard deviation was NaN, has_plateaued() was always False and the experiment never plateau-stopped | Open |
 | 2026-11-03 | [Ray #67750](https://github.com/ray-project/ray/pull/67750) | _TrainingRunMetadata.update_metric took max(value, old) and min(value, old) with a NaN value, which returns NaN, so the next finite result overwrote the earlier best value with itself | Open |
 | 2026-11-03 | [unsloth-zoo #2379](https://github.com/unslothai/unsloth-zoo/pull/2379) | unsloth_train compared the config dtype straight to torch.float16, but the config can hold the string "float16", so an fp16 model trained under bf16 autocast with no GradScaler | Open |
@@ -33,12 +34,8 @@ _1668 GitHub contributions in the last year · 80 in the last 7 days · 317 in t
 | 2026-11-01 | [unsloth #16424](https://github.com/unslothai/unsloth/pull/16424) | unsloth-cli.py applied --chunk_size and --stride only to --raw_text_file, so --dataset notes.txt (or .md, .json, .jsonl) silently used 2048/512 | Open |
 | 2026-10-31 | [unsloth-zoo #2327](https://github.com/unslothai/unsloth-zoo/pull/2327) | finetune_vision_layers = False still put LoRA on GIT's vision tower (12 extra Linears on a tiny GIT), because the get_peft_regex fallback drops the model-part requirement and GIT's decoder has no language tag | Open |
 | 2026-10-31 | [DeepSpeed #8969](https://github.com/deepspeedai/DeepSpeed/pull/8969) | A blank or # line in .deepspeed_env aborted the launch with ValueError, and a commented-out # VAR=val line was exported as a variable named # VAR, because runner.py split every line on = and unpacked two values | Open |
-| 2026-10-30 | [DeepSpeed #8960](https://github.com/deepspeedai/DeepSpeed/pull/8960) | sequence_tiled_compute(..., output_reduction="mean") rescaled the gradient of other terms summed into the same loss (x.grad error 0.75), because backward did incoming_grad /= shards in place on the tensor autograd shares across summed branches | Open |
-| 2026-10-30 | [unsloth-zoo #2283](https://github.com/unslothai/unsloth-zoo/pull/2283) | merge_and_overwrite_lora on a GPT-2 Conv1D LoRA adapter crashed with Bad in-place call on rectangular layers or silently merged a transposed delta on square ones, because _merge_lora added B@A to the base weight as (out, in) while Conv1D adapters (fan_in_fan_out=True) store (in, out) | Open |
-| 2026-10-30 | [Ray #67618](https://github.com/ray-project/ray/pull/67618) | A nested points_to_evaluate entry crashed on_trial_complete in BayesOptSearch with ValueError (Parameters' keys do not match the expected set of keys), because suggest stored the popped nested point while the optimizer registers flattened a/x keys | Open |
-| 2026-10-30 | [Ray #67616](https://github.com/ray-project/ray/pull/67616) | A nested points_to_evaluate entry in OptunaSearch was silently ignored (Optuna sampled the parameter at random) or rejected with a misleading validate_warmstart error (Dim of point ... do not match), because the space is flattened to a/b keys but the points were stored as given | Open |
 
-_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
