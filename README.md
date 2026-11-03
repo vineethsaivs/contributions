@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 2, 2026 at 1:53 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 3, 2026 at 10:46 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **499** | **219** | **212** | **76%** | **42** | **144 days** |
+| **502** | **219** | **215** | **76%** | **42** | **145 days** |
 
-_1663 GitHub contributions in the last year · 86 in the last 7 days · 322 in the last 30._
+_1668 GitHub contributions in the last year · 80 in the last 7 days · 317 in the last 30._
 
 ## Bug reports
 
@@ -18,6 +18,9 @@ _1663 GitHub contributions in the last year · 86 in the last 7 days · 322 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-03 | [Ray #67751](https://github.com/ray-project/ray/pull/67751) | ExperimentPlateauStopper.__call__ kept a NaN in its top values, so the standard deviation was NaN, has_plateaued() was always False and the experiment never plateau-stopped | Open |
+| 2026-11-03 | [Ray #67750](https://github.com/ray-project/ray/pull/67750) | _TrainingRunMetadata.update_metric took max(value, old) and min(value, old) with a NaN value, which returns NaN, so the next finite result overwrote the earlier best value with itself | Open |
+| 2026-11-03 | [unsloth-zoo #2379](https://github.com/unslothai/unsloth-zoo/pull/2379) | unsloth_train compared the config dtype straight to torch.float16, but the config can hold the string "float16", so an fp16 model trained under bf16 autocast with no GradScaler | Open |
 | 2026-11-02 | [Ray #67712](https://github.com/ray-project/ray/pull/67712) | MedianStoppingRule.set_search_properties set its comparison operator unconditionally, so a rule with a metric but no mode silently became min and the check in on_trial_add never fired | Open |
 | 2026-11-02 | [Ray #67711](https://github.com/ray-project/ray/pull/67711) | AsyncHyperBandScheduler computed its rung count with a float log ratio that lands just below the integer when max_t / min_t is an exact power of reduction_factor, so int() dropped the rung at max_t | Open |
 | 2026-11-02 | [unsloth-zoo #2366](https://github.com/unslothai/unsloth-zoo/pull/2366) | UnslothForCausalLMLoss passed half-precision logits straight to F.cross_entropy when ignore_index != -100, where stock ForCausalLMLoss upcasts to float32 first, so an fp16 loss could overflow to inf | Open |
@@ -35,7 +38,7 @@ _1663 GitHub contributions in the last year · 86 in the last 7 days · 322 in t
 | 2026-10-30 | [Ray #67618](https://github.com/ray-project/ray/pull/67618) | A nested points_to_evaluate entry crashed on_trial_complete in BayesOptSearch with ValueError (Parameters' keys do not match the expected set of keys), because suggest stored the popped nested point while the optimizer registers flattened a/x keys | Open |
 | 2026-10-30 | [Ray #67616](https://github.com/ray-project/ray/pull/67616) | A nested points_to_evaluate entry in OptunaSearch was silently ignored (Optuna sampled the parameter at random) or rejected with a misleading validate_warmstart error (Dim of point ... do not match), because the space is flattened to a/b keys but the points were stored as given | Open |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 19 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
