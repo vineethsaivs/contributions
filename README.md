@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 6, 2026 at 6:43 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 6, 2026 at 10:37 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **509** | **234** | **207** | **77%** | **42** | **148 days** |
+| **512** | **235** | **209** | **78%** | **42** | **148 days** |
 
-_1714 GitHub contributions in the last year · 78 in the last 7 days · 325 in the last 30._
+_1721 GitHub contributions in the last year · 85 in the last 7 days · 332 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,9 @@ _1714 GitHub contributions in the last year · 78 in the last 7 days · 325 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-06 | [unsloth-zoo #2441](https://github.com/unslothai/unsloth-zoo/pull/2441) | `load_vllm` set `VLLM_USE_FLASHINFER_SAMPLER=1` on every GPU once vLLM was 0.11 or newer, and from vLLM 0.24 engine init raises when FlashInfer rejects the GPU, so `fast_inference=True` failed on a Colab T4 | Open |
+| 2026-11-06 | [unsloth #16933](https://github.com/unslothai/unsloth/pull/16933) | `save_pretrained_merged(..., save_method="Merged_16bit")` (also `"merged 16bit"`, `"merged-16bit"`) wrote the weights and tokenizer but no `config.json` or `generation_config.json`, because `unsloth_generic_save` forwarded `save_method` verbatim to a merge that compares the exact string | Open |
+| 2026-11-06 | [unsloth #16932](https://github.com/unslothai/unsloth/pull/16932) | `get_chat_template(tok, "qwen-2.5", system_message=...)` only applied the chosen system message to rows without `tools`, because the tools branch of `qwen25_template` hardcoded Qwen's default persona | Open |
 | 2026-11-05 | [unsloth #16827](https://github.com/unslothai/unsloth/pull/16827) | `_configure_mlx_training_schedule` turned the warmup ratio into steps with `int(round(...))` and the eval ratio with `int(...)`, so a small ratio gave no warmup or an early eval, unlike transformers (`math.ceil`) | Merged |
 | 2026-11-05 | [unsloth-zoo #2419](https://github.com/unslothai/unsloth-zoo/pull/2419) | `grpo_entropy_bonus_weights` kept the pre-1.9.1 normalizer for the dapo, cispo and vespo entropy bonus, so on TRL 1.9.1 and 1.9.2 the bonus was off by `grad_accum / steps_per_generation` (x0.5 at 2 vs 4, x2 at 4 vs 2) | Merged |
 | 2026-11-05 | [Ray #67872](https://github.com/ray-project/ray/pull/67872) | `DistributeResources._get_multiplier` counted `increase_by` steps with float floor division, so `0.9 // 0.1` is 8.0 and one step was lost: a trial at 0.1 GPU with `increase_by={"GPU": 0.1}` stopped at 0.9 GPU of 1.0 | Open |
@@ -33,14 +36,8 @@ _1714 GitHub contributions in the last year · 78 in the last 7 days · 325 in t
 | 2026-11-02 | [Ray #67711](https://github.com/ray-project/ray/pull/67711) | AsyncHyperBandScheduler computed its rung count with a float log ratio that lands just below the integer when max_t / min_t is an exact power of reduction_factor, so int() dropped the rung at max_t | Open |
 | 2026-11-02 | [unsloth-zoo #2366](https://github.com/unslothai/unsloth-zoo/pull/2366) | UnslothForCausalLMLoss passed half-precision logits straight to F.cross_entropy when ignore_index != -100, where stock ForCausalLMLoss upcasts to float32 first, so an fp16 loss could overflow to inf | Merged |
 | 2026-11-02 | [peft #4100](https://github.com/huggingface/peft/pull/4100) | reduce_intruder_dimension rebuilt lora_A and lora_B from the SVD of the delta weight without transposing it for fan_in_fan_out (GPT-2 Conv1D) and nn.Embedding layers, so a square Conv1D gave wrong output silently and other shapes failed in forward | Merged |
-| 2026-11-01 | [Ray #67670](https://github.com/ray-project/ray/pull/67670) | Tuner.restore ignored max_concurrent_trials: errored and unfinished trials were re-queued straight into the controller, so all of them started at once | Open |
-| 2026-11-01 | [DeepSpeed #8978](https://github.com/deepspeedai/DeepSpeed/pull/8978) | launcher_helper always exited 0, so under --launcher mpich a rank that crashed or was killed was reported as a success | Open |
-| 2026-11-01 | [DeepSpeed #8977](https://github.com/deepspeedai/DeepSpeed/pull/8977) | With --venv_script, the pdsh runner's remote pkill pattern no longer named deepspeed.launcher.launch and the unquoted ; split the remote command, so ranks survived Ctrl-C | Open |
-| 2026-11-01 | [unsloth-zoo #2351](https://github.com/unslothai/unsloth-zoo/pull/2351) | requires_grad_for_gradient_checkpointing re-registered a module's other forward hooks with always_call=False, so a hook that must run when forward raises (the float32 bias exit hook) went silent | Merged |
-| 2026-11-01 | [unsloth #16425](https://github.com/unslothai/unsloth/pull/16425) | get_chat_template(mapping=...) silently ignored the mapping whenever it kept the role key, so Llama 3.1 wrote human/gpt as headers and ChatML turned every turn into a system turn | Merged |
-| 2026-11-01 | [unsloth #16424](https://github.com/unslothai/unsloth/pull/16424) | unsloth-cli.py applied --chunk_size and --stride only to --raw_text_file, so --dataset notes.txt (or .md, .json, .jsonl) silently used 2048/512 | Merged |
 
-_Showing the 20 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
