@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 6, 2026 at 3:05 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 7, 2026 at 9:18 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **512** | **235** | **209** | **78%** | **42** | **148 days** |
+| **516** | **236** | **212** | **78%** | **42** | **149 days** |
 
-_1726 GitHub contributions in the last year · 90 in the last 7 days · 337 in the last 30._
+_1734 GitHub contributions in the last year · 92 in the last 7 days · 332 in the last 30._
 
 ## Bug reports
 
@@ -19,7 +19,11 @@ _1726 GitHub contributions in the last year · 90 in the last 7 days · 337 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
-| 2026-11-06 | [unsloth-zoo #2441](https://github.com/unslothai/unsloth-zoo/pull/2441) | `load_vllm` set `VLLM_USE_FLASHINFER_SAMPLER=1` on every GPU once vLLM was 0.11 or newer, and from vLLM 0.24 engine init raises when FlashInfer rejects the GPU, so `fast_inference=True` failed on a Colab T4 | Open |
+| 2026-11-07 | [unsloth-zoo #2449](https://github.com/unslothai/unsloth-zoo/pull/2449) | `create_locked_down_function` (and `load_single_function`, `validate_single_function_source`) refused a generated function like `def strategy(board, penalty = -1)` with "Only simple literal default argument values are allowed.", while `penalty = 1` was accepted | Open |
+| 2026-11-07 | [unsloth #17116](https://github.com/unslothai/unsloth/pull/17116) | `unsloth train --num-epochs 0` (or `num_epochs: 0` in a config) with the default `max_steps: 0` was accepted, so the run trained 0 steps with the HF Trainer and exactly one step on MLX, while Studio refuses the same pair | Open |
+| 2026-11-07 | [unsloth-zoo #2448](https://github.com/unslothai/unsloth-zoo/pull/2448) | The two-line `sqrt(mean(X**2))` rewrite in `higher_precision_sqrt_mean` emitted `.to(X.dtype)` one parenthesis too early, so the sqrt still ran in float16 and a float32 mean-square above 65504 became inf and the renormalised hidden state came out 0 | Open |
+| 2026-11-07 | [unsloth #17115](https://github.com/unslothai/unsloth/pull/17115) | `unsloth-cli.py --use_gradient_checkpointing false` (also `true`, `0`, `none`) died with an AssertionError after the model loaded, because the flag is a plain string handed to `get_peft_model`, which only takes `True`, `False` or `"unsloth"` | Open |
+| 2026-11-06 | [unsloth-zoo #2441](https://github.com/unslothai/unsloth-zoo/pull/2441) | `load_vllm` set `VLLM_USE_FLASHINFER_SAMPLER=1` on every GPU once vLLM was 0.11 or newer, and from vLLM 0.24 engine init raises when FlashInfer rejects the GPU, so `fast_inference=True` failed on a Colab T4 | Merged |
 | 2026-11-06 | [unsloth #16933](https://github.com/unslothai/unsloth/pull/16933) | `save_pretrained_merged(..., save_method="Merged_16bit")` (also `"merged 16bit"`, `"merged-16bit"`) wrote the weights and tokenizer but no `config.json` or `generation_config.json`, because `unsloth_generic_save` forwarded `save_method` verbatim to a merge that compares the exact string | Open |
 | 2026-11-06 | [unsloth #16932](https://github.com/unslothai/unsloth/pull/16932) | `get_chat_template(tok, "qwen-2.5", system_message=...)` only applied the chosen system message to rows without `tools`, because the tools branch of `qwen25_template` hardcoded Qwen's default persona | Open |
 | 2026-11-05 | [unsloth #16827](https://github.com/unslothai/unsloth/pull/16827) | `_configure_mlx_training_schedule` turned the warmup ratio into steps with `int(round(...))` and the eval ratio with `int(...)`, so a small ratio gave no warmup or an early eval, unlike transformers (`math.ceil`) | Merged |
@@ -32,10 +36,6 @@ _1726 GitHub contributions in the last year · 90 in the last 7 days · 337 in t
 | 2026-11-03 | [Ray #67751](https://github.com/ray-project/ray/pull/67751) | ExperimentPlateauStopper.__call__ kept a NaN in its top values, so the standard deviation was NaN, has_plateaued() was always False and the experiment never plateau-stopped | Open |
 | 2026-11-03 | [Ray #67750](https://github.com/ray-project/ray/pull/67750) | _TrainingRunMetadata.update_metric took max(value, old) and min(value, old) with a NaN value, which returns NaN, so the next finite result overwrote the earlier best value with itself | Open |
 | 2026-11-03 | [unsloth-zoo #2379](https://github.com/unslothai/unsloth-zoo/pull/2379) | unsloth_train compared the config dtype straight to torch.float16, but the config can hold the string "float16", so an fp16 model trained under bf16 autocast with no GradScaler | Merged |
-| 2026-11-02 | [Ray #67712](https://github.com/ray-project/ray/pull/67712) | MedianStoppingRule.set_search_properties set its comparison operator unconditionally, so a rule with a metric but no mode silently became min and the check in on_trial_add never fired | Open |
-| 2026-11-02 | [Ray #67711](https://github.com/ray-project/ray/pull/67711) | AsyncHyperBandScheduler computed its rung count with a float log ratio that lands just below the integer when max_t / min_t is an exact power of reduction_factor, so int() dropped the rung at max_t | Open |
-| 2026-11-02 | [unsloth-zoo #2366](https://github.com/unslothai/unsloth-zoo/pull/2366) | UnslothForCausalLMLoss passed half-precision logits straight to F.cross_entropy when ignore_index != -100, where stock ForCausalLMLoss upcasts to float32 first, so an fp16 loss could overflow to inf | Merged |
-| 2026-11-02 | [peft #4100](https://github.com/huggingface/peft/pull/4100) | reduce_intruder_dimension rebuilt lora_A and lora_B from the SVD of the delta weight without transposing it for fan_in_fan_out (GPT-2 Conv1D) and nn.Embedding layers, so a square Conv1D gave wrong output silently and other shapes failed in forward | Merged |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
