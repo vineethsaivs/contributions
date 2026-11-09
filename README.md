@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 8, 2026 at 9:57 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 9, 2026 at 11:20 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **520** | **236** | **215** | **77%** | **42** | **149 days** |
+| **523** | **236** | **218** | **77%** | **42** | **151 days** |
 
-_1734 GitHub contributions in the last year · 81 in the last 7 days · 321 in the last 30._
+_1747 GitHub contributions in the last year · 82 in the last 7 days · 328 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,9 @@ _1734 GitHub contributions in the last year · 81 in the last 7 days · 321 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-09 | [unsloth #17316](https://github.com/unslothai/unsloth/pull/17316) | `save_pretrained_gguf` keeps the BOS in Llama 3's chat template while its log says it removed it, because `_strip_bos_from_chat_template_text` only matched `{{ bos_token }}` and `{{ bos_token + ... }}`, not Llama 3's `{% set content = bos_token + content %}` | Open |
+| 2026-11-09 | [unsloth #17307](https://github.com/unslothai/unsloth/pull/17307) | A local decision dataset in JSON Lines failed with `Invalid JSON ... Unterminated string` when a string held U+2028, U+2029 or U+0085, because `_read_local_rows` split the file with `str.splitlines()`, which also breaks rows at those characters | Open |
+| 2026-11-09 | [unsloth #17303](https://github.com/unslothai/unsloth/pull/17303) | Studio clamped a Train Split Start at or past the end of a non-streaming dataset to the last row, so the run trained on a single row ("Sliced dataset to 1 rows (indices 9-9)") and, with `max_steps`, looped it for the whole run with no error | Open |
 | 2026-11-08 | [unsloth #17176](https://github.com/unslothai/unsloth/pull/17176) | `get_chat_template(tok, "llama-3.1")` raised `TypeError` and `"gpt-oss"` raised `UndefinedError` on any message carrying `tool_calls: None`, which `datasets` fills into every plain row of a tool-calling dataset, because both templates tested whether the key exists | Open |
 | 2026-11-08 | [unsloth #17175](https://github.com/unslothai/unsloth/pull/17175) | `get_chat_template(tok, "qwen3")` raised `TypeError` on an assistant tool-call turn whose `content` is null (and `UndefinedError` when it is missing), the usual OpenAI tool-call shape, because `qwen3_template` tested `'</think>' in message.content` on the raw value | Open |
 | 2026-11-08 | [unsloth-zoo #2451](https://github.com/unslothai/unsloth-zoo/pull/2451) | After `requires_grad_for_gradient_checkpointing`, `handle.remove()` on a user's forward hook did nothing and the hook kept running, because the cleanup replaced each module's hook dict and re-registered the kept hooks under new ids | Open |
@@ -33,9 +36,6 @@ _1734 GitHub contributions in the last year · 81 in the last 7 days · 321 in t
 | 2026-11-05 | [unsloth #16827](https://github.com/unslothai/unsloth/pull/16827) | `_configure_mlx_training_schedule` turned the warmup ratio into steps with `int(round(...))` and the eval ratio with `int(...)`, so a small ratio gave no warmup or an early eval, unlike transformers (`math.ceil`) | Merged |
 | 2026-11-05 | [unsloth-zoo #2419](https://github.com/unslothai/unsloth-zoo/pull/2419) | `grpo_entropy_bonus_weights` kept the pre-1.9.1 normalizer for the dapo, cispo and vespo entropy bonus, so on TRL 1.9.1 and 1.9.2 the bonus was off by `grad_accum / steps_per_generation` (x0.5 at 2 vs 4, x2 at 4 vs 2) | Merged |
 | 2026-11-05 | [Ray #67872](https://github.com/ray-project/ray/pull/67872) | `DistributeResources._get_multiplier` counted `increase_by` steps with float floor division, so `0.9 // 0.1` is 8.0 and one step was lost: a trial at 0.1 GPU with `increase_by={"GPU": 0.1}` stopped at 0.9 GPU of 1.0 | Open |
-| 2026-11-04 | [Ray #67830](https://github.com/ray-project/ray/pull/67830) | `wrap_function.handle_output` skipped every falsy output, so a function trainable that returned or yielded `0` never reported that metric and the trial could never win `get_best_result` | Open |
-| 2026-11-04 | [Ray #67829](https://github.com/ray-project/ray/pull/67829) | `tune.run` and `TuneConfig(max_concurrent_trials=N)` ignored the limit when `search_alg` was a user-built `BasicVariantGenerator`, so every trial ran at once (4 trials peaked together with a limit of 1) | Open |
-| 2026-11-04 | [unsloth #16697](https://github.com/unslothai/unsloth/pull/16697) | `TextPreprocessor.add_structure_tokens` ran the heading regexes before wrapping fenced code, so a `# comment` inside a fenced python block became a `<|chapter|>` token and `##` became `<|section|>`, corrupting the code | Merged |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
