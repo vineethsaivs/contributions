@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 7, 2026 at 9:18 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 8, 2026 at 9:57 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **516** | **236** | **212** | **78%** | **42** | **149 days** |
+| **520** | **236** | **215** | **77%** | **42** | **149 days** |
 
-_1734 GitHub contributions in the last year · 92 in the last 7 days · 332 in the last 30._
+_1734 GitHub contributions in the last year · 81 in the last 7 days · 321 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,10 @@ _1734 GitHub contributions in the last year · 92 in the last 7 days · 332 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-08 | [unsloth #17176](https://github.com/unslothai/unsloth/pull/17176) | `get_chat_template(tok, "llama-3.1")` raised `TypeError` and `"gpt-oss"` raised `UndefinedError` on any message carrying `tool_calls: None`, which `datasets` fills into every plain row of a tool-calling dataset, because both templates tested whether the key exists | Open |
+| 2026-11-08 | [unsloth #17175](https://github.com/unslothai/unsloth/pull/17175) | `get_chat_template(tok, "qwen3")` raised `TypeError` on an assistant tool-call turn whose `content` is null (and `UndefinedError` when it is missing), the usual OpenAI tool-call shape, because `qwen3_template` tested `'</think>' in message.content` on the raw value | Open |
+| 2026-11-08 | [unsloth-zoo #2451](https://github.com/unslothai/unsloth-zoo/pull/2451) | After `requires_grad_for_gradient_checkpointing`, `handle.remove()` on a user's forward hook did nothing and the hook kept running, because the cleanup replaced each module's hook dict and re-registered the kept hooks under new ids | Open |
+| 2026-11-08 | [flax #5645](https://github.com/google/flax/pull/5645) | nnx.GRUCell was missing the b_hn bias its own docstring specifies; replaces #5595, which GitHub closed when main was force-pushed to its branch | Open |
 | 2026-11-07 | [unsloth-zoo #2449](https://github.com/unslothai/unsloth-zoo/pull/2449) | `create_locked_down_function` (and `load_single_function`, `validate_single_function_source`) refused a generated function like `def strategy(board, penalty = -1)` with "Only simple literal default argument values are allowed.", while `penalty = 1` was accepted | Open |
 | 2026-11-07 | [unsloth #17116](https://github.com/unslothai/unsloth/pull/17116) | `unsloth train --num-epochs 0` (or `num_epochs: 0` in a config) with the default `max_steps: 0` was accepted, so the run trained 0 steps with the HF Trainer and exactly one step on MLX, while Studio refuses the same pair | Open |
 | 2026-11-07 | [unsloth-zoo #2448](https://github.com/unslothai/unsloth-zoo/pull/2448) | The two-line `sqrt(mean(X**2))` rewrite in `higher_precision_sqrt_mean` emitted `.to(X.dtype)` one parenthesis too early, so the sqrt still ran in float16 and a float32 mean-square above 65504 became inf and the renormalised hidden state came out 0 | Open |
@@ -32,10 +36,6 @@ _1734 GitHub contributions in the last year · 92 in the last 7 days · 332 in t
 | 2026-11-04 | [Ray #67830](https://github.com/ray-project/ray/pull/67830) | `wrap_function.handle_output` skipped every falsy output, so a function trainable that returned or yielded `0` never reported that metric and the trial could never win `get_best_result` | Open |
 | 2026-11-04 | [Ray #67829](https://github.com/ray-project/ray/pull/67829) | `tune.run` and `TuneConfig(max_concurrent_trials=N)` ignored the limit when `search_alg` was a user-built `BasicVariantGenerator`, so every trial ran at once (4 trials peaked together with a limit of 1) | Open |
 | 2026-11-04 | [unsloth #16697](https://github.com/unslothai/unsloth/pull/16697) | `TextPreprocessor.add_structure_tokens` ran the heading regexes before wrapping fenced code, so a `# comment` inside a fenced python block became a `<|chapter|>` token and `##` became `<|section|>`, corrupting the code | Merged |
-| 2026-11-03 | [vllm #65477](https://github.com/vllm-project/vllm/pull/65477) | VLLM_FLOAT32_MATMUL_PRECISION is declared case_sensitive=False but returned the raw string, so HIGH passed validation and torch.set_float32_matmul_precision silently stayed on highest | Open |
-| 2026-11-03 | [Ray #67751](https://github.com/ray-project/ray/pull/67751) | ExperimentPlateauStopper.__call__ kept a NaN in its top values, so the standard deviation was NaN, has_plateaued() was always False and the experiment never plateau-stopped | Open |
-| 2026-11-03 | [Ray #67750](https://github.com/ray-project/ray/pull/67750) | _TrainingRunMetadata.update_metric took max(value, old) and min(value, old) with a NaN value, which returns NaN, so the next finite result overwrote the earlier best value with itself | Open |
-| 2026-11-03 | [unsloth-zoo #2379](https://github.com/unslothai/unsloth-zoo/pull/2379) | unsloth_train compared the config dtype straight to torch.float16, but the config can hold the string "float16", so an fp16 model trained under bf16 autocast with no GradScaler | Merged |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
