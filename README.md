@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 9, 2026 at 12:07 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 10, 2026 at 11:28 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **523** | **236** | **218** | **77%** | **42** | **151 days** |
+| **526** | **237** | **220** | **77%** | **42** | **152 days** |
 
-_1751 GitHub contributions in the last year · 86 in the last 7 days · 332 in the last 30._
+_1761 GitHub contributions in the last year · 80 in the last 7 days · 334 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,9 @@ _1751 GitHub contributions in the last year · 86 in the last 7 days · 332 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-10 | [unsloth #17438](https://github.com/unslothai/unsloth/pull/17438) | `push_to_hub_gguf(tags=...)` sent the tags through `api.add_tags`, which `HfApi` does not have, behind a bare `except: pass`, so they never reached the Hub, and it extended the caller's list in place | Open |
+| 2026-11-10 | [unsloth-zoo #2473](https://github.com/unslothai/unsloth-zoo/pull/2473) | `add_llama_cpp_system_message(inplace=False)` rebuilt a leading system message from its own content, so the llama.cpp text it exists to append was lost, and a `None` messages list hit `len()` before the `None` check | Open |
+| 2026-11-10 | [unsloth #17436](https://github.com/unslothai/unsloth/pull/17436) | Studio's diffusion dataset readers cut each `metadata.jsonl` or `captions.jsonl` row with `str.splitlines()`, which also breaks at U+2028, U+2029 and U+0085, so a caption holding one was split mid-string, failed `json.loads` and was skipped with no error | Open |
 | 2026-11-09 | [unsloth #17316](https://github.com/unslothai/unsloth/pull/17316) | `save_pretrained_gguf` keeps the BOS in Llama 3's chat template while its log says it removed it, because `_strip_bos_from_chat_template_text` only matched `{{ bos_token }}` and `{{ bos_token + ... }}`, not Llama 3's `{% set content = bos_token + content %}` | Open |
 | 2026-11-09 | [unsloth #17307](https://github.com/unslothai/unsloth/pull/17307) | A local decision dataset in JSON Lines failed with `Invalid JSON ... Unterminated string` when a string held U+2028, U+2029 or U+0085, because `_read_local_rows` split the file with `str.splitlines()`, which also breaks rows at those characters | Open |
 | 2026-11-09 | [unsloth #17303](https://github.com/unslothai/unsloth/pull/17303) | Studio clamped a Train Split Start at or past the end of a non-streaming dataset to the last row, so the run trained on a single row ("Sliced dataset to 1 rows (indices 9-9)") and, with `max_steps`, looped it for the whole run with no error | Open |
@@ -33,9 +36,6 @@ _1751 GitHub contributions in the last year · 86 in the last 7 days · 332 in t
 | 2026-11-06 | [unsloth-zoo #2441](https://github.com/unslothai/unsloth-zoo/pull/2441) | `load_vllm` set `VLLM_USE_FLASHINFER_SAMPLER=1` on every GPU once vLLM was 0.11 or newer, and from vLLM 0.24 engine init raises when FlashInfer rejects the GPU, so `fast_inference=True` failed on a Colab T4 | Merged |
 | 2026-11-06 | [unsloth #16933](https://github.com/unslothai/unsloth/pull/16933) | `save_pretrained_merged(..., save_method="Merged_16bit")` (also `"merged 16bit"`, `"merged-16bit"`) wrote the weights and tokenizer but no `config.json` or `generation_config.json`, because `unsloth_generic_save` forwarded `save_method` verbatim to a merge that compares the exact string | Open |
 | 2026-11-06 | [unsloth #16932](https://github.com/unslothai/unsloth/pull/16932) | `get_chat_template(tok, "qwen-2.5", system_message=...)` only applied the chosen system message to rows without `tools`, because the tools branch of `qwen25_template` hardcoded Qwen's default persona | Open |
-| 2026-11-05 | [unsloth #16827](https://github.com/unslothai/unsloth/pull/16827) | `_configure_mlx_training_schedule` turned the warmup ratio into steps with `int(round(...))` and the eval ratio with `int(...)`, so a small ratio gave no warmup or an early eval, unlike transformers (`math.ceil`) | Merged |
-| 2026-11-05 | [unsloth-zoo #2419](https://github.com/unslothai/unsloth-zoo/pull/2419) | `grpo_entropy_bonus_weights` kept the pre-1.9.1 normalizer for the dapo, cispo and vespo entropy bonus, so on TRL 1.9.1 and 1.9.2 the bonus was off by `grad_accum / steps_per_generation` (x0.5 at 2 vs 4, x2 at 4 vs 2) | Merged |
-| 2026-11-05 | [Ray #67872](https://github.com/ray-project/ray/pull/67872) | `DistributeResources._get_multiplier` counted `increase_by` steps with float floor division, so `0.9 // 0.1` is 8.0 and one step was lost: a trial at 0.1 GPU with `increase_by={"GPU": 0.1}` stopped at 0.9 GPU of 1.0 | Open |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
