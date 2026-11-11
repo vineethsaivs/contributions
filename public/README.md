@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 11, 2026 at 9:46 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 11, 2026 at 1:35 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **529** | **237** | **223** | **77%** | **42** | **153 days** |
+| **530** | **237** | **224** | **77%** | **42** | **153 days** |
 
-_1768 GitHub contributions in the last year · 71 in the last 7 days · 332 in the last 30._
+_1771 GitHub contributions in the last year · 74 in the last 7 days · 335 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,7 @@ _1768 GitHub contributions in the last year · 71 in the last 7 days · 332 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-11 | [vllm #67101](https://github.com/vllm-project/vllm/pull/67101) | pythonic and llama4_pythonic streaming no longer drop assistant text that starts with [ but is not a tool call. | Open |
 | 2026-11-11 | [tunix #3293](https://github.com/google/tunix/pull/3293) | DPO/ORPO string inputs no longer put a BOS token at the start of chosen and rejected responses. | Open |
 | 2026-11-11 | [Ray #68073](https://github.com/ray-project/ray/pull/68073) | tune.with_parameters now wraps a generator function trainable in a generator function, so its yielded results are reported instead of erroring. | Open |
 | 2026-11-11 | [unsloth #17537](https://github.com/unslothai/unsloth/pull/17537) | Add luspo to the loss types that log clip_ratio/* metrics in the patched GRPO compute_loss. | Open |
@@ -37,7 +38,7 @@ _1768 GitHub contributions in the last year · 71 in the last 7 days · 332 in t
 | 2026-11-07 | [unsloth-zoo #2448](https://github.com/unslothai/unsloth-zoo/pull/2448) | The two-line `sqrt(mean(X**2))` rewrite in `higher_precision_sqrt_mean` emitted `.to(X.dtype)` one parenthesis too early, so the sqrt still ran in float16 and a float32 mean-square above 65504 became inf and the renormalised hidden state came out 0 | Open |
 | 2026-11-07 | [unsloth #17115](https://github.com/unslothai/unsloth/pull/17115) | `unsloth-cli.py --use_gradient_checkpointing false` (also `true`, `0`, `none`) died with an AssertionError after the model loaded, because the flag is a plain string handed to `get_peft_model`, which only takes `True`, `False` or `"unsloth"` | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
