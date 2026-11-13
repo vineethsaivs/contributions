@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 12, 2026 at 9:30 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 13, 2026 at 12:42 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **533** | **253** | **211** | **79%** | **42** | **154 days** |
+| **536** | **253** | **214** | **79%** | **42** | **155 days** |
 
-_1792 GitHub contributions in the last year · 89 in the last 7 days · 351 in the last 30._
+_1806 GitHub contributions in the last year · 77 in the last 7 days · 353 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,9 @@ _1792 GitHub contributions in the last year · 89 in the last 7 days · 351 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-13 | [Ray #68119](https://github.com/ray-project/ray/pull/68119) | MaximumIterationStopper uses the reported training_iteration, so replayed iterations after a checkpoint restore are not counted twice. | Open |
+| 2026-11-13 | [unsloth-zoo #2487](https://github.com/unslothai/unsloth-zoo/pull/2487) | sft_prepare_dataset now json-loads a string `tools` value in the prompt/completion path, as the messages path and TRL do. | Open |
+| 2026-11-13 | [unsloth #17657](https://github.com/unslothai/unsloth/pull/17657) | Scale the Falcon H1 attention input by attention_in_multiplier in the decoder layer forward, as transformers and Unsloth's decode loop do | Open |
 | 2026-11-12 | [optax #1883](https://github.com/google-deepmind/optax/pull/1883) | optax.sm3 now accepts a learning rate schedule instead of raising TypeError. | Open |
 | 2026-11-12 | [Ray #68108](https://github.com/ray-project/ray/pull/68108) | Fix the inverted None check in TuneReporterBase.set_start_time so the passed start_time is kept. | Open |
 | 2026-11-12 | [unsloth #17604](https://github.com/unslothai/unsloth/pull/17604) | Raise a ValueError when loraplus_lr_ratio and q_galore_config are both set, since the ratio was silently ignored. | Open |
@@ -32,12 +35,8 @@ _1792 GitHub contributions in the last year · 89 in the last 7 days · 351 in t
 | 2026-11-09 | [unsloth #17316](https://github.com/unslothai/unsloth/pull/17316) | `save_pretrained_gguf` keeps the BOS in Llama 3's chat template while its log says it removed it, because `_strip_bos_from_chat_template_text` only matched `{{ bos_token }}` and `{{ bos_token + ... }}`, not Llama 3's `{% set content = bos_token + content %}` | Merged |
 | 2026-11-09 | [unsloth #17307](https://github.com/unslothai/unsloth/pull/17307) | A local decision dataset in JSON Lines failed with `Invalid JSON ... Unterminated string` when a string held U+2028, U+2029 or U+0085, because `_read_local_rows` split the file with `str.splitlines()`, which also breaks rows at those characters | Merged |
 | 2026-11-09 | [unsloth #17303](https://github.com/unslothai/unsloth/pull/17303) | Studio clamped a Train Split Start at or past the end of a non-streaming dataset to the last row, so the run trained on a single row ("Sliced dataset to 1 rows (indices 9-9)") and, with `max_steps`, looped it for the whole run with no error | Merged |
-| 2026-11-08 | [unsloth #17176](https://github.com/unslothai/unsloth/pull/17176) | `get_chat_template(tok, "llama-3.1")` raised `TypeError` and `"gpt-oss"` raised `UndefinedError` on any message carrying `tool_calls: None`, which `datasets` fills into every plain row of a tool-calling dataset, because both templates tested whether the key exists | Merged |
-| 2026-11-08 | [unsloth #17175](https://github.com/unslothai/unsloth/pull/17175) | `get_chat_template(tok, "qwen3")` raised `TypeError` on an assistant tool-call turn whose `content` is null (and `UndefinedError` when it is missing), the usual OpenAI tool-call shape, because `qwen3_template` tested `'</think>' in message.content` on the raw value | Merged |
-| 2026-11-08 | [unsloth-zoo #2451](https://github.com/unslothai/unsloth-zoo/pull/2451) | After `requires_grad_for_gradient_checkpointing`, `handle.remove()` on a user's forward hook did nothing and the hook kept running, because the cleanup replaced each module's hook dict and re-registered the kept hooks under new ids | Merged |
-| 2026-11-08 | [flax #5645](https://github.com/google/flax/pull/5645) | nnx.GRUCell was missing the b_hn bias its own docstring specifies; replaces #5595, which GitHub closed when main was force-pushed to its branch | Open |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
