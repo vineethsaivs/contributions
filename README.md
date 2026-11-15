@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 13, 2026 at 12:42 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 14, 2026 at 8:58 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **536** | **253** | **214** | **79%** | **42** | **155 days** |
+| **537** | **256** | **210** | **78%** | **42** | **156 days** |
 
-_1806 GitHub contributions in the last year · 77 in the last 7 days · 353 in the last 30._
+_1826 GitHub contributions in the last year · 79 in the last 7 days · 347 in the last 30._
 
 ## Bug reports
 
@@ -19,12 +19,13 @@ _1806 GitHub contributions in the last year · 77 in the last 7 days · 353 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-14 | [trl #8376](https://github.com/huggingface/trl/pull/8376) | compute_flops_per_token used the wrong MoE sparse-layer rule for qwen3_moe (off by one, ignored mlp_only_layers); replaces closed #7069. | Closed on process, fix correct |
 | 2026-11-13 | [Ray #68119](https://github.com/ray-project/ray/pull/68119) | MaximumIterationStopper uses the reported training_iteration, so replayed iterations after a checkpoint restore are not counted twice. | Open |
-| 2026-11-13 | [unsloth-zoo #2487](https://github.com/unslothai/unsloth-zoo/pull/2487) | sft_prepare_dataset now json-loads a string `tools` value in the prompt/completion path, as the messages path and TRL do. | Open |
-| 2026-11-13 | [unsloth #17657](https://github.com/unslothai/unsloth/pull/17657) | Scale the Falcon H1 attention input by attention_in_multiplier in the decoder layer forward, as transformers and Unsloth's decode loop do | Open |
+| 2026-11-13 | [unsloth-zoo #2487](https://github.com/unslothai/unsloth-zoo/pull/2487) | sft_prepare_dataset now json-loads a string `tools` value in the prompt/completion path, as the messages path and TRL do. | Merged |
+| 2026-11-13 | [unsloth #17657](https://github.com/unslothai/unsloth/pull/17657) | Scale the Falcon H1 attention input by attention_in_multiplier in the decoder layer forward, as transformers and Unsloth's decode loop do | Merged |
 | 2026-11-12 | [optax #1883](https://github.com/google-deepmind/optax/pull/1883) | optax.sm3 now accepts a learning rate schedule instead of raising TypeError. | Open |
 | 2026-11-12 | [Ray #68108](https://github.com/ray-project/ray/pull/68108) | Fix the inverted None check in TuneReporterBase.set_start_time so the passed start_time is kept. | Open |
-| 2026-11-12 | [unsloth #17604](https://github.com/unslothai/unsloth/pull/17604) | Raise a ValueError when loraplus_lr_ratio and q_galore_config are both set, since the ratio was silently ignored. | Open |
+| 2026-11-12 | [unsloth #17604](https://github.com/unslothai/unsloth/pull/17604) | Raise a ValueError when loraplus_lr_ratio and q_galore_config are both set, since the ratio was silently ignored. | Merged |
 | 2026-11-11 | [vllm #67101](https://github.com/vllm-project/vllm/pull/67101) | pythonic and llama4_pythonic streaming no longer drop assistant text that starts with [ but is not a tool call. | Open |
 | 2026-11-11 | [tunix #3293](https://github.com/google/tunix/pull/3293) | DPO/ORPO string inputs no longer put a BOS token at the start of chosen and rejected responses. | Open |
 | 2026-11-11 | [Ray #68073](https://github.com/ray-project/ray/pull/68073) | tune.with_parameters now wraps a generator function trainable in a generator function, so its yielded results are reported instead of erroring. | Open |
@@ -36,7 +37,7 @@ _1806 GitHub contributions in the last year · 77 in the last 7 days · 353 in t
 | 2026-11-09 | [unsloth #17307](https://github.com/unslothai/unsloth/pull/17307) | A local decision dataset in JSON Lines failed with `Invalid JSON ... Unterminated string` when a string held U+2028, U+2029 or U+0085, because `_read_local_rows` split the file with `str.splitlines()`, which also breaks rows at those characters | Merged |
 | 2026-11-09 | [unsloth #17303](https://github.com/unslothai/unsloth/pull/17303) | Studio clamped a Train Split Start at or past the end of a non-streaming dataset to the last row, so the run trained on a single row ("Sliced dataset to 1 rows (indices 9-9)") and, with `max_steps`, looped it for the whole run with no error | Merged |
 
-_Showing the 16 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
