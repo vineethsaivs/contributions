@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 14, 2026 at 8:58 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 15, 2026 at 2:14 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **537** | **256** | **210** | **78%** | **42** | **156 days** |
+| **540** | **256** | **213** | **78%** | **42** | **157 days** |
 
-_1826 GitHub contributions in the last year · 79 in the last 7 days · 347 in the last 30._
+_1831 GitHub contributions in the last year · 91 in the last 7 days · 354 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,9 @@ _1826 GitHub contributions in the last year · 79 in the last 7 days · 347 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-15 | [flax #5651](https://github.com/google/flax/pull/5651) | nnx.SimpleCell no longer forces dtype=float32; it infers from inputs and params like the other cells and linen. | Open |
+| 2026-11-15 | [unsloth-zoo #2518](https://github.com/unslothai/unsloth-zoo/pull/2518) | sft_prepare_dataset now cuts prompt/completion rows by truncation_mode and treats max_length=None as no limit, like messages rows. | Open |
+| 2026-11-15 | [unsloth #17810](https://github.com/unslothai/unsloth/pull/17810) | FastSentenceTransformer.get_peft_model (fast encoder path) now forwards exclude_modules, lora_bias, rank_pattern and every other LoraConfig kwarg, and refuses aLoRA. | Open |
 | 2026-11-14 | [trl #8376](https://github.com/huggingface/trl/pull/8376) | compute_flops_per_token used the wrong MoE sparse-layer rule for qwen3_moe (off by one, ignored mlp_only_layers); replaces closed #7069. | Closed on process, fix correct |
 | 2026-11-13 | [Ray #68119](https://github.com/ray-project/ray/pull/68119) | MaximumIterationStopper uses the reported training_iteration, so replayed iterations after a checkpoint restore are not counted twice. | Open |
 | 2026-11-13 | [unsloth-zoo #2487](https://github.com/unslothai/unsloth-zoo/pull/2487) | sft_prepare_dataset now json-loads a string `tools` value in the prompt/completion path, as the messages path and TRL do. | Merged |
@@ -33,9 +36,6 @@ _1826 GitHub contributions in the last year · 79 in the last 7 days · 347 in t
 | 2026-11-10 | [unsloth #17438](https://github.com/unslothai/unsloth/pull/17438) | `push_to_hub_gguf(tags=...)` sent the tags through `api.add_tags`, which `HfApi` does not have, behind a bare `except: pass`, so they never reached the Hub, and it extended the caller's list in place | Merged |
 | 2026-11-10 | [unsloth-zoo #2473](https://github.com/unslothai/unsloth-zoo/pull/2473) | `add_llama_cpp_system_message(inplace=False)` rebuilt a leading system message from its own content, so the llama.cpp text it exists to append was lost, and a `None` messages list hit `len()` before the `None` check | Merged |
 | 2026-11-10 | [unsloth #17436](https://github.com/unslothai/unsloth/pull/17436) | Studio's diffusion dataset readers cut each `metadata.jsonl` or `captions.jsonl` row with `str.splitlines()`, which also breaks at U+2028, U+2029 and U+0085, so a caption holding one was split mid-string, failed `json.loads` and was skipped with no error | Merged |
-| 2026-11-09 | [unsloth #17316](https://github.com/unslothai/unsloth/pull/17316) | `save_pretrained_gguf` keeps the BOS in Llama 3's chat template while its log says it removed it, because `_strip_bos_from_chat_template_text` only matched `{{ bos_token }}` and `{{ bos_token + ... }}`, not Llama 3's `{% set content = bos_token + content %}` | Merged |
-| 2026-11-09 | [unsloth #17307](https://github.com/unslothai/unsloth/pull/17307) | A local decision dataset in JSON Lines failed with `Invalid JSON ... Unterminated string` when a string held U+2028, U+2029 or U+0085, because `_read_local_rows` split the file with `str.splitlines()`, which also breaks rows at those characters | Merged |
-| 2026-11-09 | [unsloth #17303](https://github.com/unslothai/unsloth/pull/17303) | Studio clamped a Train Split Start at or past the end of a non-streaming dataset to the last row, so the run trained on a single row ("Sliced dataset to 1 rows (indices 9-9)") and, with `max_steps`, looped it for the whole run with no error | Merged |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
