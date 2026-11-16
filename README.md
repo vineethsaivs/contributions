@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 15, 2026 at 2:14 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 16, 2026 at 12:07 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **540** | **256** | **213** | **78%** | **42** | **157 days** |
+| **543** | **256** | **216** | **78%** | **42** | **158 days** |
 
-_1831 GitHub contributions in the last year · 91 in the last 7 days · 354 in the last 30._
+_1838 GitHub contributions in the last year · 82 in the last 7 days · 360 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,9 @@ _1831 GitHub contributions in the last year · 91 in the last 7 days · 354 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-16 | [Ray #68198](https://github.com/ray-project/ray/pull/68198) | TuneController no longer rewraps a TuneError raised by a result or error handler into a new TuneError holding a traceback string. | Open |
+| 2026-11-16 | [unsloth-zoo #2553](https://github.com/unslothai/unsloth-zoo/pull/2553) | unsloth_train now steps the LR scheduler only when the fp16 GradScaler actually ran the optimizer. | Open |
+| 2026-11-16 | [unsloth #17940](https://github.com/unslothai/unsloth/pull/17940) | Cohere fast attention forward and decode now apply q_norm/k_norm on (batch, seq, heads, head_dim) before the head transpose. | Open |
 | 2026-11-15 | [flax #5651](https://github.com/google/flax/pull/5651) | nnx.SimpleCell no longer forces dtype=float32; it infers from inputs and params like the other cells and linen. | Open |
 | 2026-11-15 | [unsloth-zoo #2518](https://github.com/unslothai/unsloth-zoo/pull/2518) | sft_prepare_dataset now cuts prompt/completion rows by truncation_mode and treats max_length=None as no limit, like messages rows. | Open |
 | 2026-11-15 | [unsloth #17810](https://github.com/unslothai/unsloth/pull/17810) | FastSentenceTransformer.get_peft_model (fast encoder path) now forwards exclude_modules, lora_bias, rank_pattern and every other LoraConfig kwarg, and refuses aLoRA. | Open |
@@ -33,9 +36,6 @@ _1831 GitHub contributions in the last year · 91 in the last 7 days · 354 in t
 | 2026-11-11 | [tunix #3293](https://github.com/google/tunix/pull/3293) | DPO/ORPO string inputs no longer put a BOS token at the start of chosen and rejected responses. | Open |
 | 2026-11-11 | [Ray #68073](https://github.com/ray-project/ray/pull/68073) | tune.with_parameters now wraps a generator function trainable in a generator function, so its yielded results are reported instead of erroring. | Open |
 | 2026-11-11 | [unsloth #17537](https://github.com/unslothai/unsloth/pull/17537) | Add luspo to the loss types that log clip_ratio/* metrics in the patched GRPO compute_loss. | Merged |
-| 2026-11-10 | [unsloth #17438](https://github.com/unslothai/unsloth/pull/17438) | `push_to_hub_gguf(tags=...)` sent the tags through `api.add_tags`, which `HfApi` does not have, behind a bare `except: pass`, so they never reached the Hub, and it extended the caller's list in place | Merged |
-| 2026-11-10 | [unsloth-zoo #2473](https://github.com/unslothai/unsloth-zoo/pull/2473) | `add_llama_cpp_system_message(inplace=False)` rebuilt a leading system message from its own content, so the llama.cpp text it exists to append was lost, and a `None` messages list hit `len()` before the `None` check | Merged |
-| 2026-11-10 | [unsloth #17436](https://github.com/unslothai/unsloth/pull/17436) | Studio's diffusion dataset readers cut each `metadata.jsonl` or `captions.jsonl` row with `str.splitlines()`, which also breaks at U+2028, U+2029 and U+0085, so a caption holding one was split mid-string, failed `json.loads` and was skipped with no error | Merged |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
