@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 16, 2026 at 12:15 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 16, 2026 at 2:38 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **543** | **258** | **214** | **78%** | **42** | **158 days** |
+| **547** | **258** | **218** | **78%** | **42** | **158 days** |
 
-_1840 GitHub contributions in the last year · 84 in the last 7 days · 362 in the last 30._
+_1847 GitHub contributions in the last year · 91 in the last 7 days · 369 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,10 @@ _1840 GitHub contributions in the last year · 84 in the last 7 days · 362 in t
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-16 | [tunix #3372](https://github.com/google/tunix/pull/3372) | Agentic GRPO advantages now ignore overlong-filtered, timed out and non-finite-reward rollouts, per group, matching the distributed path. | Open |
+| 2026-11-16 | [flax #5653](https://github.com/google/flax/pull/5653) | nn.Fp8DotGeneral (Fp8DirectDotGeneralOp) and nn.Fp8Einsum now quantize with their configured e4m3_dtype and e5m2_dtype instead of hardcoded OCP formats. | Open |
+| 2026-11-16 | [optax #1892](https://github.com/google-deepmind/optax/pull/1892) | contrib.scale_by_muon(adaptive=True) now scales each matrix in a stacked leaf by its own dual norm <G_l, O_l> instead of the sum over all matrices. | Open |
+| 2026-11-16 | [pytorch-lightning #22193](https://github.com/Lightning-AI/pytorch-lightning/pull/22193) | An epoch-interval ReduceLROnPlateau now steps at the end of an epoch resumed from a mid-epoch checkpoint when its monitor was logged again in that run. | Open |
 | 2026-11-16 | [Ray #68198](https://github.com/ray-project/ray/pull/68198) | TuneController no longer rewraps a TuneError raised by a result or error handler into a new TuneError holding a traceback string. | Open |
 | 2026-11-16 | [unsloth-zoo #2553](https://github.com/unslothai/unsloth-zoo/pull/2553) | unsloth_train now steps the LR scheduler only when the fp16 GradScaler actually ran the optimizer. | Open |
 | 2026-11-16 | [unsloth #17940](https://github.com/unslothai/unsloth/pull/17940) | Cohere fast attention forward and decode now apply q_norm/k_norm on (batch, seq, heads, head_dim) before the head transpose. | Open |
@@ -32,10 +36,6 @@ _1840 GitHub contributions in the last year · 84 in the last 7 days · 362 in t
 | 2026-11-12 | [optax #1883](https://github.com/google-deepmind/optax/pull/1883) | optax.sm3 now accepts a learning rate schedule instead of raising TypeError. | Open |
 | 2026-11-12 | [Ray #68108](https://github.com/ray-project/ray/pull/68108) | Fix the inverted None check in TuneReporterBase.set_start_time so the passed start_time is kept. | Open |
 | 2026-11-12 | [unsloth #17604](https://github.com/unslothai/unsloth/pull/17604) | Raise a ValueError when loraplus_lr_ratio and q_galore_config are both set, since the ratio was silently ignored. | Merged |
-| 2026-11-11 | [vllm #67101](https://github.com/vllm-project/vllm/pull/67101) | pythonic and llama4_pythonic streaming no longer drop assistant text that starts with [ but is not a tool call. | Open |
-| 2026-11-11 | [tunix #3293](https://github.com/google/tunix/pull/3293) | DPO/ORPO string inputs no longer put a BOS token at the start of chosen and rejected responses. | Open |
-| 2026-11-11 | [Ray #68073](https://github.com/ray-project/ray/pull/68073) | tune.with_parameters now wraps a generator function trainable in a generator function, so its yielded results are reported instead of erroring. | Open |
-| 2026-11-11 | [unsloth #17537](https://github.com/unslothai/unsloth/pull/17537) | Add luspo to the loss types that log clip_ratio/* metrics in the patched GRPO compute_loss. | Merged |
 
 _Showing the 17 most recent. Open `index.html` for the full visual dashboard._
 
