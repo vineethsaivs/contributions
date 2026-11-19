@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 18, 2026 at 5:35 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 18, 2026 at 5:43 PM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **554** | **262** | **221** | **79%** | **42** | **160 days** |
+| **555** | **262** | **222** | **79%** | **42** | **160 days** |
 
-_2022 GitHub contributions in the last year · 130 in the last 7 days · 430 in the last 30._
+_2025 GitHub contributions in the last year · 133 in the last 7 days · 433 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,7 @@ _2022 GitHub contributions in the last year · 130 in the last 7 days · 430 in 
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-18 | [litellm #52736](https://github.com/BerriAI/litellm/pull/52736) | Latency-based routing kept sending streaming and sync requests to a deployment that times out on every call, because the timeout penalty only reached the non-streaming latency list and only fired from the async failure hook. | Open |
 | 2026-11-18 | [vllm #68547](https://github.com/vllm-project/vllm/pull/68547) | With gpt-oss on the Responses API, a built-in tool call cut off by max_output_tokens or a stop string was still executed on its truncated input, another turn started, and the response reported completed. | Open |
 | 2026-11-18 | [flax #5654](https://github.com/google/flax/pull/5654) | nnx.BatchNorm with bf16 or fp16 compute cast its float32 running statistics to the half dtype in eval, so eval drifted from training and an fp16 variance above 65504 collapsed its channel to the bias. | Open |
 | 2026-11-18 | [Ray #68314](https://github.com/ray-project/ray/pull/68314) | Result.get_best_checkpoint returned a NaN-scored checkpoint as the best one, in Ray Tune and in Ray Train V2, whenever a run diverged and num_to_keep was left at its default. | Open |
@@ -37,7 +38,7 @@ _2022 GitHub contributions in the last year · 130 in the last 7 days · 430 in 
 | 2026-11-15 | [unsloth-zoo #2518](https://github.com/unslothai/unsloth-zoo/pull/2518) | sft_prepare_dataset now cuts prompt/completion rows by truncation_mode and treats max_length=None as no limit, like messages rows. | Merged |
 | 2026-11-15 | [unsloth #17810](https://github.com/unslothai/unsloth/pull/17810) | FastSentenceTransformer.get_peft_model (fast encoder path) now forwards exclude_modules, lora_bias, rank_pattern and every other LoraConfig kwarg, and refuses aLoRA. | Merged |
 
-_Showing the 17 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
