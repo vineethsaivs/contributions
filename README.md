@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 19, 2026 at 10:41 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 20, 2026 at 9:38 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **558** | **264** | **221** | **78%** | **42** | **161 days** |
+| **561** | **264** | **224** | **78%** | **42** | **162 days** |
 
-_2070 GitHub contributions in the last year · 143 in the last 7 days · 468 in the last 30._
+_2091 GitHub contributions in the last year · 157 in the last 7 days · 479 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,9 @@ _2070 GitHub contributions in the last year · 143 in the last 7 days · 468 in 
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-20 | [unsloth-zoo #2636](https://github.com/unslothai/unsloth-zoo/pull/2636) | merged_16bit, push_to_hub_merged and GGUF exports wrote the base checkpoint's RoPE config next to weights trained with rope_scaling, so the reloaded model differed from the trained one. | Open |
+| 2026-11-20 | [unsloth #18650](https://github.com/unslothai/unsloth/pull/18650) | Unsloth Studio vision training gave a separate eval split a different user prompt than train, and the seeded max_steps shuffle picked the training prompt. | Open |
+| 2026-11-20 | [pytorch-lightning #22203](https://github.com/Lightning-AI/pytorch-lightning/pull/22203) | With every_n_train_steps and a validation monitor, a step checkpoint saved right before validation was scored with the previous validation's metric, so the wrong checkpoint was kept as best. | Open |
 | 2026-11-19 | [Ray #68354](https://github.com/ray-project/ray/pull/68354) | With HyperBandScheduler, search algorithms never saw the final metrics of trials stopped while PAUSED, so HyperOpt treated the 2nd and 3rd best trials as the worst points and Optuna marked full-length trials as pruned. | Open |
 | 2026-11-19 | [flax #5655](https://github.com/google/flax/pull/5655) | nnx.MultiHeadAttention autoregressive decode with the RoPE attention function produced wrong outputs from the second token on, with no workaround. | Open |
 | 2026-11-19 | [pytorch-lightning #22202](https://github.com/Lightning-AI/pytorch-lightning/pull/22202) | Since Lightning 2.5.0, a run resumed from a mid-epoch checkpoint silently lost its GradientAccumulationScheduler factor for the rest of the epoch and ran StochasticWeightAveraging one epoch late, and a second resume restarted the SWA average. | Open |
@@ -38,7 +41,7 @@ _2070 GitHub contributions in the last year · 143 in the last 7 days · 468 in 
 | 2026-11-16 | [unsloth-zoo #2553](https://github.com/unslothai/unsloth-zoo/pull/2553) | unsloth_train now steps the LR scheduler only when the fp16 GradScaler actually ran the optimizer. | Merged |
 | 2026-11-16 | [unsloth #17940](https://github.com/unslothai/unsloth/pull/17940) | Cohere fast attention forward and decode now apply q_norm/k_norm on (batch, seq, heads, head_dim) before the head transpose. | Merged |
 
-_Showing the 18 most recent. Open `index.html` for the full visual dashboard._
+_Showing the 21 most recent. Open `index.html` for the full visual dashboard._
 
 ---
 _Statuses are refreshed straight from the GitHub API, so this page reflects the live state of every pull request._
