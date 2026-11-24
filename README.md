@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 23, 2026 at 9:37 PM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 24, 2026 at 9:38 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **571** | **271** | **227** | **79%** | **42** | **165 days** |
+| **574** | **271** | **230** | **79%** | **42** | **166 days** |
 
-_2192 GitHub contributions in the last year · 211 in the last 7 days · 546 in the last 30._
+_2199 GitHub contributions in the last year · 194 in the last 7 days · 543 in the last 30._
 
 ## Bug reports
 
@@ -19,6 +19,9 @@ _2192 GitHub contributions in the last year · 211 in the last 7 days · 546 in 
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-24 | [optax #1902](https://github.com/google-deepmind/optax/pull/1902) | contrib.scale_by_ademamix(mu_dtype=...) now keeps its state dtypes stable across updates: mu_dtype covers the fast EMA only and is cast back after each update, so the optimizer runs inside jax.lax.scan. | Open |
+| 2026-11-24 | [unsloth #19314](https://github.com/unslothai/unsloth/pull/19314) | The Studio Data Recipe seed preview now reads a JSON or JSONL file that starts with a UTF-8 BOM instead of failing with 422 seed inspect failed, as its CSV branch already did. | Open |
+| 2026-11-24 | [optax #1901](https://github.com/google-deepmind/optax/pull/1901) | contrib.scale_by_muon() with its default weight_dimension_numbers=None now orthogonalizes every leaf of a params tree as a matrix instead of raising a pytree structure error. | Open |
 | 2026-11-23 | [optax #1900](https://github.com/google-deepmind/optax/pull/1900) | contrib.muon(weight_decay_mask=...) now also masks weight decay on the leaves routed to its AdamW branch, so the usual no-decay mask for biases and norms works when adam_weight_decay > 0. | Open |
 | 2026-11-23 | [flax #5661](https://github.com/google/flax/pull/5661) | nn.scan, nn.RNN and nn.remat_scan no longer raise a false 'broadcasted variable has a data dependency on the scan body' error when the body has jax.debug.print, jax.debug.callback or checkify.check. | Open |
 | 2026-11-23 | [pytorch-lightning #22216](https://github.com/Lightning-AI/pytorch-lightning/pull/22216) | Fabric.clip_gradients(max_norm=...) with precision 16-mixed no longer raises on the overflow steps that the GradScaler skips. | Open |
@@ -32,9 +35,6 @@ _2192 GitHub contributions in the last year · 211 in the last 7 days · 546 in 
 | 2026-11-20 | [unsloth-zoo #2636](https://github.com/unslothai/unsloth-zoo/pull/2636) | merged_16bit, push_to_hub_merged and GGUF exports wrote the base checkpoint's RoPE config next to weights trained with rope_scaling, so the reloaded model differed from the trained one. | Merged |
 | 2026-11-20 | [unsloth #18650](https://github.com/unslothai/unsloth/pull/18650) | Unsloth Studio vision training gave a separate eval split a different user prompt than train, and the seeded max_steps shuffle picked the training prompt. | Merged |
 | 2026-11-20 | [pytorch-lightning #22203](https://github.com/Lightning-AI/pytorch-lightning/pull/22203) | With every_n_train_steps and a validation monitor, a step checkpoint saved right before validation was scored with the previous validation's metric, so the wrong checkpoint was kept as best. | Open |
-| 2026-11-19 | [Ray #68354](https://github.com/ray-project/ray/pull/68354) | With HyperBandScheduler, search algorithms never saw the final metrics of trials stopped while PAUSED, so HyperOpt treated the 2nd and 3rd best trials as the worst points and Optuna marked full-length trials as pruned. | Open |
-| 2026-11-19 | [flax #5655](https://github.com/google/flax/pull/5655) | nnx.MultiHeadAttention autoregressive decode with the RoPE attention function produced wrong outputs from the second token on, with no workaround. | Open |
-| 2026-11-19 | [pytorch-lightning #22202](https://github.com/Lightning-AI/pytorch-lightning/pull/22202) | Since Lightning 2.5.0, a run resumed from a mid-epoch checkpoint silently lost its GradientAccumulationScheduler factor for the rest of the epoch and ran StochasticWeightAveraging one epoch late, and a second resume restarted the SWA average. | Open |
 
 _Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
