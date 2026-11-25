@@ -1,12 +1,12 @@
 # Open-source contributions
 
-_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 24, 2026 at 10:50 AM PT_
+_Vineeth Sai · [@vineethsaivs](https://github.com/vineethsaivs) · auto-updated after every contribution · last updated November 25, 2026 at 10:23 AM PT_
 
 | PRs | Merged | Open | Merge rate | Projects | Streak |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| **574** | **271** | **230** | **79%** | **42** | **166 days** |
+| **577** | **274** | **230** | **79%** | **42** | **167 days** |
 
-_2201 GitHub contributions in the last year · 196 in the last 7 days · 545 in the last 30._
+_2247 GitHub contributions in the last year · 214 in the last 7 days · 572 in the last 30._
 
 ## Bug reports
 
@@ -19,8 +19,11 @@ _2201 GitHub contributions in the last year · 196 in the last 7 days · 545 in 
 
 | Date | Project | What | Status |
 |---|---|---|---|
+| 2026-11-25 | [unsloth #19545](https://github.com/unslothai/unsloth/pull/19545) | save_pretrained_merged now writes the trained model after from_pretrained reloads a PiSSA or OLoRA adapter, instead of adding the adapter to the wrong base weight. | Open |
+| 2026-11-25 | [unsloth-zoo #2787](https://github.com/unslothai/unsloth-zoo/pull/2787) | UnslothMTPTrainer with gradient accumulation under Unsloth now weights the accumulation window by tokens, like one big batch, instead of silently averaging per-microbatch means. | Open |
+| 2026-11-25 | [pytorch-lightning #22233](https://github.com/Lightning-AI/pytorch-lightning/pull/22233) | EarlyStopping no longer crashes at setup with AttributeError when val_check_interval is time-based (timedelta, 'DD:HH:MM:SS' or dict); it checks after validation, as ModelCheckpoint does. | Open |
 | 2026-11-24 | [optax #1902](https://github.com/google-deepmind/optax/pull/1902) | contrib.scale_by_ademamix(mu_dtype=...) now keeps its state dtypes stable across updates: mu_dtype covers the fast EMA only and is cast back after each update, so the optimizer runs inside jax.lax.scan. | Open |
-| 2026-11-24 | [unsloth #19314](https://github.com/unslothai/unsloth/pull/19314) | The Studio Data Recipe seed preview now reads a JSON or JSONL file that starts with a UTF-8 BOM instead of failing with 422 seed inspect failed, as its CSV branch already did. | Open |
+| 2026-11-24 | [unsloth #19314](https://github.com/unslothai/unsloth/pull/19314) | The Studio Data Recipe seed preview now reads a JSON or JSONL file that starts with a UTF-8 BOM instead of failing with 422 seed inspect failed, as its CSV branch already did. | Merged |
 | 2026-11-24 | [optax #1901](https://github.com/google-deepmind/optax/pull/1901) | contrib.scale_by_muon() with its default weight_dimension_numbers=None now orthogonalizes every leaf of a params tree as a matrix instead of raising a pytree structure error. | Open |
 | 2026-11-23 | [optax #1900](https://github.com/google-deepmind/optax/pull/1900) | contrib.muon(weight_decay_mask=...) now also masks weight decay on the leaves routed to its AdamW branch, so the usual no-decay mask for biases and norms works when adam_weight_decay > 0. | Open |
 | 2026-11-23 | [flax #5661](https://github.com/google/flax/pull/5661) | nn.scan, nn.RNN and nn.remat_scan no longer raise a false 'broadcasted variable has a data dependency on the scan body' error when the body has jax.debug.print, jax.debug.callback or checkify.check. | Open |
@@ -32,9 +35,6 @@ _2201 GitHub contributions in the last year · 196 in the last 7 days · 545 in 
 | 2026-11-21 | [unsloth #18818](https://github.com/unslothai/unsloth/pull/18818) | GemmaFixedRotaryEmbedding now applies the linear RoPE scaling the loader writes when max_seq_length passes Gemma's native window, in the eager table and the compiled path. | Merged |
 | 2026-11-21 | [tunix #3449](https://github.com/google/tunix/pull/3449) | Re-snapshot the old-policy anchor at sampling time for SHARED weight placement, so trainer-side old logps use the weights that sampled. | Open |
 | 2026-11-21 | [pytorch-lightning #22208](https://github.com/Lightning-AI/pytorch-lightning/pull/22208) | Wrap the model in DDP again when BaseFinetuning changes requires_grad, so parameters unfrozen mid-training get all-reduced and the replicas stay in sync. | Open |
-| 2026-11-20 | [unsloth-zoo #2636](https://github.com/unslothai/unsloth-zoo/pull/2636) | merged_16bit, push_to_hub_merged and GGUF exports wrote the base checkpoint's RoPE config next to weights trained with rope_scaling, so the reloaded model differed from the trained one. | Merged |
-| 2026-11-20 | [unsloth #18650](https://github.com/unslothai/unsloth/pull/18650) | Unsloth Studio vision training gave a separate eval split a different user prompt than train, and the seeded max_steps shuffle picked the training prompt. | Merged |
-| 2026-11-20 | [pytorch-lightning #22203](https://github.com/Lightning-AI/pytorch-lightning/pull/22203) | With every_n_train_steps and a validation monitor, a step checkpoint saved right before validation was scored with the previous validation's metric, so the wrong checkpoint was kept as best. | Open |
 
 _Showing the 16 most recent. Open `index.html` for the full visual dashboard._
 
